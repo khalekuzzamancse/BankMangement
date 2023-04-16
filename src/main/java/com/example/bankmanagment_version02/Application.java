@@ -20,22 +20,15 @@ public class Application extends javafx.application.Application {
     public void start(Stage stage) throws IOException {
 
 
-        //
-        FormLayout customLayout = new FormLayout();
-        customLayout.getChildren().addAll(
-                new Label("User Name"),
-                new TextField(),
-                new Label("Password"),
-                new TextField()
-
-        );
-
-        Pane root = new Pane();
-        root.getChildren().add(customLayout);
-
-        Scene scene = new Scene(root, 400, 400);
-        stage.setScene(scene);
+//        Pane root = new Pane();
+//        root.getChildren().add(new LoginView().getLayout());
+//        LoginView layout = new LoginView();
+        //  Scene scene = new Scene(root, 400, 400);
+        // stage.setScene(scene);
+        stage = StageFactory.createStage(new LoginView().getLayout(), "Login", 400, 300);
         stage.show();
+
+
     }
 
     public static void main(String[] args) {

@@ -5,4 +5,5 @@ module com.example.bankmanagment_version02 {
 
     opens com.example.bankmanagment_version02 to javafx.fxml;
     exports com.example.bankmanagment_version02;
+
 }

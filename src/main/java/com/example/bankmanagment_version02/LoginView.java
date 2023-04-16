@@ -16,8 +16,9 @@ public class LoginView extends VBox {
         this.viewModel = new LoginViewModel();
         createView();
         vbox = this;
+        System.out.println(getStylesheets().add("login_page_style.css"));
 
-      //  setStyle("-fx-background-color: #29ACD4;");
+        //  setStyle("-fx-background-color: #29ACD4;");
     }
 
     private void createView() {
@@ -42,7 +43,7 @@ public class LoginView extends VBox {
             }
         });
         this.getChildren().addAll(customLayout, button);
-        this.setAlignment(Pos.BOTTOM_RIGHT);
+        this.setAlignment(Pos.CENTER);
     }
 
     public VBox getLayout() {
@@ -59,9 +60,16 @@ public class LoginView extends VBox {
         for (int i = 0; i < getChildren().size(); i++) {
             Node child = getChildren().get(i);
             double padding = 5;
-            layoutHeight = layoutHeight + child.getBoundsInParent().getHeight()+ padding;
-            layoutWidth = Math.max(layoutWidth, child.getBoundsInParent().getWidth())+ padding;
+            layoutHeight = layoutHeight + child.getBoundsInParent().getHeight() + padding;
+            layoutWidth = Math.max(layoutWidth, child.getBoundsInParent().getWidth()) + padding;
         }
         super.resize(layoutWidth, layoutHeight); // set fixed width and height
+        LayoutUtil.alignCenter(this, getChildren());
+    }
+
+    @Override
+    protected void layoutChildren() {
+        super.layoutChildren();
+        LayoutUtil.alignCenter(this, getChildren());
     }
 }

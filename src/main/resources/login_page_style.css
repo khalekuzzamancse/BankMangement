@@ -1,20 +1,4 @@
 /* Style for the parent anchor pane */
-#parent {
-    -fx-background-color: #f2f2f2; /* Set background color */
-    -fx-alignment:center
-}
-
-/* Style for the grid pane */
-#container {
-    -fx-alignment: center; /* Center the grid pane */
-    -fx-background-color: #fff; /* Set background color */
-    -fx-padding: 40px;
-    -fx-spacing: 10px;
-    -fx-alignment: center;
-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 10, 0, 0, 5);
-    -fx-border-radius: 10px;
-    -fx-background-radius: 10px;
-}
 
 /* Style for the labels */
 Label {
@@ -56,6 +40,6 @@ Button {
 }
 
 /* Style for the login button on hover */
-#loginButton:hover {
+Button:hover {
     -fx-background-color: #005b7f; /* Set background color */
 }

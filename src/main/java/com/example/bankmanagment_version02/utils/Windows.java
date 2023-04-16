@@ -10,13 +10,13 @@ import java.util.Objects;
 
 public class Windows {
     private static Windows instance = null;
-    private static final String VIWES = "/layout/views.fxml";
-    private static final String LEASE_AGREEMENT = "/layout/lease_form.fxml";
-    private static final String ADD_ACCOUNT = "/layout/add_account_layout.fxml";
-    private static final String LOGIN_LAYOUT = "/layout/login_layout.fxml";
-    private static final String VISITATION = "/layout/visitation_card.fxml";
-    private static final String CONTACT_TO_CUSTOMER = "/layout/contact_to_customer.fxml";
-    private static final String DASHBOARD = "/layout/dashboard.fxml";
+    private static final String VIWES = "/com.example.bankmanagment_version02/layout/views.fxml";
+    private static final String LEASE_AGREEMENT = "/com.example.bankmanagment_version02/layout/lease_form.fxml";
+    private static final String ADD_ACCOUNT = "/com.example.bankmanagment_version02/layout/add_account_layout.fxml";
+    private static final String LOGIN_LAYOUT = "/com.example.bankmanagment_version02/layout/login_layout.fxml";
+    private static final String VISITATION = "/com.example.bankmanagment_version02/layout/visitation_card.fxml";
+    private static final String CONTACT_TO_CUSTOMER = "/com.example.bankmanagment_version02/layout/contact_to_customer.fxml";
+    private static final String DASHBOARD = "/com.example.bankmanagment_version02/layout/dashboard.fxml";
     private Stage leaseAgreementWindow;
     private Stage viewWindow;
     private Stage visitationWindow;

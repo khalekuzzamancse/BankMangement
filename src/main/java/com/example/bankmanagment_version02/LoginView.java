@@ -1,6 +1,5 @@
 package com.example.bankmanagment_version02;
 
-import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
@@ -16,7 +15,7 @@ public class LoginView extends VBox {
         this.viewModel = new LoginViewModel();
         createView();
         vbox = this;
-        System.out.println(getStylesheets().add("login_page_style.css"));
+        getStylesheets().add("login_page_style.css");
 
         //  setStyle("-fx-background-color: #29ACD4;");
     }
@@ -43,6 +42,7 @@ public class LoginView extends VBox {
             }
         });
         this.getChildren().addAll(customLayout, button);
+        this.getStyleClass().add("login-view");
         this.setAlignment(Pos.CENTER);
     }
 
@@ -52,17 +52,14 @@ public class LoginView extends VBox {
 
     @Override
     public void resize(double width, double height) {
-        //This method will run when the window appear first time
-        //and
-        //when the user resize the window
+        double padding = 5;
         double layoutHeight = 0;
         double layoutWidth = 0;
-        for (int i = 0; i < getChildren().size(); i++) {
-            Node child = getChildren().get(i);
-            double padding = 5;
-            layoutHeight = layoutHeight + child.getBoundsInParent().getHeight() + padding;
-            layoutWidth = Math.max(layoutWidth, child.getBoundsInParent().getWidth()) + padding;
+        for (Node child : getChildren()) {
+            layoutHeight = layoutHeight + child.getBoundsInParent().getHeight()+padding;
+            layoutWidth = Math.max(layoutWidth, child.getBoundsInParent().getWidth())+padding;
         }
+
         super.resize(layoutWidth, layoutHeight); // set fixed width and height
         LayoutUtil.alignCenter(this, getChildren());
     }

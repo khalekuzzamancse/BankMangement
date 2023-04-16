@@ -20,4 +20,6 @@ public class LayoutUtil {
         parent.setTranslateX((parent.getScene().getWidth() - maxWidth) / 2);
         parent.setTranslateY((parent.getScene().getHeight() - maxHeight) / 2);
     }
+
+
 }

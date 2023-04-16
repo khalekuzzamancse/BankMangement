@@ -1,13 +1,12 @@
 package com.example.bankmanagment_version02;
 
 import javafx.scene.Node;
+import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 
 import java.util.List;
 
 public class FormLayout extends Pane {
-
-
     public FormLayout() {
         super();
         setPrefWidth(200);
@@ -19,21 +18,22 @@ public class FormLayout extends Pane {
         super.layoutChildren();
         double labelWidth = getLabelMaxWidth();
         double labelHeight = getLabelMaxHeight();
-        double y = 0.0,inputFieldHeight=labelHeight+15;
+        double y = 0.0;
+        double inputFieldHeight = labelHeight + 10;
+        double rowGap = 10;
+        double columnGap = 10;
+        //placing the labels
         for (int i = 0; i < getChildren().size(); i = i + 2) {
-            double labelDownY=(inputFieldHeight-labelHeight)/2;
-            positionChildren(getChildren().get(i), 0, y+labelDownY, labelWidth, labelHeight);
-            double rowGap = 10;
+            double labelDownY = (inputFieldHeight - labelHeight) / 2;
+            positionChildren(getChildren().get(i), 0, y + labelDownY, labelWidth, labelHeight);
             y = y + inputFieldHeight + rowGap;
         }
+        //placing the inputField
         y = 0;
         for (int i = 1; i < getChildren().size(); i = i + 2) {
-            double columnGap = 10;
             double x = labelWidth + columnGap;
-            positionChildren(getChildren().get(i), x, y, 100, inputFieldHeight);
-            double rowGap = 10;
+            positionChildren(getChildren().get(i), x, y, 200, inputFieldHeight);
             y = y + inputFieldHeight + rowGap;
-
         }
 
 
@@ -63,7 +63,6 @@ public class FormLayout extends Pane {
         child.setLayoutX(x);
         child.setLayoutY(y);
         child.resize(labelWidth, labelHeight);
-
     }
 
 }

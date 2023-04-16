@@ -1,5 +1,6 @@
 package com.example.bankmanagment_version02;
 
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
@@ -15,8 +16,8 @@ public class LoginView extends VBox {
         this.viewModel = new LoginViewModel();
         createView();
         vbox = this;
-        this.setPrefSize(350, 350);
-        setStyle("-fx-background-color: #29ACD4;");
+
+      //  setStyle("-fx-background-color: #29ACD4;");
     }
 
     private void createView() {
@@ -35,16 +36,32 @@ public class LoginView extends VBox {
             viewModel.setPassword(passwordTextField.getText());
             if (viewModel.isValidUser()) {
                 // Navigate to the next screen or perform some other action
-               Snackbar.show("Successfully",this);
+                Snackbar.show("Successfully", this);
             } else {
-                Snackbar.show("User Name or Password is wrong",this);
+                Snackbar.show("User Name or Password is wrong", this);
             }
         });
         this.getChildren().addAll(customLayout, button);
-        this.setAlignment(Pos.CENTER);
+        this.setAlignment(Pos.BOTTOM_RIGHT);
     }
 
     public VBox getLayout() {
         return vbox;
+    }
+
+    @Override
+    public void resize(double width, double height) {
+        //This method will run when the window appear first time
+        //and
+        //when the user resize the window
+        double layoutHeight = 0;
+        double layoutWidth = 0;
+        for (int i = 0; i < getChildren().size(); i++) {
+            Node child = getChildren().get(i);
+            double padding = 5;
+            layoutHeight = layoutHeight + child.getBoundsInParent().getHeight()+ padding;
+            layoutWidth = Math.max(layoutWidth, child.getBoundsInParent().getWidth())+ padding;
+        }
+        super.resize(layoutWidth, layoutHeight); // set fixed width and height
     }
 }

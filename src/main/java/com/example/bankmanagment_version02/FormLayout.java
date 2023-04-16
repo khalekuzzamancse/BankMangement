@@ -1,5 +1,6 @@
 package com.example.bankmanagment_version02;
 
+import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.layout.Pane;
 
@@ -10,19 +11,17 @@ public class FormLayout extends Pane {
     private double labelWidth;
     private double inputFieldWidth;
 
-
     public FormLayout() {
         super();
-        setStyle("-fx-background-color: #D429C3;");
+      //  setStyle("-fx-background-color: #D429C3;");
     }
 
     @Override
     protected void layoutChildren() {
         super.layoutChildren();
-
         labelWidth = getLabelMaxWidth();
         double labelHeight = getLabelMaxHeight();
-        double y = 0.0;
+        double y = 0;
         inputFieldHeight = labelHeight + 10;
 
         //placing the labels
@@ -74,10 +73,13 @@ public class FormLayout extends Pane {
         //This method will run when the window appear first time
         //and
         //when the user resize the window
+
+
+        double padding=10;
         int numberOfRow = getChildren().size() / 2;
         double eachRowHeight = inputFieldHeight + rowGap;
-        double layoutHeight = (numberOfRow * eachRowHeight) - rowGap;
-        double layoutWidth = labelWidth + columnGap + inputFieldWidth;
+        double layoutHeight = (numberOfRow * eachRowHeight) - rowGap+padding;
+        double layoutWidth = labelWidth + columnGap + inputFieldWidth+padding;
         super.resize(layoutWidth, layoutHeight); // set fixed width and height
     }
 

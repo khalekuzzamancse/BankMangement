@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.text.Text?>
+<HBox xmlns:fx="http://javafx.com/fxml/1" alignment="center" spacing="10">
+    <VBox>
+        <Label text="User Name"/>
+        <Label text=" Password"/>
+    </VBox>
+    <VBox>
+        <Label text=":"/>
+        <Label text=" :"/>
+    </VBox>
+    <VBox>
+        <TextField />
+        <TextField/>
+    </VBox>
+</HBox>

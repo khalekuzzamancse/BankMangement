@@ -1,38 +1,43 @@
 package com.example.bankmanagment_version02;
 
 import javafx.scene.Node;
-import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 
-import java.util.List;
-
 public class FormLayout extends Pane {
+    private final double rowGap = 10;
+    private final double columnGap = 10;
+    private double inputFieldHeight;
+    private double labelWidth;
+    private double inputFieldWidth;
+
+
     public FormLayout() {
         super();
-        setPrefSize(350, 80);
         setStyle("-fx-background-color: #D429C3;");
     }
 
     @Override
     protected void layoutChildren() {
         super.layoutChildren();
-        double labelWidth = getLabelMaxWidth();
+
+        labelWidth = getLabelMaxWidth();
         double labelHeight = getLabelMaxHeight();
         double y = 0.0;
-        double inputFieldHeight = labelHeight + 10;
-        double rowGap = 10;
-        double columnGap = 10;
+        inputFieldHeight = labelHeight + 10;
+
         //placing the labels
         for (int i = 0; i < getChildren().size(); i = i + 2) {
             double labelDownY = (inputFieldHeight - labelHeight) / 2;
             positionChildren(getChildren().get(i), 0, y + labelDownY, labelWidth, labelHeight);
             y = y + inputFieldHeight + rowGap;
+            //
         }
         //placing the inputField
         y = 0;
         for (int i = 1; i < getChildren().size(); i = i + 2) {
             double x = labelWidth + columnGap;
-            positionChildren(getChildren().get(i), x, y, 100, inputFieldHeight);
+            inputFieldWidth = 3 * labelWidth;
+            positionChildren(getChildren().get(i), x, y, inputFieldWidth, inputFieldHeight);
             y = y + inputFieldHeight + rowGap;
         }
 
@@ -62,6 +67,18 @@ public class FormLayout extends Pane {
         child.setLayoutX(x);
         child.setLayoutY(y);
         child.resize(width, height);
+    }
+
+    @Override
+    public void resize(double width, double height) {
+        //This method will run when the window appear first time
+        //and
+        //when the user resize the window
+        int numberOfRow = getChildren().size() / 2;
+        double eachRowHeight = inputFieldHeight + rowGap;
+        double layoutHeight = (numberOfRow * eachRowHeight) - rowGap;
+        double layoutWidth = labelWidth + columnGap + inputFieldWidth;
+        super.resize(layoutWidth, layoutHeight); // set fixed width and height
     }
 
 }

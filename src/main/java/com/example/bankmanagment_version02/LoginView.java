@@ -15,7 +15,7 @@ public class LoginView extends VBox {
         this.viewModel = new LoginViewModel();
         createView();
         vbox = this;
-        setPrefSize(350, 350);
+        this.setPrefSize(350, 350);
         setStyle("-fx-background-color: #29ACD4;");
     }
 

@@ -15,7 +15,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
 
-public class CustomAlert {
+public class Snackbar {
 
     public static void show(String message, Node ownerNode) {
         Stage stage = new Stage();

@@ -1,6 +1,7 @@
 package com.example.bankmanagment_version02;
 
 import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -14,6 +15,8 @@ public class LoginView extends VBox {
         this.viewModel = new LoginViewModel();
         createView();
         vbox = this;
+        setPrefSize(350, 350);
+        setStyle("-fx-background-color: #29ACD4;");
     }
 
     private void createView() {
@@ -32,9 +35,9 @@ public class LoginView extends VBox {
             viewModel.setPassword(passwordTextField.getText());
             if (viewModel.isValidUser()) {
                 // Navigate to the next screen or perform some other action
-               CustomAlert.show("Successfully",this);
+               Snackbar.show("Successfully",this);
             } else {
-                CustomAlert.show("User Name or Password is wrong",this);
+                Snackbar.show("User Name or Password is wrong",this);
             }
         });
         this.getChildren().addAll(customLayout, button);

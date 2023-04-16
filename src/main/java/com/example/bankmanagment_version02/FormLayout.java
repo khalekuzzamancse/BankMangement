@@ -9,8 +9,8 @@ import java.util.List;
 public class FormLayout extends Pane {
     public FormLayout() {
         super();
-        setPrefWidth(200);
-        setPrefHeight(100);
+        setPrefSize(350, 80);
+        setStyle("-fx-background-color: #D429C3;");
     }
 
     @Override
@@ -32,10 +32,9 @@ public class FormLayout extends Pane {
         y = 0;
         for (int i = 1; i < getChildren().size(); i = i + 2) {
             double x = labelWidth + columnGap;
-            positionChildren(getChildren().get(i), x, y, 200, inputFieldHeight);
+            positionChildren(getChildren().get(i), x, y, 100, inputFieldHeight);
             y = y + inputFieldHeight + rowGap;
         }
-
 
     }
 
@@ -59,10 +58,10 @@ public class FormLayout extends Pane {
         return maxHeight;
     }
 
-    private void positionChildren(Node child, double x, double y, double labelWidth, double labelHeight) {
+    private void positionChildren(Node child, double x, double y, double width, double height) {
         child.setLayoutX(x);
         child.setLayoutY(y);
-        child.resize(labelWidth, labelHeight);
+        child.resize(width, height);
     }
 
 }

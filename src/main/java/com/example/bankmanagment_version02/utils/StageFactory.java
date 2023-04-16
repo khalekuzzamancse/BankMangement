@@ -1,4 +1,4 @@
-package com.example.bankmanagment_version02;
+package com.example.bankmanagment_version02.utils;
 
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;

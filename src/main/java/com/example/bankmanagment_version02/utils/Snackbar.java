@@ -1,4 +1,4 @@
-package com.example.bankmanagment_version02;
+package com.example.bankmanagment_version02.utils;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;

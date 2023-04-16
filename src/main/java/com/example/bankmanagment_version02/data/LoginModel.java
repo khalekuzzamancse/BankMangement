@@ -1,4 +1,4 @@
-package com.example.bankmanagment_version02;
+package com.example.bankmanagment_version02.data;
 
 
 public class LoginModel {

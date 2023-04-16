@@ -1,4 +1,4 @@
-package com.example.bankmanagment_version02;
+package com.example.bankmanagment_version02.ui;
 
 import javafx.geometry.Insets;
 import javafx.scene.Node;

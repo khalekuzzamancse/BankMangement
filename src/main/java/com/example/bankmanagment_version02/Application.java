@@ -1,6 +1,7 @@
 package com.example.bankmanagment_version02;
 
 import com.example.bankmanagment_version02.ui.DynamicSizeFromLayout;
+import com.example.bankmanagment_version02.ui.screens.AddAccountScreen;
 import com.example.bankmanagment_version02.ui.screens.LoginScreen;
 import com.example.bankmanagment_version02.ui.screens.LoginView;
 import com.example.bankmanagment_version02.utils.StageFactory;
@@ -15,9 +16,7 @@ import java.io.IOException;
 public class Application extends javafx.application.Application {
     @Override
     public void start(Stage stage) throws IOException {
-
-
-        stage = StageFactory.createStage(new LoginScreen().getLayout(), "Login Screen", 600, 400);
+        stage = StageFactory.createStage(new AddAccountScreen().getLayout(), "Add Account Screen", 600, 700);
         stage.show();
 
 

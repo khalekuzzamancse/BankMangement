@@ -64,8 +64,13 @@ public class AddBoxViewModel {
     public StringProperty newPriceProperty() {
         return newPriceProperty;
     }
-
+    public void addBox() {
+        // Save the account to the database or perform some other action
+        System.out.println(model);
+    }
     public boolean isValidBox() {
         return model.isValidBox();
     }
+
+
 }

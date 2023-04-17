@@ -62,5 +62,15 @@ public class AddBoxModel {
         return true;
     }
 
+    @Override
+    public String toString() {
+        return "AddBoxModel{" +
+                "serialNumber='" + serialNumber + '\'' +
+                ", height=" + height +
+                ", width=" + width +
+                ", oldPrice=" + oldPrice +
+                ", newPrice=" + newPrice +
+                '}';
+    }
 }
 

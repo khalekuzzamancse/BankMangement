@@ -47,6 +47,7 @@ public class AddBoxScreen extends VBox {
 
             if (viewModel.isValidBox()) {
                 // Perform some action
+                viewModel.addBox();
                 Snackbar.show("Box Added Successfully", this);
             } else {
                 Snackbar.show("Invalid Box Details", this);

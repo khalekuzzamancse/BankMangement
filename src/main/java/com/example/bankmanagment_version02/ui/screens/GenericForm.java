@@ -5,6 +5,8 @@ import com.example.bankmanagment_version02.ui.FormLayout;
 import com.example.bankmanagment_version02.ui.viewmodel.LoginViewModel;
 import com.example.bankmanagment_version02.utils.LayoutUtil;
 import com.example.bankmanagment_version02.utils.Snackbar;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
@@ -19,12 +21,12 @@ import java.util.List;
 public class GenericForm extends Pane {
     private final String buttonLabel;
 
-    public GenericForm(List<String> labels, String buttonLabel) {
+    public GenericForm(List<String> labels, String buttonLabel, EventHandler<ActionEvent> buttonHandler) {
         this.buttonLabel = buttonLabel;
-        createView(labels);
+        createView(labels, buttonHandler);
     }
 
-    private void createView(List<String> labels) {
+    private void createView(List<String> labels, EventHandler<ActionEvent> buttonHandler) {
         DynamicSizeFromLayout customLayout = new DynamicSizeFromLayout();
         for (String label : labels) {
             customLayout.getChildren().addAll(
@@ -32,7 +34,9 @@ public class GenericForm extends Pane {
                     new TextField()
             );
         }
-        this.getChildren().addAll(customLayout,new Button(buttonLabel));
+        Button button = new Button(buttonLabel);
+        button.setOnAction(buttonHandler);
+        this.getChildren().addAll(customLayout, button);
     }
 
     @Override

@@ -10,11 +10,12 @@ public class CustomTable<T> extends TableView<T> {
         // create columns
         for (String columnName : columnNames) {
             TableColumn<T, String> column = new TableColumn<>(columnName);
-            column.setCellValueFactory(new PropertyValueFactory<>(columnName));
+            column.setCellValueFactory(new PropertyValueFactory<>(columnName.replaceAll("\\s+", "")));
             getColumns().add(column);
         }
 
         // set data
         setItems(data);
     }
+
 }

@@ -10,12 +10,11 @@ import java.io.IOException;
 
 public class Application extends javafx.application.Application {
     @Override
-    public void start(Stage stage) throws IOException {
+    public void start(Stage stage) {
 
-        Windows.getInstance().boxListWindow().show();
-        Windows.getInstance().accountListWindow().show();
-
-
+//        Windows.getInstance().boxListWindow().show();
+//        Windows.getInstance().accountListWindow().show();
+        Windows.getInstance().genericFormWindow().show();
 
     }
 

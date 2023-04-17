@@ -1,14 +1,17 @@
 package com.example.bankmanagment_version02.ui.viewmodel;
 
+import com.example.bankmanagment_version02.data.model.LoginFormModel;
+
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
 public class LoginFormViewModel implements FormViewModel {
-    private HashMap<String, String> inputFieldValue;
+    private final HashMap<String, String> formData;
+    private LoginFormModel model;
 
     public LoginFormViewModel() {
-        inputFieldValue = new HashMap<>();
+        formData = new HashMap<>();
     }
 
     @Override
@@ -22,15 +25,16 @@ public class LoginFormViewModel implements FormViewModel {
     }
 
     @Override
-    public HashMap<String, String> getFormData() {
-        return   inputFieldValue;
+    public HashMap<String, String> saveFormData() {
+        return formData;
     }
 
     public void onDone() {
-        System.out.println(inputFieldValue);
+        model=new LoginFormModel(formData.get("User Name"), formData.get("Password"));
+        System.out.println(model);
     }
 
     public HashMap<String, String> setInputFieldValue() {
-        return inputFieldValue;
+        return formData;
     }
 }

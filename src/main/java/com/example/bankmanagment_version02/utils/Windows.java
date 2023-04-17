@@ -1,20 +1,12 @@
 package com.example.bankmanagment_version02.utils;
 
-import com.example.bankmanagment_version02.ui.DynamicSizeFromLayout;
-import com.example.bankmanagment_version02.ui.screens.GenericForm;
+import com.example.bankmanagment_version02.ui.screens.HomogenousInputFieldForm;
 import com.example.bankmanagment_version02.ui.screens.ViewScreen;
 import com.example.bankmanagment_version02.ui.viewmodel.AccountListViewModel;
 import com.example.bankmanagment_version02.ui.viewmodel.BoxListViewModel;
 import com.example.bankmanagment_version02.ui.viewmodel.LoginFormViewModel;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.scene.Node;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-
-import java.util.Arrays;
-import java.util.List;
 
 public class Windows {
     private static Windows instance = null;
@@ -45,7 +37,7 @@ public class Windows {
 
     public Stage genericFormWindow() {
         return getWindow(
-                new GenericForm(new LoginFormViewModel()), "Account List", 500, 400);
+                new HomogenousInputFieldForm(new LoginFormViewModel()), "Account List", 500, 400);
     }
 
     public void setWindowSize(Stage window, int width, int height) {

@@ -1,35 +1,23 @@
 package com.example.bankmanagment_version02.ui.screens;
 
-import com.example.bankmanagment_version02.ui.DynamicSizeFromLayout;
 import com.example.bankmanagment_version02.ui.FormLayout;
 import com.example.bankmanagment_version02.ui.viewmodel.FormViewModel;
-import com.example.bankmanagment_version02.ui.viewmodel.LoginViewModel;
-import com.example.bankmanagment_version02.utils.LayoutUtil;
-import com.example.bankmanagment_version02.utils.Snackbar;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-
-public class GenericForm extends Pane {
+public class HomogenousInputFieldForm extends Pane {
     private final FormViewModel viewModel;
 
-    public GenericForm(FormViewModel viewModel) {
+    public HomogenousInputFieldForm(FormViewModel viewModel) {
         this.viewModel = viewModel;
         createView();
     }
 
     private void createView() {
-        DynamicSizeFromLayout customLayout = new DynamicSizeFromLayout();
+        FormLayout customLayout = new FormLayout();
         for (String label : viewModel.getLabelList()) {
             customLayout.getChildren().addAll(
                     new Label(label),
@@ -43,7 +31,7 @@ public class GenericForm extends Pane {
                 if (customLayout.getChildren().get(i) instanceof TextField) {
                     String input = ((TextField) customLayout.getChildren().get(i)).getText();
                     String label = ((Label) customLayout.getChildren().get(i - 1)).getText();
-                    viewModel.getFormData().put(label, input);
+                    viewModel.saveFormData().put(label, input);
                 }
             }
             viewModel.onDone();
@@ -56,7 +44,7 @@ public class GenericForm extends Pane {
     protected void layoutChildren() {
         super.layoutChildren();
 
-        DynamicSizeFromLayout customLayout = (DynamicSizeFromLayout) this.getChildren().get(0);
+        FormLayout customLayout = (FormLayout) this.getChildren().get(0);
         double formHeight = customLayout.getHeight();
         double formWidth = customLayout.getWidth();
         positionChildren(customLayout, 0, 0, formWidth, formHeight);

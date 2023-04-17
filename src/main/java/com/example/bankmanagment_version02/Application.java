@@ -11,8 +11,7 @@ import java.io.IOException;
 public class Application extends javafx.application.Application {
     @Override
     public void start(Stage stage) throws IOException {
-        //    stage = StageFactory.createStage(new ViewScreen<>(new AccountListViewModel()), "Add Account Screen", 600, 700);
-        //   stage.show();
+
         Windows.getInstance().boxListWindow().show();
         Windows.getInstance().accountListWindow().show();
 

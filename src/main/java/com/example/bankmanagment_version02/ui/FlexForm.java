@@ -1,6 +1,7 @@
 package com.example.bankmanagment_version02.ui;
 
 
+import com.example.bankmanagment_version02.utils.LayoutUtil;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.control.TextField;
@@ -8,7 +9,6 @@ import javafx.scene.layout.Pane;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 
@@ -109,9 +109,9 @@ public class FlexForm extends Pane {
         int numberOfRow = getChildren().size() / 2;
         double totalVgap = (numberOfRow -1)*rowGap;
        // double layoutHeight = (numberOfRow * eachRowHeight) - rowGap + padding.getTop() + padding.getBottom();
-        double layoutHeight = getMaxSum(sizes) + totalVgap+ padding.getTop() + padding.getBottom();
+        double layoutHeight = LayoutUtil.getMaxSum(sizes) + totalVgap+ padding.getTop() + padding.getBottom();
       //  double layoutWidth = labelWidth + columnGap + inputFieldWidth + padding.getLeft() + padding.getRight();
-        double layoutWidth = labelMaxWidth + columnGap + getMaxWidth(sizes) + padding.getLeft() + padding.getRight();
+        double layoutWidth = labelMaxWidth + columnGap + LayoutUtil.getMaxWidth(sizes) + padding.getLeft() + padding.getRight();
         super.resize(layoutWidth, layoutHeight); // set fixed width and height
 
     }
@@ -154,32 +154,7 @@ public class FlexForm extends Pane {
         }
     }
 
-    private double getMaxSum(HashMap<Integer, Size> sizes) {
-        double sumOdd = 0.0;
-        double sumEven = 0.0;
-        for (Map.Entry<Integer, Size> entry : sizes.entrySet()) {
-            double height = entry.getValue().getHeight();
-            if (entry.getKey() % 2 == 0) {
-                sumEven += height;
-            } else {
-                sumOdd += height;
-            }
-        }
 
-        return Math.max(sumOdd, sumEven);
-    }
-    public  double getMaxWidth(HashMap<Integer, Size> sizes) {
-        double maxWidth = Double.NEGATIVE_INFINITY;
-
-        for (Map.Entry<Integer, Size> entry : sizes.entrySet()) {
-            double width = entry.getValue().getWidth();
-            if (width > maxWidth) {
-                maxWidth = width;
-            }
-        }
-
-        return maxWidth;
-    }
 
 
 

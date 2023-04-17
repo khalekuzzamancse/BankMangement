@@ -4,37 +4,42 @@ import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.layout.Pane;
 
+
 public class FormLayout extends Pane {
     private final double rowGap = 10;
     private final double columnGap = 10;
     private double inputFieldHeight;
     private double labelWidth;
     private double inputFieldWidth;
+    private final Insets padding = new Insets(10);
 
     public FormLayout() {
         super();
-      //  setStyle("-fx-background-color: #D429C3;");
+        setPadding(padding);
+        setStyle("-fx-background-color: #D429C3;");
     }
 
     @Override
     protected void layoutChildren() {
         super.layoutChildren();
+
         labelWidth = getLabelMaxWidth();
         double labelHeight = getLabelMaxHeight();
-        double y = 0;
+
         inputFieldHeight = labelHeight + 10;
 
         //placing the labels
+        double y = padding.getTop();
         for (int i = 0; i < getChildren().size(); i = i + 2) {
             double labelDownY = (inputFieldHeight - labelHeight) / 2;
-            positionChildren(getChildren().get(i), 0, y + labelDownY, labelWidth, labelHeight);
+            positionChildren(getChildren().get(i), padding.getLeft(), y + labelDownY, labelWidth, labelHeight);
             y = y + inputFieldHeight + rowGap;
             //
         }
         //placing the inputField
-        y = 0;
+        y = padding.getTop();
         for (int i = 1; i < getChildren().size(); i = i + 2) {
-            double x = labelWidth + columnGap;
+            double x = padding.getLeft() + labelWidth + columnGap;
             inputFieldWidth = 3 * labelWidth;
             positionChildren(getChildren().get(i), x, y, inputFieldWidth, inputFieldHeight);
             y = y + inputFieldHeight + rowGap;
@@ -74,13 +79,12 @@ public class FormLayout extends Pane {
         //and
         //when the user resize the window
 
-
-        double padding=10;
         int numberOfRow = getChildren().size() / 2;
         double eachRowHeight = inputFieldHeight + rowGap;
-        double layoutHeight = (numberOfRow * eachRowHeight) - rowGap+padding;
-        double layoutWidth = labelWidth + columnGap + inputFieldWidth+padding;
+        double layoutHeight = (numberOfRow * eachRowHeight) - rowGap + padding.getTop() + padding.getBottom();
+        double layoutWidth = labelWidth + columnGap + inputFieldWidth + padding.getLeft() + padding.getRight();
         super.resize(layoutWidth, layoutHeight); // set fixed width and height
+
     }
 
 }

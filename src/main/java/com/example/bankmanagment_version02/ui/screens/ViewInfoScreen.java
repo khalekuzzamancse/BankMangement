@@ -1,5 +1,4 @@
 package com.example.bankmanagment_version02.ui.screens;
-
 import com.example.bankmanagment_version02.data.model.AccountModel;
 import com.example.bankmanagment_version02.data.model.AddBoxModel;
 import com.example.bankmanagment_version02.ui.CustomTable;
@@ -9,10 +8,10 @@ import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.layout.StackPane;
 
-public class ViewInfo extends StackPane {
+public class ViewInfoScreen extends StackPane {
     private ViewInfoViewModel viewModel;
 
-    public ViewInfo() {
+    public ViewInfoScreen() {
         viewModel = new ViewInfoViewModel();
         CustomTable<AccountModel> table1 = new CustomTable<>(viewModel.getAccountColumn(), viewModel.getAccounts());
         CustomTable<AddBoxModel> table2 = new CustomTable<>(viewModel.getBoxColumn(), viewModel.getBoxes());

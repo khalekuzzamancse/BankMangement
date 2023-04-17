@@ -1,6 +1,5 @@
 package com.example.bankmanagment_version02.utils;
 
-import com.example.bankmanagment_version02.ui.Size;
 import javafx.scene.Node;
 import javafx.scene.layout.Pane;
 

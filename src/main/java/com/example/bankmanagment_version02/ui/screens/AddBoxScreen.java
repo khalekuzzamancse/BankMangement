@@ -1,9 +1,9 @@
 package com.example.bankmanagment_version02.ui.screens;
 
 import com.example.bankmanagment_version02.ui.DynamicSizeFromLayout;
+import com.example.bankmanagment_version02.ui.viewmodel.AddBoxViewModel;
 import com.example.bankmanagment_version02.utils.LayoutUtil;
 import com.example.bankmanagment_version02.utils.Snackbar;
-import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;

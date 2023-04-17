@@ -1,4 +1,4 @@
-package com.example.bankmanagment_version02.ui;
+package com.example.bankmanagment_version02.utils;
 
 public class Size {
     private double width;

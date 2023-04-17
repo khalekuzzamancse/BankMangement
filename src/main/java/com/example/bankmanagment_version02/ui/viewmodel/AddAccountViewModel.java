@@ -1,4 +1,5 @@
-package com.example.bankmanagment_version02.ui.screens;
+package com.example.bankmanagment_version02.ui.viewmodel;
+import com.example.bankmanagment_version02.data.model.AccountModel;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 

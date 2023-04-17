@@ -2,6 +2,7 @@ package com.example.bankmanagment_version02.ui;
 
 
 import com.example.bankmanagment_version02.utils.LayoutUtil;
+import com.example.bankmanagment_version02.utils.Size;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.layout.Pane;

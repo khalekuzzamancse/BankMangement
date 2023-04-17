@@ -1,5 +1,6 @@
 package com.example.bankmanagment_version02.ui.screens;
 
+import com.example.bankmanagment_version02.ui.DynamicSizeFromLayout;
 import com.example.bankmanagment_version02.ui.FormLayout;
 import com.example.bankmanagment_version02.ui.viewmodel.LoginViewModel;
 import com.example.bankmanagment_version02.utils.LayoutUtil;
@@ -11,27 +12,28 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 
-public class LoginView extends VBox {
+public class LoginScreen extends VBox {
     private final LoginViewModel viewModel;
     private final VBox vbox;
 
-    public LoginView() {
+    public LoginScreen() {
         this.viewModel = new LoginViewModel();
         createView();
         vbox = this;
-        getStylesheets().add("login_page_style.css");
+        setSpacing(20);
+        //  getStylesheets().add("login_page_style.css");
 
-      //  setStyle("-fx-background-color: #29ACD4;");
+        // setStyle("-fx-background-color: #29ACD4;");
     }
 
     private void createView() {
-        FormLayout customLayout = new FormLayout();
+
+        DynamicSizeFromLayout customLayout = new DynamicSizeFromLayout();
         customLayout.getChildren().addAll(
-                new Label("User Name"),
-                new TextField(),
-                new Label("Password"),
-                new TextField()
+                new Label("User Name"), new TextField(),
+                new Label("Password"), new TextField()
         );
+//        customLayout.setInputFieldSize(3, 200, 80);
         Button button = new Button("Login");
         button.setOnAction(event -> {
             TextField userNameTextField = (TextField) customLayout.getChildren().get(1);
@@ -47,7 +49,6 @@ public class LoginView extends VBox {
         });
         this.getChildren().addAll(customLayout, button);
         this.getStyleClass().add("login-view");
-        this.setAlignment(Pos.CENTER);
     }
 
     public VBox getLayout() {
@@ -60,8 +61,8 @@ public class LoginView extends VBox {
         double layoutHeight = 0;
         double layoutWidth = 0;
         for (Node child : getChildren()) {
-            layoutHeight = layoutHeight + child.getBoundsInParent().getHeight()+padding;
-            layoutWidth = Math.max(layoutWidth, child.getBoundsInParent().getWidth())+padding;
+            layoutHeight = layoutHeight + child.getBoundsInParent().getHeight() + padding;
+            layoutWidth = Math.max(layoutWidth, child.getBoundsInParent().getWidth()) + padding;
         }
 
         super.resize(layoutWidth, layoutHeight); // set fixed width and height

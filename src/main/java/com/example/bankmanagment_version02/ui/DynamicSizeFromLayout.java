@@ -7,10 +7,9 @@ import javafx.scene.Node;
 import javafx.scene.layout.Pane;
 
 import java.util.HashMap;
-import java.util.Map;
 
 
-public class FlexForm extends Pane {
+public class DynamicSizeFromLayout extends Pane {
     private final double rowGap = 10;
     private final double columnGap = 10;
 
@@ -21,10 +20,10 @@ public class FlexForm extends Pane {
     private final HashMap<Integer, Size> sizes = new HashMap<>();
 
 
-    public FlexForm() {
+    public DynamicSizeFromLayout() {
         super();
         setPadding(padding);
-        setStyle("-fx-background-color: #D429C3;");
+     //   setStyle("-fx-background-color: #D429C3;");
     }
 
 

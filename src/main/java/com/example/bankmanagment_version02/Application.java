@@ -1,6 +1,7 @@
 package com.example.bankmanagment_version02;
 
-import com.example.bankmanagment_version02.ui.FlexForm;
+import com.example.bankmanagment_version02.ui.DynamicSizeFromLayout;
+import com.example.bankmanagment_version02.ui.screens.LoginScreen;
 import com.example.bankmanagment_version02.ui.screens.LoginView;
 import com.example.bankmanagment_version02.utils.StageFactory;
 import javafx.scene.Scene;
@@ -16,28 +17,9 @@ public class Application extends javafx.application.Application {
     public void start(Stage stage) throws IOException {
 
 
-//        stage = StageFactory.createStage(new LoginView().getLayout(), "Login", 400, 300);
-//        stage.show();
-
-        TextField textField = new TextField();
-        textField.setPrefWidth(50); // set the desired width
-        textField.setPrefHeight(50); // set the desired height
-        FlexForm customLayout = new FlexForm();
-        customLayout.getChildren().addAll(
-                new Label("User Name"),
-                textField, // add the custom-sized TextField
-                new Label("Passwordhhhhh"),
-                new TextField()
-        );
-
-      // customLayout.setInputFieldSize(3, 200, 80);
-
-
-        Pane root = new Pane();
-        root.getChildren().add(customLayout);
-        Scene scene = new Scene(root, 400, 400);
-        stage.setScene(scene);
+        stage = StageFactory.createStage(new LoginScreen().getLayout(), "Login Screen", 600, 400);
         stage.show();
+
 
     }
 

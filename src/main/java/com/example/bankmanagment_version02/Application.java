@@ -1,9 +1,7 @@
 package com.example.bankmanagment_version02;
 
-import com.example.bankmanagment_version02.data.model.BoxListModel;
 import com.example.bankmanagment_version02.ui.screens.*;
 import com.example.bankmanagment_version02.utils.StageFactory;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -11,7 +9,7 @@ import java.io.IOException;
 public class Application extends javafx.application.Application {
     @Override
     public void start(Stage stage) throws IOException {
-        stage = StageFactory.createStage(new ViewScreen(new ViewModel1()), "Add Account Screen", 600, 700);
+        stage = StageFactory.createStage(new ViewScreen<>(new AccountListViewModel()), "Add Account Screen", 600, 700);
         stage.show();
 
 

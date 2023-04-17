@@ -29,7 +29,10 @@ public class Application extends javafx.application.Application {
                 new Label("Passwordhhhhh"),
                 new TextField()
         );
-        customLayout.setInputFieldSize(3, 200, 80);
+
+      // customLayout.setInputFieldSize(3, 200, 80);
+
+
         Pane root = new Pane();
         root.getChildren().add(customLayout);
         Scene scene = new Scene(root, 400, 400);

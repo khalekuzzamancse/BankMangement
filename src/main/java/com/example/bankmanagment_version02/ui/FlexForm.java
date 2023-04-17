@@ -4,10 +4,8 @@ package com.example.bankmanagment_version02.ui;
 import com.example.bankmanagment_version02.utils.LayoutUtil;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -20,12 +18,7 @@ public class FlexForm extends Pane {
     private double labelMaxHeight;
     private final Insets padding = new Insets(10);
 
-    double inputFieldHeight;
-    double inputFieldWidth;
-    double labelWidth;
-    double labelHeight;
-    // List<Size> sizes = new ArrayList<>();
-    HashMap<Integer, Size> sizes = new HashMap<>();
+    private final HashMap<Integer, Size> sizes = new HashMap<>();
 
 
     public FlexForm() {
@@ -41,17 +34,15 @@ public class FlexForm extends Pane {
 
         labelMaxWidth = getLabelMaxWidth();
         labelMaxHeight = getLabelMaxHeight();
-        System.out.println("init");
-        initiazeSize();
-        printSize();
+        initializeChildrenSize();
         //placing the labels
         double y = padding.getTop();
         //
-        labelWidth = labelMaxWidth;
-        labelHeight = labelMaxHeight;
+        double labelWidth = labelMaxWidth;
+        double labelHeight = labelMaxHeight;
         //
-        inputFieldHeight = labelHeight + 10;
-        inputFieldWidth = 2 * labelWidth;
+        double inputFieldHeight = labelHeight + 10;
+        double inputFieldWidth = 2 * labelWidth;
 
         //
         for (int i = 0; i < getChildren().size(); i = i + 2) {
@@ -107,33 +98,53 @@ public class FlexForm extends Pane {
     public void resize(double width, double height) {
 
         int numberOfRow = getChildren().size() / 2;
-        double totalVgap = (numberOfRow -1)*rowGap;
-       // double layoutHeight = (numberOfRow * eachRowHeight) - rowGap + padding.getTop() + padding.getBottom();
-        double layoutHeight = LayoutUtil.getMaxSum(sizes) + totalVgap+ padding.getTop() + padding.getBottom();
-      //  double layoutWidth = labelWidth + columnGap + inputFieldWidth + padding.getLeft() + padding.getRight();
+        double totalVgap = (numberOfRow - 1) * rowGap;
+        // double layoutHeight = (numberOfRow * eachRowHeight) - rowGap + padding.getTop() + padding.getBottom();
+        double layoutHeight = LayoutUtil.getMaxSum(sizes) + totalVgap + padding.getTop() + padding.getBottom();
+        //  double layoutWidth = labelWidth + columnGap + inputFieldWidth + padding.getLeft() + padding.getRight();
         double layoutWidth = labelMaxWidth + columnGap + LayoutUtil.getMaxWidth(sizes) + padding.getLeft() + padding.getRight();
         super.resize(layoutWidth, layoutHeight); // set fixed width and height
 
     }
 
     public void setInputFieldSize(int index, double width, double height) {
-        sizes.put(index, new Size(width, height));
-        System.out.println("Calling");
-        printSize();
-        layoutChildren();
+        setInputFieldWidth(index, width);
+        setInputFieldHeight(index, height);
 
     }
 
-    private void initiazeSize() {
+    public void setInputFieldWidth(int index, double width) {
+        initializeChildrenSize();
+        sizes.put(index, new Size(width, sizes.get(index).getHeight()));
+        layoutChildren();
+    }
+
+    public void setInputFieldHeight(int index, double height) {
+        initializeChildrenSize();
+        sizes.put(index, new Size(sizes.get(index).getWidth(), height));
+        layoutChildren();
+    }
+
+    private void initializeChildrenSize() {
 
         double inputFieldWidth = 3 * labelMaxWidth;
-        double inputFieldHeight = labelMaxHeight + 10;
+        double extra = 10.0;
+        double inputFieldHeight = labelMaxHeight + extra;
 
         for (int i = 0; i < getChildren().size(); i++) {
             if (i % 2 == 1) {
-                Size size = sizes.get(i);
-                boolean b = size != null && size.isSized();
-                if (size != null && b) {
+                Size inputFieldSize = sizes.get(i);
+                if (inputFieldSize != null) {
+                    boolean hasHeight = (inputFieldSize.hasHeight()) && (inputFieldSize.getHeight() != extra);
+                    if (!hasHeight) {
+                        //if the height is not set then set the height
+                        sizes.put(i, new Size(inputFieldSize.getWidth(), inputFieldHeight));
+                    }
+
+                    if (!inputFieldSize.hasWidth()) {
+                        //if the width is not set then set the width
+                        sizes.put(i, new Size(inputFieldWidth, inputFieldSize.getHeight()));
+                    }
 
                 } else {
                     sizes.put(i, new Size(inputFieldWidth, inputFieldHeight));
@@ -145,17 +156,6 @@ public class FlexForm extends Pane {
 
         }
     }
-
-    private void printSize() {
-        for (Map.Entry<Integer, Size> entry : sizes.entrySet()) {
-            Integer key = entry.getKey();
-            Size value = entry.getValue();
-            System.out.println("Key: " + key + ", Value: " + value);
-        }
-    }
-
-
-
 
 
 }

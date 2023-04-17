@@ -34,6 +34,14 @@ public class Size {
     }
 
     public boolean isSized() {
-        return( height > 0 && width > 0);
+        return (height > 0 && width > 0);
+    }
+
+    public boolean hasHeight() {
+        return height > 0;
+    }
+
+    public boolean hasWidth() {
+        return width > 0;
     }
 }

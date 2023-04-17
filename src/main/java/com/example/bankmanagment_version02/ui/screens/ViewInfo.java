@@ -1,6 +1,7 @@
 package com.example.bankmanagment_version02.ui.screens;
 
 import com.example.bankmanagment_version02.data.model.AccountModel;
+import com.example.bankmanagment_version02.data.model.AddBoxModel;
 import com.example.bankmanagment_version02.ui.CustomTable;
 import com.example.bankmanagment_version02.ui.Person;
 import javafx.collections.FXCollections;
@@ -12,7 +13,7 @@ import javafx.scene.layout.StackPane;
 public class ViewInfo extends StackPane {
     public ViewInfo() {
 
-        ObservableList<AccountModel> data = FXCollections.observableArrayList(
+        ObservableList<AccountModel> accounts = FXCollections.observableArrayList(
                 new AccountModel("John", "khalekuzzaman91@gmail.com", "123456789", "123 Main St", "ABC Corp",
                         "brown", "blue", 6.0, 170.0),
                 new AccountModel("Jane", "khalekuzzaman91@gmail.com", "987654321", "456 Elm St", "XYZ Corp",
@@ -27,45 +28,34 @@ public class ViewInfo extends StackPane {
 
 
         // create column names
-        String[] columnNames = {"Name", "Email", "Phone No", "Address", "Firm", "Eye Color", "Hair Color", "Height", "Weight"};
+        String[] accountColumn = {"Name", "Email", "Phone No", "Address", "Firm", "Eye Color", "Hair Color", "Height", "Weight"};
 
         // create custom table
-        CustomTable<AccountModel> table1 = new CustomTable<>(columnNames, data);
+        CustomTable<AccountModel> table1 = new CustomTable<>(accountColumn, accounts);
 
-
-        String[] columnNamess = {"Name", "Age", "Gender"};
-
-        // create some dummy data
-        ObservableList<Person> data2 = FXCollections.observableArrayList(
-                new Person("John", 25, "Male"),
-                new Person("Jane", 30, "Female"),
-                new Person("Bob", 40, "Male")
+        ObservableList<AddBoxModel> boxes = FXCollections.observableArrayList(
+                new AddBoxModel("1", 10.0, 20.0, 50.0, 40.0),
+                new AddBoxModel("2", 15.0, 25.0, 80.0, 70.0),
+                new AddBoxModel("3", 8.0, 15.0, 30.0, 25.0),
+                new AddBoxModel("4", 12.0, 18.0, 60.0, 50.0),
+                new AddBoxModel("5", 20.0, 30.0, 100.0, 90.0),
+                new AddBoxModel("6", 6.0, 12.0, 20.0, 15.0),
+                new AddBoxModel("7", 18.0, 24.0, 90.0, 80.0),
+                new AddBoxModel("8", 9.0, 16.0, 40.0, 35.0),
+                new AddBoxModel("9", 16.0, 22.0, 70.0, 60.0),
+                new AddBoxModel("10", 14.0, 20.0, 50.0, 45.0)
         );
+        String[] boxColumn = new String[]{"Serial Number", "Height", "Width", "Old Price", "New Price"};
+        CustomTable<AddBoxModel> table2 = new CustomTable<>(boxColumn, boxes);
 
-        CustomTable<Person> table2 = new CustomTable<>(columnNamess, data2);
-
-
-        String[] columnNamesss = {"Name", "Age", "Gender"};
-
-        // create some dummy data
-        ObservableList<Person> data3 = FXCollections.observableArrayList(
-                new Person("John", 25, "Male"),
-                new Person("Jane", 30, "Female"),
-                new Person("Bob", 40, "Male")
-        );
-
-        CustomTable<Person> table3 = new CustomTable<>(columnNamesss, data3);
 
         TabPane tabPane = new TabPane();
-        Tab tab1 = new Tab("People");
+        Tab tab1 = new Tab("User Info");
         tab1.setContent(table1);
-        Tab tab2 = new Tab("Locations");
+        Tab tab2 = new Tab("Boxes");
         tab2.setContent(table2);
-        Tab tab3 = new Tab("Items");
-        tab3.setContent(table3);
-        tabPane.getTabs().addAll(tab1, tab2, tab3);
+        tabPane.getTabs().addAll(tab1, tab2);
         tab1.closableProperty().set(false);
-
         getChildren().add(tabPane);
     }
 }

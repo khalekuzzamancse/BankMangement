@@ -7,6 +7,18 @@ public class AddBoxModel {
     private double oldPrice;
     private double newPrice;
 
+    public AddBoxModel(String serialNumber, double height, double width, double oldPrice, double newPrice) {
+        this.serialNumber = serialNumber;
+        this.height = height;
+        this.width = width;
+        this.oldPrice = oldPrice;
+        this.newPrice = newPrice;
+    }
+
+    public AddBoxModel() {
+
+    }
+
     public String getSerialNumber() {
         return serialNumber;
     }

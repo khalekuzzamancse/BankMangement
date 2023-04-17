@@ -1,9 +1,7 @@
 package com.example.bankmanagment_version02.ui.screens;
 
 import com.example.bankmanagment_version02.ui.CustomTable;
-import com.example.bankmanagment_version02.utils.LayoutUtil;
-import javafx.geometry.Pos;
-import javafx.scene.Node;
+import com.example.bankmanagment_version02.ui.viewmodel.ViewInfoViewModelI;
 import javafx.scene.layout.VBox;
 
 public class ViewScreen<T> extends VBox {

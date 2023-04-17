@@ -16,16 +16,13 @@ import java.util.List;
 
 public class Application extends javafx.application.Application {
     GenericForm form;
+
     @Override
     public void start(Stage stage) {
 
 //        Windows.getInstance().boxListWindow().show();
 //        Windows.getInstance().accountListWindow().show();
-    Windows.getInstance().genericFormWindow().show();
-
-
-
-
+        Windows.getInstance().genericFormWindow().show();
 
     }
 

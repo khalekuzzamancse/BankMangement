@@ -5,6 +5,7 @@ import com.example.bankmanagment_version02.ui.screens.GenericForm;
 import com.example.bankmanagment_version02.ui.screens.ViewScreen;
 import com.example.bankmanagment_version02.ui.viewmodel.AccountListViewModel;
 import com.example.bankmanagment_version02.ui.viewmodel.BoxListViewModel;
+import com.example.bankmanagment_version02.ui.viewmodel.LoginFormViewModel;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Node;
@@ -44,13 +45,7 @@ public class Windows {
 
     public Stage genericFormWindow() {
         return getWindow(
-                new GenericForm(Arrays.asList("Name", "Email", "Phone number", "Address"), "Button", new EventHandler<ActionEvent>() {
-                    @Override
-                    public void handle(ActionEvent event) {
-                        System.out.println("clicked");
-                    }
-                })
-                , "Account List", 500, 400);
+                new GenericForm(new LoginFormViewModel()), "Account List", 500, 400);
     }
 
     public void setWindowSize(Stage window, int width, int height) {

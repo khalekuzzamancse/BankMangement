@@ -34,8 +34,4 @@ public class LoginFormViewModel implements FormViewModel {
         model=new LoginFormModel(formData.get("User Name"), formData.get("Password"));
         System.out.println(model);
     }
-
-    public HashMap<String, String> setInputFieldValue() {
-        return formData;
-    }
 }

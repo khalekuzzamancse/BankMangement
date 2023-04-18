@@ -4,9 +4,9 @@ import com.example.bankmanagment_version02.ui.CustomTable;
 import com.example.bankmanagment_version02.ui.viewmodel.ViewInfoViewModelI;
 import javafx.scene.layout.VBox;
 
-public class ViewScreen<T> extends VBox {
+public class GenericViewScreen<T> extends VBox {
     private final ViewInfoViewModelI<T> viewModel;
-    public ViewScreen(ViewInfoViewModelI<T> viewModel) {
+    public GenericViewScreen(ViewInfoViewModelI<T> viewModel) {
         this.viewModel = viewModel;
         createView();
     }

@@ -12,7 +12,8 @@ public class Application extends javafx.application.Application {
 
 //        Windows.getInstance().boxListWindow().show();
 //        Windows.getInstance().accountListWindow().show();
-      new  LoginScreen().getWindow().show();
+     // new  LoginScreen().getWindow().show();
+        new CreateAccountScreen().getWindow().show();
 
     }
 

@@ -1,10 +1,8 @@
 package com.example.bankmanagment_version02.utils;
 
-import com.example.bankmanagment_version02.ui.screens.HomogenousInputFieldFormLayout;
-import com.example.bankmanagment_version02.ui.screens.ViewScreen;
+import com.example.bankmanagment_version02.ui.screens.GenericViewScreen;
 import com.example.bankmanagment_version02.ui.viewmodel.AccountListViewModel;
 import com.example.bankmanagment_version02.ui.viewmodel.BoxListViewModel;
-import com.example.bankmanagment_version02.ui.viewmodel.LoginFormViewModel;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
@@ -28,11 +26,11 @@ public class Windows {
     }
 
     public Stage boxListWindow() {
-        return getWindow(new ViewScreen<>(new BoxListViewModel()), "Box List", 400, 400);
+        return getWindow(new GenericViewScreen<>(new BoxListViewModel()), "Box List", 400, 400);
     }
 
     public Stage accountListWindow() {
-        return getWindow(new ViewScreen<>(new AccountListViewModel()), "Account List", 800, 300);
+        return getWindow(new GenericViewScreen<>(new AccountListViewModel()), "Account List", 800, 300);
     }
 
 

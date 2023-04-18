@@ -1,6 +1,6 @@
 package com.example.bankmanagment_version02.ui.viewmodel;
 
-import com.example.bankmanagment_version02.data.model.AccountModel;
+import com.example.bankmanagment_version02.data.model.CreateAccountFormModel;
 import com.example.bankmanagment_version02.utils.Snackbar;
 
 import java.util.Arrays;
@@ -9,11 +9,11 @@ import java.util.List;
 
 public class CreateAccountFromViewModel implements FormViewModel {
     private final HashMap<String, String> formData;
-    private AccountModel model;
+    private CreateAccountFormModel model;
 
     public CreateAccountFromViewModel() {
         formData = new HashMap<>();
-        model=new AccountModel();
+        model=new CreateAccountFormModel();
     }
 
     @Override
@@ -33,7 +33,7 @@ public class CreateAccountFromViewModel implements FormViewModel {
 
     @Override
     public void onDone() {
-        model=new AccountModel(
+        model=new CreateAccountFormModel(
                 formData.get("Name"),
                 formData.get("Email"),
                 formData.get("Phone Number"),

@@ -1,14 +1,13 @@
 package com.example.bankmanagment_version02.ui.viewmodel;
 
-import com.example.bankmanagment_version02.data.model.AddBoxModel;
+import com.example.bankmanagment_version02.data.model.CreateBoxFormModel;
 import com.example.bankmanagment_version02.data.model.BoxListModel;
-import com.example.bankmanagment_version02.ui.viewmodel.ViewInfoViewModelI;
 import javafx.collections.ObservableList;
 
-public class BoxListViewModel implements ViewInfoViewModelI<AddBoxModel> {
+public class BoxListViewModel implements ViewInfoViewModelI<CreateBoxFormModel> {
 
     @Override
-    public ObservableList<AddBoxModel> getTableData() {
+    public ObservableList<CreateBoxFormModel> getTableData() {
         return new BoxListModel().getBoxes();
     }
 

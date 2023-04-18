@@ -1,14 +1,13 @@
 package com.example.bankmanagment_version02.ui.viewmodel;
 
 import com.example.bankmanagment_version02.data.model.AccountListModel;
-import com.example.bankmanagment_version02.data.model.AccountModel;
-import com.example.bankmanagment_version02.ui.viewmodel.ViewInfoViewModelI;
+import com.example.bankmanagment_version02.data.model.CreateAccountFormModel;
 import javafx.collections.ObservableList;
 
-public class AccountListViewModel implements ViewInfoViewModelI<AccountModel> {
+public class AccountListViewModel implements ViewInfoViewModelI<CreateAccountFormModel> {
 
     @Override
-    public ObservableList<AccountModel> getTableData() {
+    public ObservableList<CreateAccountFormModel> getTableData() {
         return new AccountListModel().getAccounts();
     }
 

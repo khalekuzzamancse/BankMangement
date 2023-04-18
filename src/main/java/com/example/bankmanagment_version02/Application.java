@@ -5,7 +5,6 @@ import com.example.bankmanagment_version02.utils.Windows;
 import javafx.stage.Stage;
 
 public class Application extends javafx.application.Application {
-    HomogenousInputFieldFormLayout form;
 
     @Override
     public void start(Stage stage) {
@@ -14,7 +13,8 @@ public class Application extends javafx.application.Application {
 //        Windows.getInstance().accountListWindow().show();
         // new  LoginScreen().getWindow().show();
         //      new CreateAccountScreen().getWindow().show();
-        new CreateBoxScreen().getWindow().show();
+        //  new CreateBoxScreen().getWindow().show();
+        new SendMainScreen().getWindow().show();
 
     }
 

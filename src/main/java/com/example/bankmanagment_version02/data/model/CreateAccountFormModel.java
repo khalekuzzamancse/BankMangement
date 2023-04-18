@@ -1,9 +1,7 @@
 package com.example.bankmanagment_version02.data.model;
 
 
-import java.util.Objects;
-
-public class AccountModel {
+public class CreateAccountFormModel {
     private String name;
     private String email;
     private String phoneNo;
@@ -14,8 +12,8 @@ public class AccountModel {
     private double height;
     private double weight;
 
-    public AccountModel(String name, String email, String phoneNo, String address, String firm,
-                        String hairColor, String eyeColor, double height, double weight) {
+    public CreateAccountFormModel(String name, String email, String phoneNo, String address, String firm,
+                                  String hairColor, String eyeColor, double height, double weight) {
         this.name = name;
         this.email = email;
         this.phoneNo = phoneNo;
@@ -27,7 +25,7 @@ public class AccountModel {
         this.weight = weight;
     }
 
-    public AccountModel() {
+    public CreateAccountFormModel() {
     }
 
     public String getName() {

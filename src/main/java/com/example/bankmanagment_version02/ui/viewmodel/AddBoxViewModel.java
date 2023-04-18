@@ -1,11 +1,11 @@
 package com.example.bankmanagment_version02.ui.viewmodel;
 
-import com.example.bankmanagment_version02.data.model.AddBoxModel;
+import com.example.bankmanagment_version02.data.model.CreateBoxFormModel;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 public class AddBoxViewModel {
-    private final AddBoxModel model;
+    private final CreateBoxFormModel model;
     private final StringProperty serialNumberProperty;
     private final StringProperty heightProperty;
     private final StringProperty widthProperty;
@@ -13,7 +13,7 @@ public class AddBoxViewModel {
     private final StringProperty newPriceProperty;
 
     public AddBoxViewModel() {
-        this.model = new AddBoxModel();
+        this.model = new CreateBoxFormModel();
         this.serialNumberProperty = new SimpleStringProperty();
         this.heightProperty = new SimpleStringProperty();
         this.widthProperty = new SimpleStringProperty();

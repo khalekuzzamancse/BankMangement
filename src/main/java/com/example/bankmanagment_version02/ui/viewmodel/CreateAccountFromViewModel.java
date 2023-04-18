@@ -1,17 +1,17 @@
 package com.example.bankmanagment_version02.ui.viewmodel;
 
 import com.example.bankmanagment_version02.data.model.AccountModel;
-import com.example.bankmanagment_version02.data.model.LoginFormModel;
+import com.example.bankmanagment_version02.utils.Snackbar;
 
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
-public class AccountViewModel implements FormViewModel {
+public class CreateAccountFromViewModel implements FormViewModel {
     private final HashMap<String, String> formData;
     private AccountModel model;
 
-    public AccountViewModel() {
+    public CreateAccountFromViewModel() {
         formData = new HashMap<>();
         model=new AccountModel();
     }
@@ -44,6 +44,7 @@ public class AccountViewModel implements FormViewModel {
                 Double.parseDouble(formData.get("Height")),
                 Double.parseDouble(formData.get("Weight"))
                 );
+        Snackbar.show("Sucess");
         System.out.println(model);
     }
 }

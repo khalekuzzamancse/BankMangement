@@ -4,6 +4,7 @@ import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
 import javafx.geometry.Pos;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -11,13 +12,14 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
 
 public class Snackbar {
 
-    public static void show(String message, Node ownerNode) {
+    public static void show(String message) {
         Stage stage = new Stage();
         stage.initStyle(StageStyle.TRANSPARENT);
         Label label = new Label(message);
@@ -46,9 +48,10 @@ public class Snackbar {
         // set the scene's root to the stack pane
         scene.setRoot(root);
 
-        // set the position of the notification to be centered above the owner node
-        stage.setX(ownerNode.getScene().getWindow().getX() + ownerNode.getScene().getWindow().getWidth() / 2 - prefWidth / 2);
-        stage.setY(ownerNode.getScene().getWindow().getY() + ownerNode.getScene().getWindow().getHeight() / 2 - prefHeight / 2 - 50);
+        // set the position of the notification to be centered on the primary screen
+        Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
+        stage.setX(primaryScreenBounds.getMinX() + (primaryScreenBounds.getWidth() - prefWidth - 20) / 2);
+        stage.setY(primaryScreenBounds.getMinY() + (primaryScreenBounds.getHeight() - prefHeight - 20) / 2);
 
         stage.show();
 
@@ -67,6 +70,7 @@ public class Snackbar {
         timeline.setOnFinished(event -> stage.close());
         timeline.play();
     }
+
 }
 
 

@@ -32,6 +32,7 @@ public class LoginFormViewModel implements FormViewModel {
 
     public void onDone() {
         model=new LoginFormModel(formData.get("User Name"), formData.get("Password"));
+        Snackbar.show("Sucess");
         System.out.println(model);
     }
 }

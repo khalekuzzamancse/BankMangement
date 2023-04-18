@@ -2,6 +2,7 @@ package com.example.bankmanagment_version02.ui.screens;
 
 import com.example.bankmanagment_version02.ui.FormLayout;
 import com.example.bankmanagment_version02.ui.viewmodel.FormViewModel;
+import com.example.bankmanagment_version02.utils.LayoutUtil;
 import com.example.bankmanagment_version02.utils.Snackbar;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
@@ -53,7 +54,7 @@ public class HomogenousInputFieldFormLayout extends Pane {
         //
 
         positionChildren(this.getChildren().get(1), (formWidth - 60), formHeight, 60, 40);
-
+        LayoutUtil.alignCenter(this, getChildren());
     }
 
     private void positionChildren(Node child, double x, double y, double width, double height) {
@@ -61,5 +62,19 @@ public class HomogenousInputFieldFormLayout extends Pane {
         child.setLayoutY(y);
         child.resize(width, height);
     }
+    @Override
+    public void resize(double width, double height) {
+        double padding = 5;
+        double layoutHeight = 0;
+        double layoutWidth = 0;
+        for (Node child : getChildren()) {
+            layoutHeight = layoutHeight + child.getBoundsInParent().getHeight() + padding;
+            layoutWidth = Math.max(layoutWidth, child.getBoundsInParent().getWidth()) + padding;
+        }
+
+        super.resize(layoutWidth, layoutHeight); // set fixed width and height
+        LayoutUtil.alignCenter(this, getChildren());
+    }
+
 
 }

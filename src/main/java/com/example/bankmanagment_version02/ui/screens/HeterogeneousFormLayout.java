@@ -3,6 +3,7 @@ package com.example.bankmanagment_version02.ui.screens;
 import com.example.bankmanagment_version02.ui.DynamicSizeFromLayout;
 import com.example.bankmanagment_version02.ui.FormLayout;
 import com.example.bankmanagment_version02.ui.viewmodel.FormViewModel;
+import com.example.bankmanagment_version02.ui.viewmodel.HetarogenousFormVIewModel;
 import com.example.bankmanagment_version02.utils.LayoutUtil;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
@@ -10,11 +11,13 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 
+import java.util.Map;
+
 public class HeterogeneousFormLayout extends Pane {
-    private final FormViewModel viewModel;
+    private final HetarogenousFormVIewModel viewModel;
     private DynamicSizeFromLayout customLayout;
 
-    public HeterogeneousFormLayout(FormViewModel viewModel) {
+    public HeterogeneousFormLayout(HetarogenousFormVIewModel viewModel) {
         this.viewModel = viewModel;
         createView();
     }
@@ -27,6 +30,8 @@ public class HeterogeneousFormLayout extends Pane {
                     new TextField()
             );
         }
+       setSize();
+
         Button button = new Button(viewModel.getDoneButtonLabel());
         button.setOnAction(event -> {
 
@@ -44,17 +49,21 @@ public class HeterogeneousFormLayout extends Pane {
         this.getChildren().addAll(customLayout, button);
     }
 
-    public void setHeight(int childIndex, double height) {
-        customLayout.setInputFieldHeight(childIndex, height);
+    private void setSize() {
+        for (Map.Entry<Integer, Double> entry : viewModel.getInputFieldWidths().entrySet()) {
+            Integer childIndex = entry.getKey();
+            Double width = entry.getValue();
+            customLayout.setInputFieldWidth(childIndex,width);
+            System.out.println("Child " + childIndex + ": Width = " + width);
+        }
+        for (Map.Entry<Integer, Double> entry : viewModel.getInputFieldHeights().entrySet()) {
+            Integer childIndex = entry.getKey();
+            Double height = entry.getValue();
+            customLayout.setInputFieldHeight(childIndex,height);
+            System.out.println("Child " + childIndex + ": height = " + height);
+        }
     }
 
-    public void setWidth(int childIndex, double width) {
-        customLayout.setInputFieldWidth(childIndex, width);
-    }
-
-    public void setSize(int childIndex, double width, double height) {
-        customLayout.setInputFieldSize(childIndex, width, height);
-    }
 
     @Override
     protected void layoutChildren() {

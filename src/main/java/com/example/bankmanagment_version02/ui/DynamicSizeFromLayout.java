@@ -114,6 +114,7 @@ public class DynamicSizeFromLayout extends Pane {
     }
 
     public void setInputFieldWidth(int index, double width) {
+        System.out.println("called"+index+","+width);
         initializeChildrenSize();
         sizes.put(index, new Size(width, sizes.get(index).getHeight()));
         layoutChildren();

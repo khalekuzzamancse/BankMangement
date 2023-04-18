@@ -2,16 +2,17 @@ package com.example.bankmanagment_version02.ui.screens;
 
 import com.example.bankmanagment_version02.ui.FormLayout;
 import com.example.bankmanagment_version02.ui.viewmodel.FormViewModel;
+import com.example.bankmanagment_version02.utils.Snackbar;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 
-public class HomogenousInputFieldForm extends Pane {
+public class HomogenousInputFieldFormLayout extends Pane {
     private final FormViewModel viewModel;
 
-    public HomogenousInputFieldForm(FormViewModel viewModel) {
+    public HomogenousInputFieldFormLayout(FormViewModel viewModel) {
         this.viewModel = viewModel;
         createView();
     }
@@ -35,6 +36,7 @@ public class HomogenousInputFieldForm extends Pane {
                 }
             }
             viewModel.onDone();
+
 
         });
         this.getChildren().addAll(customLayout, button);

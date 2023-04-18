@@ -1,6 +1,6 @@
 package com.example.bankmanagment_version02.utils;
 
-import com.example.bankmanagment_version02.ui.screens.HomogenousInputFieldForm;
+import com.example.bankmanagment_version02.ui.screens.HomogenousInputFieldFormLayout;
 import com.example.bankmanagment_version02.ui.screens.ViewScreen;
 import com.example.bankmanagment_version02.ui.viewmodel.AccountListViewModel;
 import com.example.bankmanagment_version02.ui.viewmodel.BoxListViewModel;
@@ -35,10 +35,7 @@ public class Windows {
         return getWindow(new ViewScreen<>(new AccountListViewModel()), "Account List", 800, 300);
     }
 
-    public Stage genericFormWindow() {
-        return getWindow(
-                new HomogenousInputFieldForm(new LoginFormViewModel()), "Account List", 500, 400);
-    }
+
 
     public void setWindowSize(Stage window, int width, int height) {
         window.setMinWidth(width);

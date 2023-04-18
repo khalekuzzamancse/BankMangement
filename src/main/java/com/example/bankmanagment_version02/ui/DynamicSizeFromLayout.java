@@ -41,7 +41,7 @@ public class DynamicSizeFromLayout extends Pane {
         double labelWidth = labelMaxWidth;
         double labelHeight = labelMaxHeight;
         //
-        double inputFieldHeight = labelHeight + 10;
+        double inputFieldHeight = labelHeight +15;
         double inputFieldWidth = 2 * labelWidth;
 
         //
@@ -114,7 +114,6 @@ public class DynamicSizeFromLayout extends Pane {
     }
 
     public void setInputFieldWidth(int index, double width) {
-        System.out.println("called"+index+","+width);
         initializeChildrenSize();
         sizes.put(index, new Size(width, sizes.get(index).getHeight()));
         layoutChildren();
@@ -128,8 +127,8 @@ public class DynamicSizeFromLayout extends Pane {
 
     private void initializeChildrenSize() {
 
-        double inputFieldWidth = 3 * labelMaxWidth;
-        double extra = 10.0;
+        double inputFieldWidth =4 * labelMaxWidth;
+        double extra = 15.0;
         double inputFieldHeight = labelMaxHeight + extra;
 
         for (int i = 0; i < getChildren().size(); i++) {

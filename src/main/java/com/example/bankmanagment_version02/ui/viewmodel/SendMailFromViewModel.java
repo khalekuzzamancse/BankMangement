@@ -3,9 +3,7 @@ package com.example.bankmanagment_version02.ui.viewmodel;
 import com.example.bankmanagment_version02.data.model.CreateBoxFormModel;
 import com.example.bankmanagment_version02.utils.Snackbar;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 public class SendMailFromViewModel implements HetarogenousFormVIewModel {
     private final HashMap<String, String> formData;
@@ -23,7 +21,7 @@ public class SendMailFromViewModel implements HetarogenousFormVIewModel {
 
     @Override
     public List<String> getLabelList() {
-        return Arrays.asList("User ID", "Subject", "Message");
+        return new ArrayList<>();
     }
 
     @Override
@@ -51,5 +49,14 @@ public class SendMailFromViewModel implements HetarogenousFormVIewModel {
     @Override
     public HashMap<Integer, Double> getInputFieldHeights() {
         return inputFieldHeights;
+    }
+
+    @Override
+    public LinkedHashMap<String, InputFieldType> labelList() {
+        LinkedHashMap<String, InputFieldType> labels = new LinkedHashMap<>();
+        labels.put("User ID", InputFieldType.TextField);
+        labels.put("Subject", InputFieldType.TextField);
+        labels.put("Message", InputFieldType.TextArea);
+        return labels;
     }
 }

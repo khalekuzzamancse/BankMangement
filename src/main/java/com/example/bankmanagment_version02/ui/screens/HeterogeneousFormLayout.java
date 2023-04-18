@@ -4,13 +4,16 @@ import com.example.bankmanagment_version02.ui.DynamicSizeFromLayout;
 import com.example.bankmanagment_version02.ui.FormLayout;
 import com.example.bankmanagment_version02.ui.viewmodel.FormViewModel;
 import com.example.bankmanagment_version02.ui.viewmodel.HetarogenousFormVIewModel;
+import com.example.bankmanagment_version02.ui.viewmodel.InputFieldType;
 import com.example.bankmanagment_version02.utils.LayoutUtil;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class HeterogeneousFormLayout extends Pane {
@@ -24,19 +27,34 @@ public class HeterogeneousFormLayout extends Pane {
 
     private void createView() {
         customLayout = new DynamicSizeFromLayout();
-        for (String label : viewModel.getLabelList()) {
-            customLayout.getChildren().addAll(
-                    new Label(label),
-                    new TextField()
-            );
+        for (Map.Entry<String, InputFieldType> entry : viewModel.labelList().entrySet()) {
+            String labelText = entry.getKey();
+            InputFieldType fieldType = entry.getValue();
+            Label label = new Label(labelText);
+            Node inputField;
+            if (fieldType == InputFieldType.TextField) {
+                inputField = new TextField();
+            } else {
+                TextArea textArea = new TextArea();
+                textArea.setWrapText(true);
+                textArea.setStyle("-fx-font-size: 14; -fx-alignment: center;");
+                inputField = textArea;
+
+            }
+            customLayout.getChildren().addAll(label, inputField);
         }
-       setSize();
+        setSize();
 
         Button button = new Button(viewModel.getDoneButtonLabel());
         button.setOnAction(event -> {
 
             for (int i = 1; i < customLayout.getChildren().size(); i = i + 2) {
-                if (customLayout.getChildren().get(i) instanceof TextField) {
+                if (customLayout.getChildren().get(i) instanceof TextArea) {
+                    String input = ((TextArea) customLayout.getChildren().get(i)).getText();
+                    String label = ((Label) customLayout.getChildren().get(i - 1)).getText();
+                    viewModel.saveFormData().put(label, input);
+                }
+                else {
                     String input = ((TextField) customLayout.getChildren().get(i)).getText();
                     String label = ((Label) customLayout.getChildren().get(i - 1)).getText();
                     viewModel.saveFormData().put(label, input);
@@ -53,14 +71,12 @@ public class HeterogeneousFormLayout extends Pane {
         for (Map.Entry<Integer, Double> entry : viewModel.getInputFieldWidths().entrySet()) {
             Integer childIndex = entry.getKey();
             Double width = entry.getValue();
-            customLayout.setInputFieldWidth(childIndex,width);
-            System.out.println("Child " + childIndex + ": Width = " + width);
+            customLayout.setInputFieldWidth(childIndex, width);
         }
         for (Map.Entry<Integer, Double> entry : viewModel.getInputFieldHeights().entrySet()) {
             Integer childIndex = entry.getKey();
             Double height = entry.getValue();
-            customLayout.setInputFieldHeight(childIndex,height);
-            System.out.println("Child " + childIndex + ": height = " + height);
+            customLayout.setInputFieldHeight(childIndex, height);
         }
     }
 

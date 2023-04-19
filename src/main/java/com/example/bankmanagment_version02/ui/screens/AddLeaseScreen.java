@@ -14,20 +14,18 @@ import library.CommonFormLayout;
 import library.CustomAction;
 import library.DynamicSizeFromLayout;
 
-public class LeaseScreen {
+public class AddLeaseScreen {
     private final Stage window;
     private final AddLeaseFormViewModel viewModel;
     private final Button submitButton;
 
 
-    public LeaseScreen() {
+    public AddLeaseScreen() {
         submitButton = new Button("Submit");
         viewModel = new AddLeaseFormViewModel();
         CommonFormLayout leaseForm = new CommonFormLayout(
                 viewModel.getLabelList(),
-                submitAction,
-                viewModel.getInputFieldWidths(),
-                viewModel.getInputFieldHeights()
+                submitAction
         );
         window = new Window(leaseForm, "Rent Screen", 500, 600).getWindow();
     }

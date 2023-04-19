@@ -27,9 +27,7 @@ public class AddBoxScreen {
         viewModel = new AddBoxViewModel();
         CommonFormLayout leaseForm = new CommonFormLayout(
                 viewModel.getLabelList(),
-                submitAction,
-                viewModel.getInputFieldWidths(),
-                viewModel.getInputFieldHeights()
+                submitAction
         );
         window = new Window(leaseForm, "Add Box Screen", 500, 600).getWindow();
     }

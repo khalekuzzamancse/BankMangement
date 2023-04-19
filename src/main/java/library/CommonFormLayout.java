@@ -6,6 +6,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import library.inputype.InputField;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class CommonFormLayout extends Pane {
@@ -23,8 +24,13 @@ public class CommonFormLayout extends Pane {
             Map<String, Double> inputFieldWidths,
             Map<String, Double> inputFieldHeights
     ) {
-        //    this.viewModel = viewModel;
         createView(labelList, done,inputFieldWidths,inputFieldHeights);
+    }
+    public CommonFormLayout(
+            Map<String, InputField> labelList,
+            CustomAction done
+    ) {
+        createView(labelList, done,new HashMap<>(),new HashMap<>());
     }
 
     private void createView(

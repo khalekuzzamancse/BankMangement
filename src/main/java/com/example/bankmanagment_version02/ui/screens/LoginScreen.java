@@ -24,9 +24,7 @@ public class LoginScreen {
         viewModel = new LoginViewModel();
         CommonFormLayout leaseForm = new CommonFormLayout(
                 viewModel.getLabelList(),
-                submitAction,
-                viewModel.getInputFieldWidths(),
-                viewModel.getInputFieldHeights()
+                submitAction
         );
         window = new Window(leaseForm, "Login Screen", 500, 600).getWindow();
     }

@@ -11,20 +11,18 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-public class NewAccountScreen {
+public class AddAccountScreen {
     private final Stage window;
     private final AddAccountFormViewModel viewModel;
     private final Button submitButton;
 
 
-    public NewAccountScreen() {
+    public AddAccountScreen() {
         submitButton = new Button("Submit");
         viewModel = new AddAccountFormViewModel();
         CommonFormLayout leaseForm = new CommonFormLayout(
                 viewModel.getLabelList(),
-                submitAction,
-                viewModel.getInputFieldWidths(),
-                viewModel.getInputFieldHeights()
+                submitAction
         );
         window = new Window(leaseForm, "New Account Screen", 500, 700).getWindow();
     }

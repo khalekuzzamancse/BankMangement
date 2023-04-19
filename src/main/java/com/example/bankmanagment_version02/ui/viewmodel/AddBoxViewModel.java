@@ -1,77 +1,70 @@
 package com.example.bankmanagment_version02.ui.viewmodel;
 
-import com.example.bankmanagment_version02.data.model.CreateBoxFormModel;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
+import com.example.bankmanagment_version02.utils.Snackbar;
+import library.CommonFormViewModel;
+import library.inputype.InputField;
+import library.inputype.TextFieldInputField;
 
-public class AddBoxViewModel {
-    private final CreateBoxFormModel model;
-    private final StringProperty serialNumberProperty;
-    private final StringProperty heightProperty;
-    private final StringProperty widthProperty;
-    private final StringProperty oldPriceProperty;
-    private final StringProperty newPriceProperty;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+
+public class AddBoxViewModel implements CommonFormViewModel {
+    private final HashMap<String, Object> formData;
+    private final HashMap<String, Double> inputFieldWidths;
+    private final HashMap<String, Double> inputFieldHeights;
+    private static final Labels labels = new LabelsImpl();
 
     public AddBoxViewModel() {
-        this.model = new CreateBoxFormModel();
-        this.serialNumberProperty = new SimpleStringProperty();
-        this.heightProperty = new SimpleStringProperty();
-        this.widthProperty = new SimpleStringProperty();
-        this.oldPriceProperty = new SimpleStringProperty();
-        this.newPriceProperty = new SimpleStringProperty();
+        formData = new HashMap<>();
+        inputFieldWidths = new HashMap<>();
+        inputFieldHeights = new HashMap<>();
+
     }
 
-    public void setSerialNumber(String serialNumber) {
-        this.serialNumberProperty.set(serialNumber);
-        model.setSerialNumber(serialNumber);
+    @Override
+    public HashMap<String, Object> saveFormData() {
+        return formData;
     }
 
-    public void setHeight(String height) {
-        this.heightProperty.set(height);
-        model.setHeight(Double.parseDouble(height));
+    @Override
+    public void onDone() {
+        Snackbar.show("Success");
+        System.out.println("Form Data:" + formData);
     }
 
-    public void setWidth(String width) {
-        this.widthProperty.set(width);
-        model.setWidth(Double.parseDouble(width));
+    @Override
+    public HashMap<String, Double> getInputFieldWidths() {
+        return inputFieldWidths;
     }
 
-    public void setOldPrice(String oldPrice) {
-        this.oldPriceProperty.set(oldPrice);
-        model.setOldPrice(Double.parseDouble(oldPrice));
+    @Override
+    public HashMap<String, Double> getInputFieldHeights() {
+        return inputFieldHeights;
     }
 
-    public void setNewPrice(String newPrice) {
-        this.newPriceProperty.set(newPrice);
-        model.setNewPrice(Double.parseDouble(newPrice));
-    }
-
-    public StringProperty serialNumberProperty() {
-        return serialNumberProperty;
-    }
-
-    public StringProperty heightProperty() {
-        return heightProperty;
-    }
-
-    public StringProperty widthProperty() {
-        return widthProperty;
-    }
-
-    public StringProperty oldPriceProperty() {
-        return oldPriceProperty;
-    }
-
-    public StringProperty newPriceProperty() {
-        return newPriceProperty;
-    }
-    public void addBox() {
-        // Save the account to the database or perform some other action
-        System.out.println(model);
-    }
-    public boolean isValidBox() {
-        return model.isValidBox();
+    @Override
+    public LinkedHashMap<String, InputField> getLabelList() {
+        LinkedHashMap<String, InputField> labelMap = new LinkedHashMap<>();
+        labelMap.put(labels.SERIAL_NO, new TextFieldInputField());
+        labelMap.put(labels.WIDTH, new TextFieldInputField());
+        labelMap.put(labels.HEIGHT, new TextFieldInputField());
+        labelMap.put(labels.OLD_PRICE, new TextFieldInputField());
+        labelMap.put(labels.NEW_PRICE, new TextFieldInputField());
+        return labelMap;
     }
 
 
+    //We want to re-use the label name
+    //that is why we declare a  separate inner class
+
+    private interface Labels {
+        String SERIAL_NO = "Serial Number";
+        String HEIGHT = "Height";
+        String WIDTH = "Width";
+        String OLD_PRICE = "Old Price";
+        String NEW_PRICE = "New Price";
+    }
+
+    private static class LabelsImpl implements Labels {
+    }
 }

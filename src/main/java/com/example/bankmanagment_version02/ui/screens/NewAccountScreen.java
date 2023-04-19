@@ -3,7 +3,7 @@ package com.example.bankmanagment_version02.ui.screens;
 import library.CommonFormLayout;
 import library.CustomAction;
 import library.DynamicSizeFromLayout;
-import com.example.bankmanagment_version02.ui.viewmodel.NewAccountFormViewModel;
+import com.example.bankmanagment_version02.ui.viewmodel.AddAccountFormViewModel;
 import com.example.bankmanagment_version02.utils.Window;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
@@ -13,13 +13,13 @@ import javafx.stage.Stage;
 
 public class NewAccountScreen {
     private final Stage window;
-    private final NewAccountFormViewModel viewModel;
+    private final AddAccountFormViewModel viewModel;
     private final Button submitButton;
 
 
     public NewAccountScreen() {
         submitButton = new Button("Submit");
-        viewModel = new NewAccountFormViewModel();
+        viewModel = new AddAccountFormViewModel();
         CommonFormLayout leaseForm = new CommonFormLayout(
                 viewModel.getLabelList(),
                 submitAction,

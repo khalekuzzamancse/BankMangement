@@ -1,27 +1,28 @@
 package com.example.bankmanagment_version02.ui.viewmodel;
 
 import library.CommonFormViewModel;
-import library.inputype.ImageInputField;
 import library.inputype.InputField;
 import library.inputype.TextFieldInputField;
 import com.example.bankmanagment_version02.utils.Snackbar;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
 
-public class LeaseFormViewModel implements CommonFormViewModel {
+public class AddAccountFormViewModel implements CommonFormViewModel {
     private final HashMap<String, Object> formData;
     private final HashMap<String, Double> inputFieldWidths;
     private final HashMap<String, Double> inputFieldHeights;
     private static final Labels labels = new LabelsImpl();
 
-    public LeaseFormViewModel() {
+    public AddAccountFormViewModel() {
         formData = new HashMap<>();
         inputFieldWidths = new HashMap<>();
         inputFieldHeights = new HashMap<>();
         //
-      //   inputFieldHeights.put(labels.DEPUTY_NAME, 100.0);
+        //   inputFieldHeights.put(labels.DEPUTY_NAME, 100.0);
 
     }
+
     @Override
     public HashMap<String, Object> saveFormData() {
         return formData;
@@ -30,7 +31,7 @@ public class LeaseFormViewModel implements CommonFormViewModel {
     @Override
     public void onDone() {
         Snackbar.show("Success");
-        System.out.println("Form Data:"+formData);
+        System.out.println("Form Data:" + formData);
     }
 
     @Override
@@ -46,15 +47,15 @@ public class LeaseFormViewModel implements CommonFormViewModel {
     @Override
     public LinkedHashMap<String, InputField> getLabelList() {
         LinkedHashMap<String, InputField> labelMap = new LinkedHashMap<>();
-        labelMap.put(labels.ACCOUNT_NO, new TextFieldInputField());
-        labelMap.put(labels.BOX_TYPE, new TextFieldInputField());
-        labelMap.put(labels.DURATION_MONTH, new TextFieldInputField());
-        labelMap.put(labels.DEPUTY_NAME, new TextFieldInputField());
-        labelMap.put(labels.DEPUTY_PHONE_NO, new TextFieldInputField());
-        labelMap.put(labels.DEPUTY_ADDRESS, new TextFieldInputField());
-        labelMap.put(labels.CUSTOMER_SIGNATURE, new ImageInputField());
-        labelMap.put(labels.DEPUTY_SIGNATURE, new ImageInputField());
-        labelMap.put(labels.ATTENDEE_SIGNATURE, new ImageInputField());
+        labelMap.put(labels.NAME, new TextFieldInputField());
+        labelMap.put(labels.EMAIL, new TextFieldInputField());
+        labelMap.put(labels.PHONE_NO, new TextFieldInputField());
+        labelMap.put(labels.ADDRESS, new TextFieldInputField());
+        labelMap.put(labels.FIRM, new TextFieldInputField());
+        labelMap.put(labels.HAIR_COLOR, new TextFieldInputField());
+        labelMap.put(labels.EYE_COLOR, new TextFieldInputField());
+        labelMap.put(labels.HEIGHT, new TextFieldInputField());
+        labelMap.put(labels.WEIGHT, new TextFieldInputField());
         return labelMap;
     }
 
@@ -63,15 +64,15 @@ public class LeaseFormViewModel implements CommonFormViewModel {
     //that is why we declare a  separate inner class
 
     private interface Labels {
-        String ACCOUNT_NO = "Account No";
-        String BOX_TYPE = "Box Type";
-        String DURATION_MONTH = "Duration(Month)";
-        String DEPUTY_NAME = "Deputy Name";
-        String DEPUTY_PHONE_NO = "Deputy Phone No";
-        String DEPUTY_ADDRESS = "Deputy Address";
-        String CUSTOMER_SIGNATURE = "Customer Signature";
-        String DEPUTY_SIGNATURE = "Deputy Signature";
-        String ATTENDEE_SIGNATURE = "Attendee Signature";
+        String NAME = "Name";
+        String EMAIL = "Email";
+        String PHONE_NO = "Phone Number";
+        String ADDRESS = "Address";
+        String FIRM = "Firm";
+        String HAIR_COLOR = "Hair Color";
+        String EYE_COLOR = "Eye Color";
+        String HEIGHT = "Height";
+        String WEIGHT = "Weight";
     }
 
     private static class LabelsImpl implements Labels {

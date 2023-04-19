@@ -1,6 +1,6 @@
 package com.example.bankmanagment_version02.ui.screens;
 
-import com.example.bankmanagment_version02.ui.viewmodel.LeaseFormViewModel;
+import com.example.bankmanagment_version02.ui.viewmodel.AddLeaseFormViewModel;
 import com.example.bankmanagment_version02.utils.Window;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
@@ -16,13 +16,13 @@ import library.DynamicSizeFromLayout;
 
 public class LeaseScreen {
     private final Stage window;
-    private final LeaseFormViewModel viewModel;
+    private final AddLeaseFormViewModel viewModel;
     private final Button submitButton;
 
 
     public LeaseScreen() {
         submitButton = new Button("Submit");
-        viewModel = new LeaseFormViewModel();
+        viewModel = new AddLeaseFormViewModel();
         CommonFormLayout leaseForm = new CommonFormLayout(
                 viewModel.getLabelList(),
                 submitAction,

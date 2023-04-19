@@ -17,43 +17,52 @@ import java.io.File;
 import java.util.Map;
 
 public class CommonFormLayout extends Pane {
-    //this class is going to follow the open-close priciple
+    //this class is going to follow the open-close principle
     //as a result when new input type is added we don't  need
-    //to add  an extra if-else branch
-    //and also we do not  need to modify this class
+    //to add  an extra if-else branch ,
+    // and also we do not  need to modify this class
     //when a new InputType filed added
-    private final CommonFormViewModel viewModel;
+//    private final CommonFormViewModel viewModel;
     private DynamicSizeFromLayout customLayout;
 
-    public CommonFormLayout(CommonFormViewModel viewModel) {
-        this.viewModel = viewModel;
-        createView();
+    public CommonFormLayout(
+            Map<String, InputField> labelList,
+            CustomAction done,
+            Map<String, Double> inputFieldWidths,
+            Map<String, Double> inputFieldHeights
+    ) {
+        //    this.viewModel = viewModel;
+        createView(labelList, done,inputFieldWidths,inputFieldHeights);
     }
 
-    private void createView() {
+    private void createView(
+            Map<String, InputField> labelList,
+            CustomAction done,
+            Map<String, Double> inputFieldWidths,
+            Map<String, Double> inputFieldHeights
+    ){
         customLayout = new DynamicSizeFromLayout();
-        for (Map.Entry<String, InputField> entry : viewModel.labelList().entrySet()) {
+        for (Map.Entry<String, InputField> entry : labelList.entrySet()) {
             String labelText = entry.getKey();
             InputField fieldType = entry.getValue();
             Label label = new Label(labelText);
             Node inputField = fieldType.getInputField();
             customLayout.getChildren().addAll(label, inputField);
         }
-        setSize();
-//        Button button = createDoneButton();
-        CustomAction action = new DoneButton("Okay");
-        action.setListener(customLayout);
-        this.getChildren().addAll(customLayout, action.getButton());
+        setSize(inputFieldWidths,inputFieldHeights);
+        done.setListener(customLayout);
+        Node button = done.getButton();
+        this.getChildren().addAll(customLayout, button);
     }
 
 
-    private void setSize() {
-        for (Map.Entry<String, Double> entry : viewModel.getInputFieldWidths().entrySet()) {
+    private void setSize(Map<String, Double> inputFieldWidths, Map<String, Double> inputFieldHeights) {
+        for (Map.Entry<String, Double> entry : inputFieldWidths.entrySet()) {
             String labelName = entry.getKey();
             Double width = entry.getValue();
             customLayout.setInputFieldWidth(labelName, width);
         }
-        for (Map.Entry<String, Double> entry : viewModel.getInputFieldHeights().entrySet()) {
+        for (Map.Entry<String, Double> entry : inputFieldHeights.entrySet()) {
             String labelName = entry.getKey();
             Double height = entry.getValue();
             customLayout.setInputFieldHeight(labelName, height);

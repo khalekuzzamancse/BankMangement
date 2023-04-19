@@ -20,7 +20,7 @@ public class LeaseFormViewModel implements CommonFormViewModel {
         inputFieldWidths = new HashMap<>();
         inputFieldHeights = new HashMap<>();
         //
-        //  inputFieldHeights.put(labels.DEPUTY_NAME,100.0);
+        // inputFieldHeights.put(labels.DEPUTY_NAME, 100.0);
 
     }
 
@@ -54,7 +54,7 @@ public class LeaseFormViewModel implements CommonFormViewModel {
     }
 
     @Override
-    public LinkedHashMap<String, InputField> labelList() {
+    public LinkedHashMap<String, InputField> getLabelList() {
         LinkedHashMap<String, InputField> labelMap = new LinkedHashMap<>();
         labelMap.put(labels.ACCOUNT_NO, new TextFieldInputField());
         labelMap.put(labels.BOX_TYPE, new TextFieldInputField());

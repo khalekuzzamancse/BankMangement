@@ -14,7 +14,7 @@ public interface CommonFormViewModel {
 
     HashMap<String, Double> getInputFieldHeights();
 
-    LinkedHashMap<String, InputField> labelList();
+    LinkedHashMap<String, InputField> getLabelList();
 }
 
 

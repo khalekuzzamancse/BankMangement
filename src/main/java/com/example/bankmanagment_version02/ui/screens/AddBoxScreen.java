@@ -1,34 +1,37 @@
 package com.example.bankmanagment_version02.ui.screens;
 
 import com.example.bankmanagment_version02.ui.viewmodel.AddBoxViewModel;
-import com.example.bankmanagment_version02.ui.viewmodel.LoginViewModel;
+import com.example.bankmanagment_version02.ui.viewmodel.AddLeaseFormViewModel;
 import com.example.bankmanagment_version02.utils.Window;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import library.CommonFormLayout;
 import library.CommonFormViewModel;
 import library.CustomAction;
 import library.DynamicSizeFromLayout;
 
-public class LoginScreen {
+public class AddBoxScreen {
     private final Stage window;
     private final CommonFormViewModel viewModel;
     private final Button submitButton;
 
 
-    public LoginScreen() {
-        submitButton = new Button("Login");
-        viewModel = new LoginViewModel();
+    public AddBoxScreen() {
+        submitButton = new Button("Submit");
+        viewModel = new AddBoxViewModel();
         CommonFormLayout leaseForm = new CommonFormLayout(
                 viewModel.getLabelList(),
                 submitAction,
                 viewModel.getInputFieldWidths(),
                 viewModel.getInputFieldHeights()
         );
-        window = new Window(leaseForm, "Login Screen", 500, 600).getWindow();
+        window = new Window(leaseForm, "Add Box Screen", 500, 600).getWindow();
     }
 
     public Stage getWindow() {

@@ -1,4 +1,4 @@
-package com.example.bankmanagment_version02.ui.screens;
+package library;
 
 import library.CustomTable;
 import library.ViewInfoViewModelI;

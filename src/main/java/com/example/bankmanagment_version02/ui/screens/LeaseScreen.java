@@ -1,5 +1,6 @@
 package com.example.bankmanagment_version02.ui.screens;
 
+import com.example.bankmanagment_version02.ui.customlayouts.CommonFormLayout;
 import com.example.bankmanagment_version02.ui.customlayouts.HeterogeneousFormLayout;
 import com.example.bankmanagment_version02.ui.viewmodel.LeaseFormViewModel;
 import com.example.bankmanagment_version02.utils.StageFactory;
@@ -9,7 +10,7 @@ public class LeaseScreen {
     private final Stage window;
 
     public LeaseScreen() {
-        HeterogeneousFormLayout layout = new HeterogeneousFormLayout(new LeaseFormViewModel());
+        CommonFormLayout layout = new CommonFormLayout(new LeaseFormViewModel());
         String title = "Rent Screen";
         int width = 500;
         int height = 600;

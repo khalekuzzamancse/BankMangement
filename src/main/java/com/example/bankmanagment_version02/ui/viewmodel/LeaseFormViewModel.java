@@ -1,10 +1,14 @@
 package com.example.bankmanagment_version02.ui.viewmodel;
 
+import com.example.bankmanagment_version02.ui.customlayouts.CommonFormViewModel;
+import com.example.bankmanagment_version02.ui.customlayouts.ImageInputField;
+import com.example.bankmanagment_version02.ui.customlayouts.InputField;
+import com.example.bankmanagment_version02.ui.customlayouts.TextFieldInputField;
 import com.example.bankmanagment_version02.utils.Snackbar;
 
 import java.util.*;
 
-public class LeaseFormViewModel implements HetarogenousFormVIewModel {
+public class LeaseFormViewModel implements CommonFormViewModel {
     private final HashMap<String, Object> formData;
     private final HashMap<String, Double> inputFieldWidths;
     private final HashMap<String, Double> inputFieldHeights;
@@ -50,17 +54,17 @@ public class LeaseFormViewModel implements HetarogenousFormVIewModel {
     }
 
     @Override
-    public LinkedHashMap<String, InputFieldType> labelList() {
-        LinkedHashMap<String, InputFieldType> labelMap = new LinkedHashMap<>();
-        labelMap.put(labels.ACCOUNT_NO, InputFieldType.TextField);
-        labelMap.put(labels.BOX_TYPE, InputFieldType.TextField);
-        labelMap.put(labels.DURATION_MONTH, InputFieldType.TextField);
-        labelMap.put(labels.DEPUTY_NAME, InputFieldType.TextField);
-        labelMap.put(labels.DEPUTY_PHONE_NO, InputFieldType.TextField);
-        labelMap.put(labels.DEPUTY_ADDRESS, InputFieldType.TextField);
-        labelMap.put(labels.CUSTOMER_SIGNATURE, InputFieldType.ImageView);
-        labelMap.put(labels.DEPUTY_SIGNATURE, InputFieldType.ImageView);
-        labelMap.put(labels.ATTENDEE_SIGNATURE, InputFieldType.ImageView);
+    public LinkedHashMap<String, InputField> labelList() {
+        LinkedHashMap<String, InputField> labelMap = new LinkedHashMap<>();
+        labelMap.put(labels.ACCOUNT_NO, new TextFieldInputField());
+        labelMap.put(labels.BOX_TYPE, new TextFieldInputField());
+        labelMap.put(labels.DURATION_MONTH, new TextFieldInputField());
+        labelMap.put(labels.DEPUTY_NAME, new TextFieldInputField());
+        labelMap.put(labels.DEPUTY_PHONE_NO, new TextFieldInputField());
+        labelMap.put(labels.DEPUTY_ADDRESS, new TextFieldInputField());
+        labelMap.put(labels.CUSTOMER_SIGNATURE, new ImageInputField());
+        labelMap.put(labels.DEPUTY_SIGNATURE, new ImageInputField());
+        labelMap.put(labels.ATTENDEE_SIGNATURE, new ImageInputField());
         return labelMap;
     }
 

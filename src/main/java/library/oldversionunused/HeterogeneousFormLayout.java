@@ -18,10 +18,10 @@ import java.io.File;
 import java.util.Map;
 
 public class HeterogeneousFormLayout extends Pane {
-    private final HeterogenousFormVIewModel viewModel;
+    private final UNUSED_HeterogenousFormVIewModel viewModel;
     private DynamicSizeFromLayout customLayout;
 
-    public HeterogeneousFormLayout(HeterogenousFormVIewModel viewModel) {
+    public HeterogeneousFormLayout(UNUSED_HeterogenousFormVIewModel viewModel) {
         this.viewModel = viewModel;
         createView();
     }

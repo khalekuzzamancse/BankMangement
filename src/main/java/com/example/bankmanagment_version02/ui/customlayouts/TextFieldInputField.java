@@ -10,7 +10,7 @@ import javafx.stage.FileChooser;
 import java.io.File;
 
 public class TextFieldInputField implements InputField {
-    private TextField textField;
+    private final TextField textField;
 
     public TextFieldInputField() {
         textField = new TextField();

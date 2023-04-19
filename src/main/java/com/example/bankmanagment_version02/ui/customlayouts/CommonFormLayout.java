@@ -40,33 +40,12 @@ public class CommonFormLayout extends Pane {
             customLayout.getChildren().addAll(label, inputField);
         }
         setSize();
-        Button button = createDoneButton();
-        this.getChildren().addAll(customLayout, button);
+//        Button button = createDoneButton();
+        CustomAction action = new DoneButton("Okay");
+        action.setListener(customLayout);
+        this.getChildren().addAll(customLayout, action.getButton());
     }
 
-
-    private Button createDoneButton() {
-        Button button = new Button(viewModel.getDoneButtonLabel());
-        button.setOnAction(event -> {
-            for (int i = 1; i < customLayout.getChildren().size(); i = i + 2) {
-                String label = ((Label) customLayout.getChildren().get(i - 1)).getText();
-                if (customLayout.getChildren().get(i) instanceof TextArea) {
-                    String input = ((TextArea) customLayout.getChildren().get(i)).getText();
-                    viewModel.saveFormData().put(label, input);
-                } else if (customLayout.getChildren().get(i) instanceof TextField) {
-                    String input = ((TextField) customLayout.getChildren().get(i)).getText();
-                    viewModel.saveFormData().put(label, input);
-                } else if (customLayout.getChildren().get(i) instanceof ImageView) {
-
-                    Image image = ((ImageView) customLayout.getChildren().get(i)).getImage();
-                    viewModel.saveFormData().put(label, image);
-                }
-            }
-            viewModel.onDone();
-
-        });
-        return button;
-    }
 
     private void setSize() {
         for (Map.Entry<String, Double> entry : viewModel.getInputFieldWidths().entrySet()) {

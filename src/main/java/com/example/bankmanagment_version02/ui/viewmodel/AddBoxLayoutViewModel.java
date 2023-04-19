@@ -1,17 +1,18 @@
 package com.example.bankmanagment_version02.ui.viewmodel;
 
 import com.example.bankmanagment_version02.utils.Snackbar;
-import library.CommonFormViewModel;
-import library.inputype.*;
+import library.CommonFormLayoutViewModel;
+import library.inputype.InputField;
+import library.inputype.TextFieldInputField;
 
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 
-public class SendEmailViewModel implements CommonFormViewModel {
+public class AddBoxLayoutViewModel implements CommonFormLayoutViewModel {
     private final HashMap<String, Object> formData;
     private static final Labels labels = new LabelsImpl();
 
-    public SendEmailViewModel() {
+    public AddBoxLayoutViewModel() {
         formData = new HashMap<>();
 
 
@@ -28,13 +29,14 @@ public class SendEmailViewModel implements CommonFormViewModel {
         System.out.println("Form Data:" + formData);
     }
 
-
     @Override
     public LinkedHashMap<String, InputField> getLabelList() {
         LinkedHashMap<String, InputField> labelMap = new LinkedHashMap<>();
-        labelMap.put(labels.ACCOUNT_NO, FormInputField.getInstance().getTextInputField());
-        labelMap.put(labels.SUBJECT, FormInputField.getInstance().getTextInputField());
-        labelMap.put(labels.MESSAGE, FormInputField.getInstance().getTextAreaInputField(200,100));
+        labelMap.put(labels.SERIAL_NO, new TextFieldInputField());
+        labelMap.put(labels.WIDTH, new TextFieldInputField());
+        labelMap.put(labels.HEIGHT, new TextFieldInputField());
+        labelMap.put(labels.OLD_PRICE, new TextFieldInputField());
+        labelMap.put(labels.NEW_PRICE, new TextFieldInputField());
         return labelMap;
     }
 
@@ -43,9 +45,11 @@ public class SendEmailViewModel implements CommonFormViewModel {
     //that is why we declare a  separate inner class
 
     private interface Labels {
-        String ACCOUNT_NO = "Account No";
-        String SUBJECT = "Subject";
-        String MESSAGE = "Message";
+        String SERIAL_NO = "Serial Number";
+        String HEIGHT = "Height";
+        String WIDTH = "Width";
+        String OLD_PRICE = "Old Price";
+        String NEW_PRICE = "New Price";
     }
 
     private static class LabelsImpl implements Labels {

@@ -1,6 +1,6 @@
 package com.example.bankmanagment_version02.ui.screens;
 
-import com.example.bankmanagment_version02.ui.viewmodel.ViewLeaseFormViewModel;
+import com.example.bankmanagment_version02.ui.viewmodel.InfoViewLeaseFormLayoutViewModel;
 import com.example.bankmanagment_version02.utils.Window;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
@@ -12,11 +12,11 @@ import library.*;
 
 public class ViewLeaseInfoScreen {
     private final Stage window;
-    private final ViewFormViewModel viewModel;
+    private final InfoViewFormLayoutViewModel viewModel;
 
 
     public ViewLeaseInfoScreen() {
-        viewModel = new ViewLeaseFormViewModel();
+        viewModel = new InfoViewLeaseFormLayoutViewModel();
         InfoViewLFormLayout leaseForm = new InfoViewLFormLayout(
                 viewModel.getLabelList()
         );

@@ -1,19 +1,18 @@
 package com.example.bankmanagment_version02.ui.viewmodel;
 
-import library.CommonFormViewModel;
+import library.CommonFormLayoutViewModel;
 import library.inputype.FormInputField;
 import library.inputype.InputField;
-import library.inputype.TextFieldInputField;
 import com.example.bankmanagment_version02.utils.Snackbar;
 
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 
-public class AddAccountFormViewModel implements CommonFormViewModel {
+public class AddAccountFormLayoutViewModel implements CommonFormLayoutViewModel {
     private final HashMap<String, Object> formData;
     private static final Labels labels = new LabelsImpl();
 
-    public AddAccountFormViewModel() {
+    public AddAccountFormLayoutViewModel() {
         formData = new HashMap<>();
         //
         //   inputFieldHeights.put(labels.DEPUTY_NAME, 100.0);

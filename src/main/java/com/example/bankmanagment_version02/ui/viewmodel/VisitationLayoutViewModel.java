@@ -3,18 +3,18 @@ package com.example.bankmanagment_version02.ui.viewmodel;
 import com.example.bankmanagment_version02.utils.Snackbar;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import library.CommonFormViewModel;
+import library.CommonFormLayoutViewModel;
 import library.inputype.*;
 
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 
-public class VisitationViewModel implements CommonFormViewModel {
+public class VisitationLayoutViewModel implements CommonFormLayoutViewModel {
     private final HashMap<String, Object> formData;
 
     private static final Labels labels = new LabelsImpl();
 
-    public VisitationViewModel() {
+    public VisitationLayoutViewModel() {
         formData = new HashMap<>();
     }
 

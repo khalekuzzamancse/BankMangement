@@ -1,6 +1,6 @@
 package com.example.bankmanagment_version02.ui.viewmodel;
 
-import library.CommonFormViewModel;
+import library.CommonFormLayoutViewModel;
 import library.inputype.ImageInputField;
 import library.inputype.InputField;
 import library.inputype.TextFieldInputField;
@@ -8,13 +8,13 @@ import com.example.bankmanagment_version02.utils.Snackbar;
 
 import java.util.*;
 
-public class AddLeaseFormViewModel implements CommonFormViewModel {
+public class AddLeaseFormLayoutViewModel implements CommonFormLayoutViewModel {
     private final HashMap<String, Object> formData;
     private final HashMap<String, Double> inputFieldWidths;
     private final HashMap<String, Double> inputFieldHeights;
     private static final Labels labels = new LabelsImpl();
 
-    public AddLeaseFormViewModel() {
+    public AddLeaseFormLayoutViewModel() {
         formData = new HashMap<>();
         inputFieldWidths = new HashMap<>();
         inputFieldHeights = new HashMap<>();

@@ -3,7 +3,7 @@ package com.example.bankmanagment_version02.ui.screens;
 import library.BaseFromLayout;
 import library.FormLayout;
 import library.CustomAction;
-import com.example.bankmanagment_version02.ui.viewmodel.AddAccountFormViewModel;
+import com.example.bankmanagment_version02.ui.viewmodel.AddAccountFormLayoutViewModel;
 import com.example.bankmanagment_version02.utils.Window;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
@@ -13,13 +13,13 @@ import javafx.stage.Stage;
 
 public class AddAccountScreen {
     private final Stage window;
-    private final AddAccountFormViewModel viewModel;
+    private final AddAccountFormLayoutViewModel viewModel;
     private final Button submitButton;
 
 
     public AddAccountScreen() {
         submitButton = new Button("Submit");
-        viewModel = new AddAccountFormViewModel();
+        viewModel = new AddAccountFormLayoutViewModel();
         FormLayout leaseForm = new FormLayout(
                 viewModel.getLabelList(),
                 submitAction

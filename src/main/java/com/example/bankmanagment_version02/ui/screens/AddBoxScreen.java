@@ -1,6 +1,6 @@
 package com.example.bankmanagment_version02.ui.screens;
 
-import com.example.bankmanagment_version02.ui.viewmodel.AddBoxViewModel;
+import com.example.bankmanagment_version02.ui.viewmodel.AddBoxLayoutViewModel;
 import com.example.bankmanagment_version02.utils.Window;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
@@ -11,13 +11,13 @@ import library.*;
 
 public class AddBoxScreen {
     private final Stage window;
-    private final CommonFormViewModel viewModel;
+    private final CommonFormLayoutViewModel viewModel;
     private final Button submitButton;
 
 
     public AddBoxScreen() {
         submitButton = new Button("Submit");
-        viewModel = new AddBoxViewModel();
+        viewModel = new AddBoxLayoutViewModel();
         FormLayout leaseForm = new FormLayout(
                 viewModel.getLabelList(),
                 submitAction

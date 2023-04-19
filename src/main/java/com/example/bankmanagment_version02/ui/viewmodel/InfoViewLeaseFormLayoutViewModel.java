@@ -2,18 +2,18 @@ package com.example.bankmanagment_version02.ui.viewmodel;
 
 import javafx.scene.image.Image;
 import library.outputfield.OutputField;
-import library.ViewFormViewModel;
+import library.InfoViewFormLayoutViewModel;
 import library.outputfield.OutputFieldFactory;
 
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 
-public class ViewLeaseFormViewModel implements ViewFormViewModel {
+public class InfoViewLeaseFormLayoutViewModel implements InfoViewFormLayoutViewModel {
     private final HashMap<String, Object> formData;
 
     private static final Labels labels = new LabelsImpl();
 
-    public ViewLeaseFormViewModel() {
+    public InfoViewLeaseFormLayoutViewModel() {
         formData = new HashMap<>();
 
         //

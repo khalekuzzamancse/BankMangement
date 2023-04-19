@@ -1,6 +1,6 @@
 package com.example.bankmanagment_version02.ui.screens;
 
-import com.example.bankmanagment_version02.ui.viewmodel.SendEmailViewModel;
+import com.example.bankmanagment_version02.ui.viewmodel.SendEmailLayoutViewModel;
 import com.example.bankmanagment_version02.utils.Window;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
@@ -12,13 +12,13 @@ import library.*;
 
 public class SendMailScreen {
     private final Stage window;
-    private final CommonFormViewModel viewModel;
+    private final CommonFormLayoutViewModel viewModel;
     private final Button submitButton;
 
 
     public SendMailScreen() {
         submitButton = new Button("Send");
-        viewModel = new SendEmailViewModel();
+        viewModel = new SendEmailLayoutViewModel();
         FormLayout leaseForm = new FormLayout(
                 viewModel.getLabelList(),
                 submitAction

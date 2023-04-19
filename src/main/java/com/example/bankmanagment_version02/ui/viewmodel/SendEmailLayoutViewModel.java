@@ -1,23 +1,19 @@
 package com.example.bankmanagment_version02.ui.viewmodel;
 
 import com.example.bankmanagment_version02.utils.Snackbar;
-import library.CommonFormViewModel;
-import library.inputype.InputField;
-import library.inputype.TextFieldInputField;
+import library.CommonFormLayoutViewModel;
+import library.inputype.*;
 
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 
-public class LoginViewModel implements CommonFormViewModel {
+public class SendEmailLayoutViewModel implements CommonFormLayoutViewModel {
     private final HashMap<String, Object> formData;
-    private final HashMap<String, Double> inputFieldWidths;
-    private final HashMap<String, Double> inputFieldHeights;
     private static final Labels labels = new LabelsImpl();
 
-    public LoginViewModel() {
+    public SendEmailLayoutViewModel() {
         formData = new HashMap<>();
-        inputFieldWidths = new HashMap<>();
-        inputFieldHeights = new HashMap<>();
+
 
     }
 
@@ -32,11 +28,13 @@ public class LoginViewModel implements CommonFormViewModel {
         System.out.println("Form Data:" + formData);
     }
 
+
     @Override
     public LinkedHashMap<String, InputField> getLabelList() {
         LinkedHashMap<String, InputField> labelMap = new LinkedHashMap<>();
-        labelMap.put(labels.USER_NAME, new TextFieldInputField());
-        labelMap.put(labels.PASSWORD, new TextFieldInputField());
+        labelMap.put(labels.ACCOUNT_NO, FormInputField.getInstance().getTextInputField());
+        labelMap.put(labels.SUBJECT, FormInputField.getInstance().getTextInputField());
+        labelMap.put(labels.MESSAGE, FormInputField.getInstance().getTextAreaInputField(200,100));
         return labelMap;
     }
 
@@ -45,8 +43,9 @@ public class LoginViewModel implements CommonFormViewModel {
     //that is why we declare a  separate inner class
 
     private interface Labels {
-        String USER_NAME = "User Name";
-        String PASSWORD = "Password";
+        String ACCOUNT_NO = "Account No";
+        String SUBJECT = "Subject";
+        String MESSAGE = "Message";
     }
 
     private static class LabelsImpl implements Labels {

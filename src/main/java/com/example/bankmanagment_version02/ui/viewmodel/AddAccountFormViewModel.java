@@ -10,14 +10,10 @@ import java.util.LinkedHashMap;
 
 public class AddAccountFormViewModel implements CommonFormViewModel {
     private final HashMap<String, Object> formData;
-    private final HashMap<String, Double> inputFieldWidths;
-    private final HashMap<String, Double> inputFieldHeights;
     private static final Labels labels = new LabelsImpl();
 
     public AddAccountFormViewModel() {
         formData = new HashMap<>();
-        inputFieldWidths = new HashMap<>();
-        inputFieldHeights = new HashMap<>();
         //
         //   inputFieldHeights.put(labels.DEPUTY_NAME, 100.0);
 
@@ -36,12 +32,12 @@ public class AddAccountFormViewModel implements CommonFormViewModel {
 
     @Override
     public HashMap<String, Double> getInputFieldWidths() {
-        return inputFieldWidths;
+        return new HashMap<>();
     }
 
     @Override
     public HashMap<String, Double> getInputFieldHeights() {
-        return inputFieldHeights;
+        return new HashMap<>();
     }
 
     @Override

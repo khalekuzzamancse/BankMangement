@@ -2,22 +2,28 @@ package com.example.bankmanagment_version02.ui.viewmodel;
 
 import com.example.bankmanagment_version02.utils.Snackbar;
 import library.CommonFormViewModel;
+import library.inputype.ImageInputField;
 import library.inputype.InputField;
+import library.inputype.TextAreaInputField;
 import library.inputype.TextFieldInputField;
 
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 
-public class AddBoxViewModel implements CommonFormViewModel {
+public class SendEmailViewModel implements CommonFormViewModel {
     private final HashMap<String, Object> formData;
+    private final HashMap<String, Double> inputFieldWidths;
+    private final HashMap<String, Double> inputFieldHeights;
     private static final Labels labels = new LabelsImpl();
 
-    public AddBoxViewModel() {
+    public SendEmailViewModel() {
         formData = new HashMap<>();
-
+        inputFieldWidths = new HashMap<>();
+        inputFieldHeights = new HashMap<>();
+        inputFieldHeights.put(labels.MESSAGE, 100.0);
+        inputFieldWidths.put(labels.MESSAGE, 100.0);
 
     }
-
     @Override
     public HashMap<String, Object> saveFormData() {
         return formData;
@@ -26,27 +32,25 @@ public class AddBoxViewModel implements CommonFormViewModel {
     @Override
     public void onDone() {
         Snackbar.show("Success");
-        System.out.println("Form Data:" + formData);
+        System.out.println("Form Data:"+formData);
     }
 
     @Override
     public HashMap<String, Double> getInputFieldWidths() {
-        return new HashMap<>();
+        return inputFieldWidths;
     }
 
     @Override
     public HashMap<String, Double> getInputFieldHeights() {
-        return new HashMap<>();
+        return inputFieldHeights;
     }
 
     @Override
     public LinkedHashMap<String, InputField> getLabelList() {
         LinkedHashMap<String, InputField> labelMap = new LinkedHashMap<>();
-        labelMap.put(labels.SERIAL_NO, new TextFieldInputField());
-        labelMap.put(labels.WIDTH, new TextFieldInputField());
-        labelMap.put(labels.HEIGHT, new TextFieldInputField());
-        labelMap.put(labels.OLD_PRICE, new TextFieldInputField());
-        labelMap.put(labels.NEW_PRICE, new TextFieldInputField());
+        labelMap.put(labels.ACCOUNT_NO, new TextFieldInputField());
+        labelMap.put(labels.SUBJECT, new TextFieldInputField());
+        labelMap.put(labels.MESSAGE, new TextAreaInputField());
         return labelMap;
     }
 
@@ -55,11 +59,9 @@ public class AddBoxViewModel implements CommonFormViewModel {
     //that is why we declare a  separate inner class
 
     private interface Labels {
-        String SERIAL_NO = "Serial Number";
-        String HEIGHT = "Height";
-        String WIDTH = "Width";
-        String OLD_PRICE = "Old Price";
-        String NEW_PRICE = "New Price";
+        String ACCOUNT_NO = "Account No";
+        String SUBJECT = "Subject";
+        String MESSAGE = "Message";
     }
 
     private static class LabelsImpl implements Labels {

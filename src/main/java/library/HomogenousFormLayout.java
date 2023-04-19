@@ -1,4 +1,4 @@
-package com.example.bankmanagment_version02.ui.customlayouts.unused;
+package library;
 
 import com.example.bankmanagment_version02.ui.viewmodel.FormViewModel;
 import com.example.bankmanagment_version02.utils.LayoutUtil;

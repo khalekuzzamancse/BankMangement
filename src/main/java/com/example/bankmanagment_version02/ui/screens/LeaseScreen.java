@@ -1,8 +1,6 @@
 package com.example.bankmanagment_version02.ui.screens;
 
-import com.example.bankmanagment_version02.ui.customlayouts.*;
 import com.example.bankmanagment_version02.ui.viewmodel.LeaseFormViewModel;
-import com.example.bankmanagment_version02.utils.StageFactory;
 import com.example.bankmanagment_version02.utils.Window;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
@@ -12,8 +10,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
-
-import java.util.Map;
+import library.CommonFormLayout;
+import library.CustomAction;
+import library.DynamicSizeFromLayout;
 
 public class LeaseScreen {
     private final Stage window;

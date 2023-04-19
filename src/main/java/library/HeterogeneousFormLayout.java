@@ -1,12 +1,10 @@
-package com.example.bankmanagment_version02.ui.customlayouts.unused;
+package library;
 
-import com.example.bankmanagment_version02.ui.customlayouts.DynamicSizeFromLayout;
 import com.example.bankmanagment_version02.ui.viewmodel.HetarogenousFormVIewModel;
 import com.example.bankmanagment_version02.ui.viewmodel.InputFieldType;
 import com.example.bankmanagment_version02.utils.LayoutUtil;
 import javafx.event.EventHandler;
 import javafx.scene.Node;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
@@ -16,7 +14,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.FileChooser;
-import javafx.stage.Stage;
 
 import java.io.File;
 import java.util.Map;

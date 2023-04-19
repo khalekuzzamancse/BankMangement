@@ -1,8 +1,7 @@
-package com.example.bankmanagment_version02.ui.customlayouts;
+package library;
 
 import javafx.scene.Node;
 import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
 
 public class TextAreaInputField implements InputField {
     private final TextArea textArea;

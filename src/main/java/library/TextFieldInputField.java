@@ -1,13 +1,7 @@
-package com.example.bankmanagment_version02.ui.customlayouts;
+package library;
 
-import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
-import javafx.scene.input.MouseEvent;
-import javafx.stage.FileChooser;
-
-import java.io.File;
 
 public class TextFieldInputField implements InputField {
     private final TextField textField;

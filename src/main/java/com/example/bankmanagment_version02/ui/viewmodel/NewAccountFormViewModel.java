@@ -1,8 +1,7 @@
 package com.example.bankmanagment_version02.ui.viewmodel;
 
-import com.example.bankmanagment_version02.ui.customlayouts.ImageInputField;
-import com.example.bankmanagment_version02.ui.customlayouts.InputField;
-import com.example.bankmanagment_version02.ui.customlayouts.TextFieldInputField;
+import library.InputField;
+import library.TextFieldInputField;
 import com.example.bankmanagment_version02.utils.Snackbar;
 
 import java.util.HashMap;

@@ -38,6 +38,7 @@ public class VisitationViewModel implements CommonFormViewModel {
         labelMap.put(labels.ACCOUNT_NO, FormInputField.getInstance().getTextInputField());
         labelMap.put(labels.BOX_KEY, FormInputField.getInstance().getTextInputField());
         labelMap.put(labels.SIGNATURE,FormInputField.getInstance().getSignatureInputField());
+        labelMap.put(labels.CURRENT_SIGNATURE,new ImageInputField().blankImage());
         labelMap.put(labels.ATTENDEE_SIGNATURE,FormInputField.getInstance().getSignatureInputField());
         labelMap.put(labels.AS_DEPUTY, FormInputField.getInstance().getCheckBoxField());
         return labelMap;
@@ -52,6 +53,7 @@ public class VisitationViewModel implements CommonFormViewModel {
         String BOX_KEY = "Box Key";
         String AS_DEPUTY = "As Deputy";
         String SIGNATURE = "Signature";
+        String CURRENT_SIGNATURE = "Current Signature";
         String ATTENDEE_SIGNATURE = "Attendee Signature";
     }
 

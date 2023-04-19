@@ -19,6 +19,14 @@ public class ImageInputField implements InputField {
         setListener();
     }
 
+    public InputField blankImage() {
+        imageView = new ImageView("empty_image.png");
+        imageView.setFitWidth(100);
+        imageView.setFitHeight(40);
+        //setListener();
+        return this;
+    }
+
 
     private void setListener() {
         imageView.setOnMouseClicked(new EventHandler<MouseEvent>() {

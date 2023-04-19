@@ -3,8 +3,10 @@ package com.example.bankmanagment_version02.ui.customlayouts;
 
 import com.example.bankmanagment_version02.utils.LayoutUtil;
 import com.example.bankmanagment_version02.utils.Size;
+import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
+import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 
@@ -25,7 +27,7 @@ public class DynamicSizeFromLayout extends Pane {
     public DynamicSizeFromLayout() {
         super();
         setPadding(padding);
-     //   setStyle("-fx-background-color: #D429C3;");
+        //   setStyle("-fx-background-color: #D429C3;");
     }
 
 
@@ -42,7 +44,7 @@ public class DynamicSizeFromLayout extends Pane {
         double labelWidth = labelMaxWidth;
         double labelHeight = labelMaxHeight;
         //
-        double inputFieldHeight = labelHeight +15;
+        double inputFieldHeight = labelHeight + 15;
         double inputFieldWidth = 2 * labelWidth;
 
         //
@@ -61,9 +63,6 @@ public class DynamicSizeFromLayout extends Pane {
         //placing the inputField
         y = padding.getTop();
         for (int i = 1; i < getChildren().size(); i = i + 2) {
-            if(getChildren().get(i) instanceof ImageView){
-                System.out.println("This is image View Field"+i);
-            }
             double height = sizes.get(i).getHeight();
             double width = sizes.get(i).getWidth();
             double x = padding.getLeft() + labelWidth + columnGap;
@@ -112,28 +111,37 @@ public class DynamicSizeFromLayout extends Pane {
 
     }
 
-    public void setInputFieldSize(int index, double width, double height) {
-        setInputFieldWidth(index, width);
-        setInputFieldHeight(index, height);
+    public void setInputFieldSize(String labelName, double width, double height) {
+        setInputFieldWidth(labelName, width);
+        setInputFieldHeight(labelName, height);
 
     }
 
-    public void setInputFieldWidth(int index, double width) {
+    public void setInputFieldWidth(String labelName, double width) {
         initializeChildrenSize();
-        sizes.put(index, new Size(width, sizes.get(index).getHeight()));
-        layoutChildren();
+        int index = getChildIndex(labelName);
+        if (index != -1) {
+            index++;//next index it the input field of the correspond label
+            sizes.put(index, new Size(width, sizes.get(index).getHeight()));
+            layoutChildren();
+        }
+
     }
 
-    public void setInputFieldHeight(int index, double height) {
+    public void setInputFieldHeight(String labelName, double height) {
         initializeChildrenSize();
-        sizes.put(index, new Size(sizes.get(index).getWidth(), height));
-        layoutChildren();
+        int index = getChildIndex(labelName);
+        if (index != -1) {
+            index++;//next index it the input field of the correspond label
+            sizes.put(index, new Size(sizes.get(index).getWidth(), height));
+            layoutChildren();
+        }
     }
 
     private void initializeChildrenSize() {
 
-        double inputFieldWidth =4 * labelMaxWidth;
-        double extra = 15.0;
+        double inputFieldWidth = labelMaxWidth + 100;
+        double extra = 10.0;
         double inputFieldHeight = labelMaxHeight + extra;
 
         for (int i = 0; i < getChildren().size(); i++) {
@@ -160,6 +168,23 @@ public class DynamicSizeFromLayout extends Pane {
             }
 
         }
+    }
+
+    public int getChildIndex(String childName) {
+        int index = -1;
+        ObservableList<Node> children = getChildren();
+        for (int i = 0; i < children.size(); i++) {
+            Node child = children.get(i);
+            if (child instanceof Label && childName.equals(((Label) child).getText())) {
+                index = i;
+                break;
+            }
+            if (childName.equals(child.getId())) {
+                index = i;
+                break;
+            }
+        }
+        return index;
     }
 
 

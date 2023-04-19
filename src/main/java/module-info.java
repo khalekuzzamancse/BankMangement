@@ -17,5 +17,7 @@ module com.example.bankmanagment_version02 {
     opens com.example.bankmanagment_version02.data.model to javafx.fxml;
     exports com.example.bankmanagment_version02.ui.customlayouts;
     opens com.example.bankmanagment_version02.ui.customlayouts to javafx.fxml;
+    exports com.example.bankmanagment_version02.ui.customlayouts.unused;
+    opens com.example.bankmanagment_version02.ui.customlayouts.unused to javafx.fxml;
 
 }

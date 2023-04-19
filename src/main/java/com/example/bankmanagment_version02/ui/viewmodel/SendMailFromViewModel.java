@@ -6,22 +6,17 @@ import com.example.bankmanagment_version02.utils.Snackbar;
 import java.util.*;
 
 public class SendMailFromViewModel implements HetarogenousFormVIewModel {
-    private final HashMap<String, String> formData;
-    private final HashMap<Integer, Double> inputFieldWidths;
-    private final HashMap<Integer, Double> inputFieldHeights;
+    private final HashMap<String, Object> formData;
+    private final HashMap<String, Double> inputFieldWidths;
+    private final HashMap<String, Double> inputFieldHeights;
 
     public SendMailFromViewModel() {
         formData = new HashMap<>();
         inputFieldWidths = new HashMap<>();
         //
-        inputFieldWidths.put(5, 300.0);
+        inputFieldWidths.put("Message", 300.0);
         inputFieldHeights = new HashMap<>();
 
-    }
-
-    @Override
-    public List<String> getLabelList() {
-        return new ArrayList<>();
     }
 
     @Override
@@ -30,7 +25,7 @@ public class SendMailFromViewModel implements HetarogenousFormVIewModel {
     }
 
     @Override
-    public HashMap<String, String> saveFormData() {
+    public HashMap<String, Object> saveFormData() {
         return formData;
     }
 
@@ -42,12 +37,12 @@ public class SendMailFromViewModel implements HetarogenousFormVIewModel {
     }
 
     @Override
-    public HashMap<Integer, Double> getInputFieldWidths() {
+    public HashMap<String, Double> getInputFieldWidths() {
         return inputFieldWidths;
     }
 
     @Override
-    public HashMap<Integer, Double> getInputFieldHeights() {
+    public HashMap<String, Double> getInputFieldHeights() {
         return inputFieldHeights;
     }
 

@@ -1,6 +1,7 @@
 package com.example.bankmanagment_version02.ui.viewmodel;
 
 import library.CommonFormViewModel;
+import library.inputype.FormInputField;
 import library.inputype.InputField;
 import library.inputype.TextFieldInputField;
 import com.example.bankmanagment_version02.utils.Snackbar;
@@ -34,15 +35,15 @@ public class AddAccountFormViewModel implements CommonFormViewModel {
     @Override
     public LinkedHashMap<String, InputField> getLabelList() {
         LinkedHashMap<String, InputField> labelMap = new LinkedHashMap<>();
-        labelMap.put(labels.NAME, new TextFieldInputField());
-        labelMap.put(labels.EMAIL, new TextFieldInputField());
-        labelMap.put(labels.PHONE_NO, new TextFieldInputField());
-        labelMap.put(labels.ADDRESS, new TextFieldInputField());
-        labelMap.put(labels.FIRM, new TextFieldInputField());
-        labelMap.put(labels.HAIR_COLOR, new TextFieldInputField());
-        labelMap.put(labels.EYE_COLOR, new TextFieldInputField());
-        labelMap.put(labels.HEIGHT, new TextFieldInputField());
-        labelMap.put(labels.WEIGHT, new TextFieldInputField());
+        labelMap.put(labels.NAME, FormInputField.getInstance().getTextInputField());
+        labelMap.put(labels.EMAIL, FormInputField.getInstance().getTextInputField());
+        labelMap.put(labels.PHONE_NO, FormInputField.getInstance().getTextInputField());
+        labelMap.put(labels.ADDRESS, FormInputField.getInstance().getTextInputField());
+        labelMap.put(labels.FIRM, FormInputField.getInstance().getTextInputField());
+        labelMap.put(labels.HAIR_COLOR, FormInputField.getInstance().getTextInputField());
+        labelMap.put(labels.EYE_COLOR,FormInputField.getInstance().getTextInputField());
+        labelMap.put(labels.HEIGHT,FormInputField.getInstance().getTextInputField());
+        labelMap.put(labels.WEIGHT,FormInputField.getInstance().getTextInputField());
         return labelMap;
     }
 

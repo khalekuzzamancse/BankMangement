@@ -1,6 +1,6 @@
 package com.example.bankmanagment_version02.ui.screens;
 
-import com.example.bankmanagment_version02.ui.customlayouts.HeterogeneousFormLayout;
+import com.example.bankmanagment_version02.ui.customlayouts.unused.HeterogeneousFormLayout;
 import com.example.bankmanagment_version02.ui.viewmodel.SendMailFromViewModel;
 import com.example.bankmanagment_version02.utils.StageFactory;
 import javafx.stage.Stage;

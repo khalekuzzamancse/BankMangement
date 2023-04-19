@@ -1,5 +1,6 @@
-package com.example.bankmanagment_version02.ui.customlayouts;
+package com.example.bankmanagment_version02.ui.customlayouts.unused;
 
+import com.example.bankmanagment_version02.ui.customlayouts.DynamicSizeFromLayout;
 import com.example.bankmanagment_version02.ui.viewmodel.HetarogenousFormVIewModel;
 import com.example.bankmanagment_version02.ui.viewmodel.InputFieldType;
 import com.example.bankmanagment_version02.utils.LayoutUtil;

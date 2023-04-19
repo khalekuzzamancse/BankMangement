@@ -1,11 +1,11 @@
-package com.example.bankmanagment_version02.ui.customlayouts;
+package com.example.bankmanagment_version02.ui.viewmodel;
+
+import com.example.bankmanagment_version02.ui.customlayouts.InputField;
 
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 
 public interface CommonFormViewModel {
-    String getDoneButtonLabel();
-
     HashMap<String, Object> saveFormData();
 
     void onDone();

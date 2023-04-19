@@ -3,11 +3,7 @@ package library;
 import com.example.bankmanagment_version02.utils.LayoutUtil;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.Pane;
-import javafx.scene.paint.Color;
-import javafx.scene.text.TextAlignment;
 import library.outputfield.OutputField;
 
 import java.util.HashMap;
@@ -20,7 +16,7 @@ public class InfoViewLFormLayout extends Pane {
     // and also we do not  need to modify this class
     //when a new InputType filed added
 //    private final CommonFormViewModel viewModel;
-    private DynamicSizeViewInfoFromLayout customLayout;
+    private ViewInfoFromLayout customLayout;
 
     public InfoViewLFormLayout(
             Map<String, OutputField> labelList,
@@ -40,7 +36,7 @@ public class InfoViewLFormLayout extends Pane {
             Map<String, Double> inputFieldWidths,
             Map<String, Double> inputFieldHeights
     ){
-        customLayout = new DynamicSizeViewInfoFromLayout();
+        customLayout = new ViewInfoFromLayout();
         for (Map.Entry<String, OutputField> entry : labelList.entrySet()) {
             String labelText = entry.getKey();
             OutputField fieldType = entry.getValue();
@@ -75,7 +71,7 @@ public class InfoViewLFormLayout extends Pane {
     protected void layoutChildren() {
         super.layoutChildren();
 
-        DynamicSizeViewInfoFromLayout customLayout = (DynamicSizeViewInfoFromLayout) this.getChildren().get(0);
+        ViewInfoFromLayout customLayout = (ViewInfoFromLayout) this.getChildren().get(0);
         double formHeight = customLayout.getHeight();
         double formWidth = customLayout.getWidth();
         positionChildren(customLayout, 0, 0, formWidth, formHeight);

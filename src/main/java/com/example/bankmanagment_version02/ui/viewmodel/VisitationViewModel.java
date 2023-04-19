@@ -1,17 +1,15 @@
 package com.example.bankmanagment_version02.ui.viewmodel;
 
 import com.example.bankmanagment_version02.utils.Snackbar;
-import javafx.scene.Node;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import library.CommonFormViewModel;
-import library.HeterogeneousFormViewModel;
 import library.inputype.*;
 
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 
-public class VisitationViewModel implements HeterogeneousFormViewModel {
+public class VisitationViewModel implements CommonFormViewModel {
     private final HashMap<String, Object> formData;
 
     private static final Labels labels = new LabelsImpl();
@@ -46,22 +44,8 @@ public class VisitationViewModel implements HeterogeneousFormViewModel {
         labelMap.put(labels.SIGNATURE, new ImageInputField("load.png", listener));
         labelMap.put(labels.ATTENDEE_SIGNATURE, FormInputField.getInstance().getSignatureInputField());
         labelMap.put(labels.AS_DEPUTY, FormInputField.getInstance().getCheckBoxField());
-        labelMap.put(labels.DESCRIPTION, FormInputField.getInstance().getTextAreaInputField());
+        labelMap.put(labels.DESCRIPTION, FormInputField.getInstance().getTextAreaInputField(200,150));
         return labelMap;
-    }
-
-    @Override
-    public HashMap<String, Double> getInputFieldWidths() {
-        return new HashMap<>() {{
-            put(labels.DESCRIPTION, 300.0);
-        }};
-    }
-
-    @Override
-    public HashMap<String, Double> getInputFieldHeights() {
-        return new HashMap<>() {{
-            put(labels.DESCRIPTION, 200.0);
-        }};
     }
 
 

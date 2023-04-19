@@ -9,6 +9,15 @@ public class TextFieldInputField implements InputField {
     public TextFieldInputField() {
         textField = new TextField();
     }
+    public TextFieldInputField(double width) {
+        textField = new TextField();
+        textField.setPrefWidth(width);
+    }
+    public TextFieldInputField(double width,double height) {
+        textField = new TextField();
+        textField.setPrefWidth(width);
+        textField.setPrefHeight(height);
+    }
 
     @Override
     public Node getInputField() {

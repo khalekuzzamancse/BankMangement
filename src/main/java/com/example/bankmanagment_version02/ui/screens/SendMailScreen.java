@@ -1,6 +1,5 @@
 package com.example.bankmanagment_version02.ui.screens;
 
-import com.example.bankmanagment_version02.ui.viewmodel.LoginViewModel;
 import com.example.bankmanagment_version02.ui.viewmodel.SendEmailViewModel;
 import com.example.bankmanagment_version02.utils.Window;
 import javafx.scene.Node;
@@ -13,18 +12,16 @@ import library.*;
 
 public class SendMailScreen {
     private final Stage window;
-    private final HeterogeneousFormViewModel viewModel;
+    private final CommonFormViewModel viewModel;
     private final Button submitButton;
 
 
     public SendMailScreen() {
         submitButton = new Button("Send");
         viewModel = new SendEmailViewModel();
-        CommonFormLayout leaseForm = new CommonFormLayout(
+        FormLayout leaseForm = new FormLayout(
                 viewModel.getLabelList(),
-                submitAction,
-                viewModel.getInputFieldWidths(),
-                viewModel.getInputFieldHeights()
+                submitAction
         );
         window = new Window(leaseForm, "Send Mail Screen", 500, 600).getWindow();
     }
@@ -33,7 +30,7 @@ public class SendMailScreen {
         return window;
     }
 
-    private void getFormData(DynamicSizeFromLayout form) {
+    private void getFormData(BaseFromLayout form) {
         for (int i = 1; i < form.getChildren().size(); i = i + 2) {
             String label = ((Label) form.getChildren().get(i - 1)).getText();
             if (form.getChildren().get(i) instanceof TextField) {
@@ -54,7 +51,7 @@ public class SendMailScreen {
         }
 
         @Override
-        public void setListener(DynamicSizeFromLayout form) {
+        public void setListener(BaseFromLayout form) {
             submitButton.setOnAction(event -> {
                 getFormData(form);
                 //after getting the data,pass the data to the viewModel

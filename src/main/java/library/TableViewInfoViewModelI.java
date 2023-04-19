@@ -2,7 +2,7 @@ package library;
 
 import javafx.collections.ObservableList;
 
-public interface ViewInfoViewModelI<T> {
+public interface TableViewInfoViewModelI<T> {
     ObservableList<T> getTableData();
 
     String[] getTableColumnName();

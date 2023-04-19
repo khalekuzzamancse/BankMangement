@@ -1,6 +1,5 @@
 package com.example.bankmanagment_version02.ui.screens;
 
-import com.example.bankmanagment_version02.ui.viewmodel.AddLeaseFormViewModel;
 import com.example.bankmanagment_version02.ui.viewmodel.VisitationViewModel;
 import com.example.bankmanagment_version02.utils.Window;
 import javafx.scene.Node;
@@ -12,18 +11,16 @@ import library.*;
 
 public class VisitationScreen {
     private final Stage window;
-    private final HeterogeneousFormViewModel viewModel;
+    private final CommonFormViewModel viewModel;
     private final Button submitButton;
 
 
     public VisitationScreen() {
         submitButton = new Button("Submit");
         viewModel = new VisitationViewModel();
-        CommonFormLayout leaseForm = new CommonFormLayout(
+        FormLayout leaseForm = new FormLayout(
                 viewModel.getLabelList(),
-                submitAction,
-                viewModel.getInputFieldWidths(),
-                viewModel.getInputFieldHeights()
+                submitAction
         );
         window = new Window(leaseForm, "Visitation", 500, 700).getWindow();
     }
@@ -32,7 +29,7 @@ public class VisitationScreen {
         return window;
     }
 
-    private void getFormData(DynamicSizeFromLayout form) {
+    private void getFormData(BaseFromLayout form) {
         for (int i = 1; i < form.getChildren().size(); i = i + 2) {
             String label = ((Label) form.getChildren().get(i - 1)).getText();
             if (form.getChildren().get(i) instanceof TextArea) {
@@ -58,7 +55,7 @@ public class VisitationScreen {
         }
 
         @Override
-        public void setListener(DynamicSizeFromLayout form) {
+        public void setListener(BaseFromLayout form) {
             submitButton.setOnAction(event -> {
                 getFormData(form);
                 //after getting the data,pass the data to the viewModel

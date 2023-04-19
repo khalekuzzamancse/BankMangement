@@ -2,25 +2,17 @@ package com.example.bankmanagment_version02.ui.viewmodel;
 
 import com.example.bankmanagment_version02.utils.Snackbar;
 import library.CommonFormViewModel;
-import library.HeterogeneousFormViewModel;
 import library.inputype.*;
 
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 
-public class SendEmailViewModel implements HeterogeneousFormViewModel {
+public class SendEmailViewModel implements CommonFormViewModel {
     private final HashMap<String, Object> formData;
-    private final HashMap<String, Double> inputFieldWidths;
-    private final HashMap<String, Double> inputFieldHeights;
     private static final Labels labels = new LabelsImpl();
 
     public SendEmailViewModel() {
         formData = new HashMap<>();
-        inputFieldWidths = new HashMap<>();
-        inputFieldHeights = new HashMap<>();
-        inputFieldWidths.put(labels.MESSAGE, 200.0);
-        inputFieldHeights.put(labels.MESSAGE, 150.0);
-        inputFieldWidths.put(labels.SUBJECT, 200.0);
 
 
     }
@@ -36,22 +28,13 @@ public class SendEmailViewModel implements HeterogeneousFormViewModel {
         System.out.println("Form Data:" + formData);
     }
 
-    @Override
-    public HashMap<String, Double> getInputFieldWidths() {
-        return inputFieldWidths;
-    }
-
-    @Override
-    public HashMap<String, Double> getInputFieldHeights() {
-        return inputFieldHeights;
-    }
 
     @Override
     public LinkedHashMap<String, InputField> getLabelList() {
         LinkedHashMap<String, InputField> labelMap = new LinkedHashMap<>();
         labelMap.put(labels.ACCOUNT_NO, FormInputField.getInstance().getTextInputField());
         labelMap.put(labels.SUBJECT, FormInputField.getInstance().getTextInputField());
-        labelMap.put(labels.MESSAGE, FormInputField.getInstance().getTextAreaInputField());
+        labelMap.put(labels.MESSAGE, FormInputField.getInstance().getTextAreaInputField(200,100));
         return labelMap;
     }
 

@@ -10,9 +10,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
-import library.CommonFormLayout;
+import library.BaseFromLayout;
+import library.FormLayout;
 import library.CustomAction;
-import library.DynamicSizeFromLayout;
 
 public class AddLeaseScreen {
     private final Stage window;
@@ -23,7 +23,7 @@ public class AddLeaseScreen {
     public AddLeaseScreen() {
         submitButton = new Button("Submit");
         viewModel = new AddLeaseFormViewModel();
-        CommonFormLayout leaseForm = new CommonFormLayout(
+        FormLayout leaseForm = new FormLayout(
                 viewModel.getLabelList(),
                 submitAction
         );
@@ -34,7 +34,7 @@ public class AddLeaseScreen {
         return window;
     }
 
-    private void getFormData(DynamicSizeFromLayout form) {
+    private void getFormData(BaseFromLayout form) {
         for (int i = 1; i < form.getChildren().size(); i = i + 2) {
             String label = ((Label) form.getChildren().get(i - 1)).getText();
             if (form.getChildren().get(i) instanceof TextArea) {
@@ -57,7 +57,7 @@ public class AddLeaseScreen {
         }
 
         @Override
-        public void setListener(DynamicSizeFromLayout form) {
+        public void setListener(BaseFromLayout form) {
             submitButton.setOnAction(event -> {
                 getFormData(form);
                 //after getting the data,pass the data to the viewModel

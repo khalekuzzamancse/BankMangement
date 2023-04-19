@@ -2,8 +2,6 @@ package com.example.bankmanagment_version02.ui.screens;
 
 import com.example.bankmanagment_version02.ui.viewmodel.ViewLeaseFormViewModel;
 import com.example.bankmanagment_version02.utils.Window;
-import javafx.scene.Node;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -29,7 +27,7 @@ public class ViewLeaseInfoScreen {
         return window;
     }
 
-    private void getFormData(DynamicSizeFromLayout form) {
+    private void getFormData(BaseFromLayout form) {
         for (int i = 1; i < form.getChildren().size(); i = i + 2) {
             String label = ((Label) form.getChildren().get(i - 1)).getText();
             if (form.getChildren().get(i) instanceof TextArea) {

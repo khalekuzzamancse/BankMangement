@@ -1,20 +1,13 @@
 package com.example.bankmanagment_version02.ui.screens;
 
 import com.example.bankmanagment_version02.ui.viewmodel.AddBoxViewModel;
-import com.example.bankmanagment_version02.ui.viewmodel.AddLeaseFormViewModel;
 import com.example.bankmanagment_version02.utils.Window;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
-import library.CommonFormLayout;
-import library.CommonFormViewModel;
-import library.CustomAction;
-import library.DynamicSizeFromLayout;
+import library.*;
 
 public class AddBoxScreen {
     private final Stage window;
@@ -25,7 +18,7 @@ public class AddBoxScreen {
     public AddBoxScreen() {
         submitButton = new Button("Submit");
         viewModel = new AddBoxViewModel();
-        CommonFormLayout leaseForm = new CommonFormLayout(
+        FormLayout leaseForm = new FormLayout(
                 viewModel.getLabelList(),
                 submitAction
         );
@@ -36,7 +29,7 @@ public class AddBoxScreen {
         return window;
     }
 
-    private void getFormData(DynamicSizeFromLayout form) {
+    private void getFormData(BaseFromLayout form) {
         for (int i = 1; i < form.getChildren().size(); i = i + 2) {
             String label = ((Label) form.getChildren().get(i - 1)).getText();
                 String input = ((TextField) form.getChildren().get(i)).getText();
@@ -51,9 +44,9 @@ public class AddBoxScreen {
         }
 
         @Override
-        public void setListener(DynamicSizeFromLayout form) {
+        public void setListener(BaseFromLayout form) {
             submitButton.setOnAction(event -> {
-                getFormData(form);
+               getFormData(form);
                 //after getting the data,pass the data to the viewModel
                 viewModel.onDone();
             });

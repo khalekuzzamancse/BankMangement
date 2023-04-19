@@ -16,10 +16,14 @@ public class TextOutputField implements OutputField {
 
     public TextOutputField(String text) {
         textField = new Label(text);
-        textField.setPrefWidth(50);
+        textField.setPrefWidth(200);
         textField.setWrapText(true);
     }
-
+    public TextOutputField(String text,Double width) {
+        textField = new Label(text);
+        textField.setPrefWidth(width);
+        textField.setWrapText(true);
+    }
     @Override
     public Node getOutputField() {
         return textField;

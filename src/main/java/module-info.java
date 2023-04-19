@@ -15,8 +15,6 @@ module com.example.bankmanagment_version {
     opens com.example.bankmanagment_version02.data.model to javafx.fxml;
     exports library;
     opens library to javafx.fxml;
-    exports library.oldversionunused;
-    opens library.oldversionunused to javafx.fxml;
     exports library.inputype;
     opens library.inputype to javafx.fxml;
     exports library.outputfield;

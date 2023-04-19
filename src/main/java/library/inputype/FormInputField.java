@@ -19,6 +19,10 @@ public class FormInputField {
     public InputField getTextAreaInputField() {
         return new TextAreaInputField();
     }
+    public InputField getTextAreaInputField(double width,double height) {
+        return new TextAreaInputField(width,height);
+    }
+
 
     public InputField getSignatureInputField() {
         return new ImageInputField();

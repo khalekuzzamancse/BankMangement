@@ -1,8 +1,8 @@
 package com.example.bankmanagment_version02.ui.screens;
 
-import library.CommonFormLayout;
+import library.BaseFromLayout;
+import library.FormLayout;
 import library.CustomAction;
-import library.DynamicSizeFromLayout;
 import com.example.bankmanagment_version02.ui.viewmodel.AddAccountFormViewModel;
 import com.example.bankmanagment_version02.utils.Window;
 import javafx.scene.Node;
@@ -20,7 +20,7 @@ public class AddAccountScreen {
     public AddAccountScreen() {
         submitButton = new Button("Submit");
         viewModel = new AddAccountFormViewModel();
-        CommonFormLayout leaseForm = new CommonFormLayout(
+        FormLayout leaseForm = new FormLayout(
                 viewModel.getLabelList(),
                 submitAction
         );
@@ -31,7 +31,7 @@ public class AddAccountScreen {
         return window;
     }
 
-    private void getFormData(DynamicSizeFromLayout form) {
+    private void getFormData(BaseFromLayout form) {
         for (int i = 1; i < form.getChildren().size(); i = i + 2) {
             String label = ((Label) form.getChildren().get(i - 1)).getText();
                 String input = ((TextField) form.getChildren().get(i)).getText();
@@ -46,7 +46,7 @@ public class AddAccountScreen {
         }
 
         @Override
-        public void setListener(DynamicSizeFromLayout form) {
+        public void setListener(BaseFromLayout form) {
             submitButton.setOnAction(event -> {
                 getFormData(form);
                 //after getting the data,pass the data to the viewModel

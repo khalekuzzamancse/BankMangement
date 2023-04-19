@@ -30,15 +30,17 @@ public class ViewLeaseFormViewModel implements ViewFormViewModel {
     @Override
     public LinkedHashMap<String, OutputField> getLabelList() {
         LinkedHashMap<String, OutputField> labelMap = new LinkedHashMap<>();
-        labelMap.put(labels.ACCOUNT_NO, OutputFieldFactory.getInstance().getTextInputField("Hgdsftgsgsdgsdgsdgsggsgsgsgsgsdgsdgsggsgsdello"));
-        labelMap.put(labels.BOX_TYPE, OutputFieldFactory.getInstance().getTextInputField("Hello"));
-        labelMap.put(labels.DURATION_MONTH, OutputFieldFactory.getInstance().getTextInputField("Hello"));
-        labelMap.put(labels.DEPUTY_NAME, OutputFieldFactory.getInstance().getTextInputField("Hello"));
-        labelMap.put(labels.DEPUTY_PHONE_NO, OutputFieldFactory.getInstance().getTextInputField("Hello"));
-        labelMap.put(labels.DEPUTY_ADDRESS, OutputFieldFactory.getInstance().getTextInputField("Hello"));
-        labelMap.put(labels.CUSTOMER_SIGNATURE, OutputFieldFactory.getInstance().getImageOutPutField(new Image("signature_1.jpeg")));
-        labelMap.put(labels.DEPUTY_SIGNATURE, OutputFieldFactory.getInstance().getImageOutPutField(new Image("signature_1.jpeg")));
-        labelMap.put(labels.ATTENDEE_SIGNATURE, OutputFieldFactory.getInstance().getImageOutPutField(new Image("signature_1.jpeg")));
+        labelMap.put(labels.ACCOUNT_NO,
+                OutputFieldFactory.instance().getTextInputField("Hgdsftgsgsdgsdgsdgsggsgsgsgsgsdgsdgsggsgsdello",150.0));
+
+        labelMap.put(labels.BOX_TYPE, OutputFieldFactory.instance().getTextInputField("Hello"));
+        labelMap.put(labels.DURATION_MONTH, OutputFieldFactory.instance().getTextInputField("Hello"));
+        labelMap.put(labels.DEPUTY_NAME, OutputFieldFactory.instance().getTextInputField("Hello"));
+        labelMap.put(labels.DEPUTY_PHONE_NO, OutputFieldFactory.instance().getTextInputField("Hello"));
+        labelMap.put(labels.DEPUTY_ADDRESS, OutputFieldFactory.instance().getTextInputField("Hello"));
+        labelMap.put(labels.CUSTOMER_SIGNATURE, OutputFieldFactory.instance().getImageOutPutField(new Image("signature_1.jpeg")));
+        labelMap.put(labels.DEPUTY_SIGNATURE, OutputFieldFactory.instance().getImageOutPutField(new Image("signature_1.jpeg")));
+        labelMap.put(labels.ATTENDEE_SIGNATURE, OutputFieldFactory.instance().getImageOutPutField(new Image("signature_1.jpeg")));
         return labelMap;
     }
 

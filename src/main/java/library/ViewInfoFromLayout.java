@@ -1,19 +1,13 @@
 package library;
 
 
-import com.example.bankmanagment_version02.utils.LayoutUtil;
-import com.example.bankmanagment_version02.utils.Size;
-import javafx.collections.ObservableList;
 import javafx.geometry.Bounds;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
-import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 
-import java.util.HashMap;
 
-
-public class DynamicSizeViewInfoFromLayout extends Pane {
+public class ViewInfoFromLayout extends Pane {
     private final double rowGap = 10;
     private final double columnGap = 10;
 
@@ -21,7 +15,7 @@ public class DynamicSizeViewInfoFromLayout extends Pane {
     private final Insets padding = new Insets(10);
 
 
-    public DynamicSizeViewInfoFromLayout() {
+    public ViewInfoFromLayout() {
         super();
         setPadding(padding);
         setStyle("-fx-background-color: #D429C3;");

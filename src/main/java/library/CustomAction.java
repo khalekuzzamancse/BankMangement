@@ -4,5 +4,5 @@ import javafx.scene.Node;
 
 public interface CustomAction {
     Node getButton();
-    void setListener(DynamicSizeFromLayout form);
+    void setListener(BaseFromLayout form);
 }

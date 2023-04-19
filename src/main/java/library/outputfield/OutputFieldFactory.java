@@ -10,12 +10,15 @@ public class OutputFieldFactory {
         // Private constructor to prevent instantiation from outside the class
     }
 
-    public static OutputFieldFactory getInstance() {
+    public static OutputFieldFactory instance() {
         return instance;
     }
 
     public OutputField getTextInputField(String text) {
         return new TextOutputField(text);
+    }
+    public OutputField getTextInputField(String text,Double width) {
+        return new TextOutputField(text,width);
     }
     public OutputField getImageOutPutField(Image image) {
         return new ImageOutputField(image);

@@ -11,41 +11,34 @@ import java.io.File;
 
 public class ImageInputField implements InputField {
     private ImageView imageView;
+    private InputFieldListener listener = null;
 
     public ImageInputField() {
         imageView = new ImageView("upload_image.png");
         imageView.setFitWidth(100);
         imageView.setFitHeight(40);
-        setListener();
-    }
-
-    public InputField blankImage() {
-        imageView = new ImageView("empty_image.png");
-        imageView.setFitWidth(100);
-        imageView.setFitHeight(40);
-        //setListener();
-        return this;
-    }
-
-
-    private void setListener() {
-        imageView.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent mouseEvent) {
-                // Open a file chooser dialog
-                FileChooser fileChooser = new FileChooser();
-                fileChooser.setTitle("Open Image");
-                fileChooser.getExtensionFilters().addAll(
-                        new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.jpeg", "*.gif"));
-                File selectedFile = fileChooser.showOpenDialog(null);
-
-                // If a file is selected, set the ImageView's image to the selected file
-                if (selectedFile != null) {
-                    imageView.setImage(new Image(selectedFile.toURI().toString()));
-                }
+        imageView.setOnMouseClicked(mouseEvent -> {
+            FileChooser fileChooser = new FileChooser();
+            fileChooser.setTitle("Open Image");
+            fileChooser.getExtensionFilters().addAll(
+                    new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.jpeg", "*.gif"));
+            File selectedFile = fileChooser.showOpenDialog(null);
+            if (selectedFile != null) {
+                imageView.setImage(new Image(selectedFile.toURI().toString()));
             }
         });
     }
+
+    public ImageInputField(String url,InputFieldListener listener) {
+        imageView = new ImageView(url);
+        imageView.setFitWidth(100);
+        imageView.setFitHeight(40);
+        imageView.setOnMouseClicked(mouseEvent -> {
+            listener.onClick(imageView);
+        });
+    }
+
+
 
     @Override
     public Node getInputField() {

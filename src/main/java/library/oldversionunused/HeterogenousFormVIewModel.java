@@ -3,7 +3,8 @@ package library.oldversionunused;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 
-public interface HetarogenousFormVIewModel {
+public interface HeterogenousFormVIewModel {
+
 
 
     String getDoneButtonLabel();

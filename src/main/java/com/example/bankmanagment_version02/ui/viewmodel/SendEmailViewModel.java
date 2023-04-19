@@ -2,6 +2,7 @@ package com.example.bankmanagment_version02.ui.viewmodel;
 
 import com.example.bankmanagment_version02.utils.Snackbar;
 import library.CommonFormViewModel;
+import library.HeterogeneousFormViewModel;
 import library.inputype.ImageInputField;
 import library.inputype.InputField;
 import library.inputype.TextAreaInputField;
@@ -10,7 +11,7 @@ import library.inputype.TextFieldInputField;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 
-public class SendEmailViewModel implements CommonFormViewModel {
+public class SendEmailViewModel implements HeterogeneousFormViewModel {
     private final HashMap<String, Object> formData;
     private final HashMap<String, Double> inputFieldWidths;
     private final HashMap<String, Double> inputFieldHeights;
@@ -20,10 +21,14 @@ public class SendEmailViewModel implements CommonFormViewModel {
         formData = new HashMap<>();
         inputFieldWidths = new HashMap<>();
         inputFieldHeights = new HashMap<>();
-        inputFieldHeights.put(labels.MESSAGE, 100.0);
-        inputFieldWidths.put(labels.MESSAGE, 100.0);
+        inputFieldWidths.put(labels.MESSAGE, 200.0);
+        inputFieldHeights.put(labels.MESSAGE, 150.0);
+        inputFieldWidths.put(labels.SUBJECT, 200.0);
+
+
 
     }
+
     @Override
     public HashMap<String, Object> saveFormData() {
         return formData;
@@ -32,7 +37,7 @@ public class SendEmailViewModel implements CommonFormViewModel {
     @Override
     public void onDone() {
         Snackbar.show("Success");
-        System.out.println("Form Data:"+formData);
+        System.out.println("Form Data:" + formData);
     }
 
     @Override

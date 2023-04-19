@@ -30,16 +30,6 @@ public class AddBoxViewModel implements CommonFormViewModel {
     }
 
     @Override
-    public HashMap<String, Double> getInputFieldWidths() {
-        return new HashMap<>();
-    }
-
-    @Override
-    public HashMap<String, Double> getInputFieldHeights() {
-        return new HashMap<>();
-    }
-
-    @Override
     public LinkedHashMap<String, InputField> getLabelList() {
         LinkedHashMap<String, InputField> labelMap = new LinkedHashMap<>();
         labelMap.put(labels.SERIAL_NO, new TextFieldInputField());

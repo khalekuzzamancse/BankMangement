@@ -9,14 +9,11 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import library.CommonFormLayout;
-import library.CommonFormViewModel;
-import library.CustomAction;
-import library.DynamicSizeFromLayout;
+import library.*;
 
 public class SendMailScreen {
     private final Stage window;
-    private final CommonFormViewModel viewModel;
+    private final HeterogeneousFormViewModel viewModel;
     private final Button submitButton;
 
 
@@ -25,7 +22,9 @@ public class SendMailScreen {
         viewModel = new SendEmailViewModel();
         CommonFormLayout leaseForm = new CommonFormLayout(
                 viewModel.getLabelList(),
-                submitAction
+                submitAction,
+                viewModel.getInputFieldWidths(),
+                viewModel.getInputFieldHeights()
         );
         window = new Window(leaseForm, "Send Mail Screen", 500, 600).getWindow();
     }

@@ -33,15 +33,6 @@ public class AddLeaseFormViewModel implements CommonFormViewModel {
         System.out.println("Form Data:"+formData);
     }
 
-    @Override
-    public HashMap<String, Double> getInputFieldWidths() {
-        return inputFieldWidths;
-    }
-
-    @Override
-    public HashMap<String, Double> getInputFieldHeights() {
-        return inputFieldHeights;
-    }
 
     @Override
     public LinkedHashMap<String, InputField> getLabelList() {

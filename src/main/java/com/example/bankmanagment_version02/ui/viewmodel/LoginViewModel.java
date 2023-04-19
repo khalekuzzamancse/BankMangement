@@ -33,16 +33,6 @@ public class LoginViewModel implements CommonFormViewModel {
     }
 
     @Override
-    public HashMap<String, Double> getInputFieldWidths() {
-        return inputFieldWidths;
-    }
-
-    @Override
-    public HashMap<String, Double> getInputFieldHeights() {
-        return inputFieldHeights;
-    }
-
-    @Override
     public LinkedHashMap<String, InputField> getLabelList() {
         LinkedHashMap<String, InputField> labelMap = new LinkedHashMap<>();
         labelMap.put(labels.USER_NAME, new TextFieldInputField());

@@ -30,15 +30,6 @@ public class AddAccountFormViewModel implements CommonFormViewModel {
         System.out.println("Form Data:" + formData);
     }
 
-    @Override
-    public HashMap<String, Double> getInputFieldWidths() {
-        return new HashMap<>();
-    }
-
-    @Override
-    public HashMap<String, Double> getInputFieldHeights() {
-        return new HashMap<>();
-    }
 
     @Override
     public LinkedHashMap<String, InputField> getLabelList() {

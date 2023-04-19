@@ -1,8 +1,9 @@
 package com.example.bankmanagment_version02.ui.viewmodel;
 
-import library.ImageInputField;
-import library.InputField;
-import library.TextFieldInputField;
+import library.CommonFormViewModel;
+import library.inputype.ImageInputField;
+import library.inputype.InputField;
+import library.inputype.TextFieldInputField;
 import com.example.bankmanagment_version02.utils.Snackbar;
 
 import java.util.*;

@@ -1,7 +1,5 @@
-package library;
+package library.oldversionunused;
 
-import com.example.bankmanagment_version02.ui.viewmodel.HetarogenousFormVIewModel;
-import com.example.bankmanagment_version02.ui.viewmodel.InputFieldType;
 import com.example.bankmanagment_version02.utils.LayoutUtil;
 import javafx.event.EventHandler;
 import javafx.scene.Node;
@@ -14,6 +12,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.FileChooser;
+import library.DynamicSizeFromLayout;
 
 import java.io.File;
 import java.util.Map;

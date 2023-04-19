@@ -3,6 +3,7 @@ package com.example.bankmanagment_version02.ui.viewmodel;
 import com.example.bankmanagment_version02.data.model.AccountListModel;
 import com.example.bankmanagment_version02.data.model.CreateAccountFormModel;
 import javafx.collections.ObservableList;
+import library.ViewInfoViewModelI;
 
 public class AccountListViewModel implements ViewInfoViewModelI<CreateAccountFormModel> {
 

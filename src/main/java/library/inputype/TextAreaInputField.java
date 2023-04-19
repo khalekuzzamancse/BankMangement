@@ -1,4 +1,4 @@
-package library;
+package library.inputype;
 
 import javafx.scene.Node;
 import javafx.scene.control.TextArea;

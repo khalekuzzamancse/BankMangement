@@ -1,4 +1,4 @@
-package library;
+package library.inputype;
 
 import javafx.event.EventHandler;
 import javafx.scene.Node;

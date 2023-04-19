@@ -1,6 +1,6 @@
-package com.example.bankmanagment_version02.ui.viewmodel;
+package library;
 
-import library.InputField;
+import library.inputype.InputField;
 
 import java.util.HashMap;
 import java.util.LinkedHashMap;

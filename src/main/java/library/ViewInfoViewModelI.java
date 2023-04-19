@@ -1,4 +1,4 @@
-package com.example.bankmanagment_version02.ui.viewmodel;
+package library;
 
 import javafx.collections.ObservableList;
 

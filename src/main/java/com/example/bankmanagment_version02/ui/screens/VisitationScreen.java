@@ -8,14 +8,11 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
-import library.CommonFormLayout;
-import library.CommonFormViewModel;
-import library.CustomAction;
-import library.DynamicSizeFromLayout;
+import library.*;
 
 public class VisitationScreen {
     private final Stage window;
-    private final CommonFormViewModel viewModel;
+    private final HeterogeneousFormViewModel viewModel;
     private final Button submitButton;
 
 
@@ -24,9 +21,11 @@ public class VisitationScreen {
         viewModel = new VisitationViewModel();
         CommonFormLayout leaseForm = new CommonFormLayout(
                 viewModel.getLabelList(),
-                submitAction
+                submitAction,
+                viewModel.getInputFieldWidths(),
+                viewModel.getInputFieldHeights()
         );
-        window = new Window(leaseForm, "Visitation", 500, 600).getWindow();
+        window = new Window(leaseForm, "Visitation", 500, 700).getWindow();
     }
 
     public Stage getWindow() {

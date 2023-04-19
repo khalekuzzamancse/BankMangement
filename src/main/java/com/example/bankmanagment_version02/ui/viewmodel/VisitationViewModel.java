@@ -2,6 +2,7 @@ package com.example.bankmanagment_version02.ui.viewmodel;
 
 import com.example.bankmanagment_version02.utils.Snackbar;
 import library.CommonFormViewModel;
+import library.HeterogeneousFormViewModel;
 import library.inputype.FormInputField;
 import library.inputype.ImageInputField;
 import library.inputype.InputField;
@@ -10,7 +11,7 @@ import library.inputype.TextFieldInputField;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 
-public class VisitationViewModel implements CommonFormViewModel {
+public class VisitationViewModel implements HeterogeneousFormViewModel {
     private final HashMap<String, Object> formData;
 
     private static final Labels labels = new LabelsImpl();
@@ -37,11 +38,26 @@ public class VisitationViewModel implements CommonFormViewModel {
         LinkedHashMap<String, InputField> labelMap = new LinkedHashMap<>();
         labelMap.put(labels.ACCOUNT_NO, FormInputField.getInstance().getTextInputField());
         labelMap.put(labels.BOX_KEY, FormInputField.getInstance().getTextInputField());
-        labelMap.put(labels.SIGNATURE,FormInputField.getInstance().getSignatureInputField());
-        labelMap.put(labels.CURRENT_SIGNATURE,new ImageInputField().blankImage());
+        labelMap.put(labels.CURRENT_SIGNATURE,FormInputField.getInstance().getSignatureInputField());
+        labelMap.put(labels.SIGNATURE,new ImageInputField().blankImage());
         labelMap.put(labels.ATTENDEE_SIGNATURE,FormInputField.getInstance().getSignatureInputField());
         labelMap.put(labels.AS_DEPUTY, FormInputField.getInstance().getCheckBoxField());
+        labelMap.put(labels.DESCRIPTION, FormInputField.getInstance().getTextAreaInputField());
         return labelMap;
+    }
+
+    @Override
+    public HashMap<String, Double> getInputFieldWidths() {
+        return new HashMap<>() {{
+            put(labels.DESCRIPTION, 300.0);
+        }};
+    }
+
+    @Override
+    public HashMap<String, Double> getInputFieldHeights() {
+        return new HashMap<>() {{
+            put(labels.DESCRIPTION, 200.0);
+        }};
     }
 
 
@@ -55,6 +71,7 @@ public class VisitationViewModel implements CommonFormViewModel {
         String SIGNATURE = "Signature";
         String CURRENT_SIGNATURE = "Current Signature";
         String ATTENDEE_SIGNATURE = "Attendee Signature";
+        String DESCRIPTION= "Description";
     }
 
     private static class LabelsImpl implements Labels {

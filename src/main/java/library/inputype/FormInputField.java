@@ -24,7 +24,7 @@ public class FormInputField {
         return new ImageInputField();
     }
 
-    public InputField getCheckBoxField(String label) {
-        return new CheckBoxInputField(label);
+    public InputField getCheckBoxField() {
+        return new CheckBoxInputField("");
     }
 }

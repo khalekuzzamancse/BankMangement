@@ -20,7 +20,7 @@ public class LeaseFormViewModel implements CommonFormViewModel {
         inputFieldWidths = new HashMap<>();
         inputFieldHeights = new HashMap<>();
         //
-        // inputFieldHeights.put(labels.DEPUTY_NAME, 100.0);
+      //   inputFieldHeights.put(labels.DEPUTY_NAME, 100.0);
 
     }
 
@@ -38,9 +38,8 @@ public class LeaseFormViewModel implements CommonFormViewModel {
 
     @Override
     public void onDone() {
-
-        Snackbar.show("Sucess");
-        System.out.println(formData);
+        Snackbar.show("Success");
+        System.out.println("Form Data:"+formData);
     }
 
     @Override

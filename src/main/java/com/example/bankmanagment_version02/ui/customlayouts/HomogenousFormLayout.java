@@ -1,19 +1,17 @@
-package com.example.bankmanagment_version02.ui.screens;
+package com.example.bankmanagment_version02.ui.customlayouts;
 
-import com.example.bankmanagment_version02.ui.FormLayout;
 import com.example.bankmanagment_version02.ui.viewmodel.FormViewModel;
 import com.example.bankmanagment_version02.utils.LayoutUtil;
-import com.example.bankmanagment_version02.utils.Snackbar;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 
-public class HomogenousInputFieldFormLayout extends Pane {
+public class HomogenousFormLayout extends Pane {
     private final FormViewModel viewModel;
 
-    public HomogenousInputFieldFormLayout(FormViewModel viewModel) {
+    public HomogenousFormLayout(FormViewModel viewModel) {
         this.viewModel = viewModel;
         createView();
     }

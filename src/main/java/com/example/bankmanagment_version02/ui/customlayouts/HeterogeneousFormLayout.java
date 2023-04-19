@@ -1,8 +1,5 @@
-package com.example.bankmanagment_version02.ui.screens;
+package com.example.bankmanagment_version02.ui.customlayouts;
 
-import com.example.bankmanagment_version02.ui.DynamicSizeFromLayout;
-import com.example.bankmanagment_version02.ui.FormLayout;
-import com.example.bankmanagment_version02.ui.viewmodel.FormViewModel;
 import com.example.bankmanagment_version02.ui.viewmodel.HetarogenousFormVIewModel;
 import com.example.bankmanagment_version02.ui.viewmodel.InputFieldType;
 import com.example.bankmanagment_version02.utils.LayoutUtil;
@@ -11,9 +8,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 
-import java.util.HashMap;
 import java.util.Map;
 
 public class HeterogeneousFormLayout extends Pane {
@@ -32,14 +29,19 @@ public class HeterogeneousFormLayout extends Pane {
             InputFieldType fieldType = entry.getValue();
             Label label = new Label(labelText);
             Node inputField;
-            if (fieldType == InputFieldType.TextField) {
-                inputField = new TextField();
-            } else {
+            if (fieldType == InputFieldType.ImageView) {
+                ImageView imageView = new ImageView("img.png");
+                imageView.setFitWidth(100);
+                imageView.setFitHeight(40);
+                inputField = imageView;
+            } else if(fieldType==InputFieldType.TextArea) {
                 TextArea textArea = new TextArea();
                 textArea.setWrapText(true);
                 textArea.setStyle("-fx-font-size: 14; -fx-alignment: center;");
                 inputField = textArea;
 
+            } else {
+                inputField = new TextField();
             }
             customLayout.getChildren().addAll(label, inputField);
         }

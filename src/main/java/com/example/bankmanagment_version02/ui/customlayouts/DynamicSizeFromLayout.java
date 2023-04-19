@@ -1,10 +1,11 @@
-package com.example.bankmanagment_version02.ui;
+package com.example.bankmanagment_version02.ui.customlayouts;
 
 
 import com.example.bankmanagment_version02.utils.LayoutUtil;
 import com.example.bankmanagment_version02.utils.Size;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 
 import java.util.HashMap;
@@ -52,6 +53,7 @@ public class DynamicSizeFromLayout extends Pane {
             double height = sizes.get(i).getHeight();
             double width = sizes.get(i).getWidth();
 
+
             positionChildren(getChildren().get(i), padding.getLeft(), y + labelDownY, width, height);
             y = y + inputFieldH + rowGap;
             //
@@ -59,6 +61,9 @@ public class DynamicSizeFromLayout extends Pane {
         //placing the inputField
         y = padding.getTop();
         for (int i = 1; i < getChildren().size(); i = i + 2) {
+            if(getChildren().get(i) instanceof ImageView){
+                System.out.println("This is image View Field"+i);
+            }
             double height = sizes.get(i).getHeight();
             double width = sizes.get(i).getWidth();
             double x = padding.getLeft() + labelWidth + columnGap;

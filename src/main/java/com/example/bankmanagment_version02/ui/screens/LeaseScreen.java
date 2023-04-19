@@ -3,6 +3,7 @@ package com.example.bankmanagment_version02.ui.screens;
 import com.example.bankmanagment_version02.ui.customlayouts.*;
 import com.example.bankmanagment_version02.ui.viewmodel.LeaseFormViewModel;
 import com.example.bankmanagment_version02.utils.StageFactory;
+import com.example.bankmanagment_version02.utils.Window;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -20,6 +21,22 @@ public class LeaseScreen {
     private final Button submitButton;
 
 
+    public LeaseScreen() {
+        submitButton = new Button("Submit");
+        viewModel = new LeaseFormViewModel();
+        CommonFormLayout leaseForm = new CommonFormLayout(
+                viewModel.getLabelList(),
+                submitAction,
+                viewModel.getInputFieldWidths(),
+                viewModel.getInputFieldHeights()
+        );
+        window = new Window(leaseForm, "Rent Screen", 500, 600).getWindow();
+    }
+
+    public Stage getWindow() {
+        return window;
+    }
+
     private void getFormData(DynamicSizeFromLayout form) {
         for (int i = 1; i < form.getChildren().size(); i = i + 2) {
             String label = ((Label) form.getChildren().get(i - 1)).getText();
@@ -36,24 +53,6 @@ public class LeaseScreen {
         }
     }
 
-    public LeaseScreen() {
-        submitButton = new Button("Submit");
-        viewModel = new LeaseFormViewModel();
-        CommonFormLayout layout = new CommonFormLayout(
-                viewModel.getLabelList(),
-                submitAction,
-                viewModel.getInputFieldWidths(),
-                viewModel.getInputFieldHeights()
-        );
-        String title = "Rent Screen";
-        int width = 500;
-        int height = 600;
-        window = StageFactory.createStage(layout, title, width, height);
-    }
-
-    public Stage getWindow() {
-        return window;
-    }
     private final CustomAction submitAction = new CustomAction() {
         @Override
         public Node getButton() {

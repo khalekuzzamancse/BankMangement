@@ -1,5 +1,10 @@
 package com.example.bankmanagment_version02.ui.viewmodel;
 
+import com.example.bankmanagment_version02.data.model.AddAccountModel;
+import com.example.bankmanagment_version02.data.model.AddLeaseModel;
+import javafx.geometry.VPos;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import library.AbstractFormViewModel;
 import library.inputype.ImageInputField;
 import library.inputype.InputField;
@@ -19,8 +24,25 @@ public class AddLeaseFormLayoutViewModel extends AbstractFormViewModel {
 
     @Override
     public void onDone() {
-        SnackBar.show("Success");
-        System.out.println("Form Data:" + formData);
+        try {
+            String accountNo = (String) formData.get(labels.ACCOUNT_NO);
+            Integer duration = Integer.parseInt((String) formData.get(labels.DURATION_MONTH));
+            String deputyName = (String) formData.get(labels.DEPUTY_NAME);
+            String deputyAddress = (String) formData.get(labels.DEPUTY_ADDRESS);
+            String deputyPhoneNo = (String) formData.get(labels.DEPUTY_PHONE_NO);
+            Image customerSignature = (Image) formData.get(labels.CUSTOMER_SIGNATURE);
+            Image deputySignature = (Image) formData.get(labels.DEPUTY_SIGNATURE);
+            Image attendeeSignature = (Image) formData.get(labels.ATTENDEE_SIGNATURE);
+            Boolean hasDeputy = !(deputyName.equals("")||deputyAddress.equals("")||deputyPhoneNo.equals(""));
+            AddLeaseModel leaseModel = new AddLeaseModel(
+                    accountNo, duration, deputyName, deputyAddress, deputyPhoneNo,
+                    customerSignature, deputySignature, attendeeSignature,
+                    hasDeputy
+            );
+            System.out.println(leaseModel);
+        } catch (Exception e) {
+            SnackBar.show("Failed to add,Check the field");
+        }
     }
 
 

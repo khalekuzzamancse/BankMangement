@@ -1,7 +1,7 @@
 package com.example.bankmanagment_version02.data.model;
 
 
-public class CreateAccountFormModel {
+public class AddAccountModel {
     private String name;
     private String email;
     private String phoneNo;
@@ -9,11 +9,11 @@ public class CreateAccountFormModel {
     private String firm;
     private String hairColor;
     private String eyeColor;
-    private double height;
-    private double weight;
+    private Double height;
+    private Double weight;
 
-    public CreateAccountFormModel(String name, String email, String phoneNo, String address, String firm,
-                                  String hairColor, String eyeColor, double height, double weight) {
+    public AddAccountModel(String name, String email, String phoneNo, String address, String firm,
+                           String hairColor, String eyeColor, Double height, Double weight) {
         this.name = name;
         this.email = email;
         this.phoneNo = phoneNo;
@@ -25,7 +25,7 @@ public class CreateAccountFormModel {
         this.weight = weight;
     }
 
-    public CreateAccountFormModel() {
+    public AddAccountModel() {
     }
 
     public String getName() {

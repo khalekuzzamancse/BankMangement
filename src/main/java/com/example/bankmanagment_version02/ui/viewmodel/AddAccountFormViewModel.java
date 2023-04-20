@@ -1,5 +1,7 @@
 package com.example.bankmanagment_version02.ui.viewmodel;
 
+import com.example.bankmanagment_version02.data.model.AddAccountModel;
+import com.example.bankmanagment_version02.data.model.AddBoxModel;
 import library.AbstractFormViewModel;
 import library.inputype.FormInputField;
 import library.inputype.InputField;
@@ -7,18 +9,33 @@ import com.example.bankmanagment_version02.utils.SnackBar;
 
 import java.util.LinkedHashMap;
 
-public class AddAccountFormLayoutViewModel extends AbstractFormViewModel {
+public class AddAccountFormViewModel extends AbstractFormViewModel {
     private static final Labels labels = new LabelsImpl();
 
-    public AddAccountFormLayoutViewModel() {
+    public AddAccountFormViewModel() {
         super();
 
     }
 
     @Override
     public void onDone() {
-        SnackBar.show("Success");
-        System.out.println("Form Data:" + formData);
+
+        try {
+            String name = (String) formData.get(labels.NAME);
+            String email = (String) formData.get(labels.EMAIL);
+            String phoneNo = (String) formData.get(labels.PHONE_NO);
+            String address = (String) formData.get(labels.ADDRESS);
+            String firm = (String) formData.get(labels.FIRM);
+            String eyeColor = (String) formData.get(labels.EYE_COLOR);
+            String hairColor = (String) formData.get(labels.HAIR_COLOR);
+            Double weight = Double.parseDouble((String) formData.get(labels.WEIGHT));
+            Double height = Double.parseDouble((String) formData.get(labels.HEIGHT));
+            AddAccountModel accountModel =
+                    new AddAccountModel(name, email, phoneNo, address, firm, hairColor,eyeColor, height,weight);
+            System.out.println(accountModel);
+        } catch (Exception e) {
+            SnackBar.show("Failed to add,Check the field");
+        }
     }
 
 

@@ -15,7 +15,7 @@ public class AddBoxViewModel extends AbstractFormViewModel {
 
     @Override
     public void onDone() {
-        SnackBar.show("Success");
+
         try {
             String serialNo = (String) formData.get(labels.SERIAL_NO);
             Double width = Double.parseDouble((String) formData.get(labels.WIDTH));
@@ -24,8 +24,8 @@ public class AddBoxViewModel extends AbstractFormViewModel {
             Double newPrice = Double.parseDouble((String) formData.get(labels.NEW_PRICE));
             AddBoxModel boxModel = new AddBoxModel(serialNo, height, width, oldPrice, newPrice);
             System.out.println(boxModel);
-        } catch (NumberFormatException e) {
-            // handle the exception here
+        } catch (Exception e) {
+            SnackBar.show("Failed to add,Check the field");
         }
 
     }

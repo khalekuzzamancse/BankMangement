@@ -12,8 +12,8 @@ public class VisitationModel implements Serializable {
     private transient  Image  signature;
     private transient  Image attendeeSignature;
     private String description;
-    private String date;
-    private String time;
+    private final String date;
+    private final String time;
 
     public VisitationModel(
             String accountNo, String boxKey, Boolean asDeputy,

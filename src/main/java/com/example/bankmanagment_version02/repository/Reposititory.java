@@ -1,9 +1,6 @@
 package com.example.bankmanagment_version02.repository;
 
-import com.example.bankmanagment_version02.data.model.AddAccountModel;
-import com.example.bankmanagment_version02.data.model.AddBoxModel;
-import com.example.bankmanagment_version02.data.model.AddLeaseModel;
-import com.example.bankmanagment_version02.data.model.VisitationModel;
+import com.example.bankmanagment_version02.data.model.*;
 import datastorage.TableName;
 import datastorage.file.FileHandling;
 import datastorage.file.FileIO;
@@ -52,7 +49,15 @@ public class Reposititory {
         return list;
     }
 
+    public static void addVisitationWithImage(VisitationModelWithImage instance) {
+        FileHandling.write(TableName.VISITATION_CARD_TABLE_WITH_IMAGE, instance);
+    }
 
+    public static List<VisitationModelWithImage> getVisitationsWithImage() {
+        List<VisitationModelWithImage> list;
+        list = FileHandling.read(TableName.VISITATION_CARD_TABLE_WITH_IMAGE);
+        return list;
+    }
 
 
 }

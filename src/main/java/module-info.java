@@ -1,6 +1,7 @@
 module com.example.bankmanagment_version {
     requires javafx.controls;
     requires javafx.fxml;
+    requires javafx.swing;
     opens com.example.bankmanagment_version02 to javafx.fxml;
     exports com.example.bankmanagment_version02;
     exports com.example.bankmanagment_version02.utils;

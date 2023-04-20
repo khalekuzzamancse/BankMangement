@@ -1,6 +1,5 @@
 package com.example.bankmanagment_version02.ui.viewmodel;
 
-import com.example.bankmanagment_version02.data.model.AddLeaseModel;
 import com.example.bankmanagment_version02.data.model.VisitationModel;
 import com.example.bankmanagment_version02.data.model.VisitationModelWithImage;
 import com.example.bankmanagment_version02.repository.Reposititory;
@@ -10,11 +9,11 @@ import library.TableViewInfoViewModel;
 
 import java.util.List;
 
-public class ViewVisitationTableViewModel implements TableViewInfoViewModel<VisitationModel> {
+public class ViewVisitationTableWithImageViewModel implements TableViewInfoViewModel<VisitationModelWithImage> {
 
     @Override
-    public ObservableList<VisitationModel> getTableData() {
-        List<VisitationModel> boxes = Reposititory.getVisitations();
+    public ObservableList<VisitationModelWithImage> getTableData() {
+        List<VisitationModelWithImage> boxes = Reposititory.getVisitationsWithImage();
         return FXCollections.observableList(boxes);
     }
 

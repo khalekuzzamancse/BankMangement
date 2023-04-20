@@ -1,9 +1,6 @@
 package com.example.bankmanagment_version02.ui.screens;
 
-import com.example.bankmanagment_version02.data.model.AddAccountModel;
-import com.example.bankmanagment_version02.data.model.AddBoxModel;
-import com.example.bankmanagment_version02.data.model.AddLeaseModel;
-import com.example.bankmanagment_version02.data.model.VisitationModel;
+import com.example.bankmanagment_version02.data.model.*;
 import com.example.bankmanagment_version02.ui.viewmodel.*;
 import com.example.bankmanagment_version02.utils.Window;
 import javafx.stage.Stage;
@@ -22,9 +19,12 @@ public class InfoViewTableScreen {
 //        GenericViewScreen<AddLeaseModel> leaseListLayout = new GenericViewScreen<>(new ViewLeaseTableViewModel());
 //        Stage leaseListLayoutWindow = new Window(leaseListLayout, "Least List", 500, 700).getWindow();
 //        leaseListLayoutWindow.show();
-//        GenericViewScreen<VisitationModel> visitationLayout = new GenericViewScreen<>(new ViewVisitationTableViewModel());
+//GenericViewScreen<VisitationModel> visitationLayout = new GenericViewScreen<>(new ViewVisitationTableViewModel());
 //        Stage visitationLayoutWindow = new Window(visitationLayout, "Visitation List", 500, 700).getWindow();
 //        visitationLayoutWindow.show();
+        GenericViewScreen<VisitationModelWithImage> visitationLayout = new GenericViewScreen<>(new ViewVisitationTableWithImageViewModel());
+        Stage visitationLayoutWindow = new Window(visitationLayout, "Visitation List", 500, 700).getWindow();
+        visitationLayoutWindow.show();
 
     }
 }

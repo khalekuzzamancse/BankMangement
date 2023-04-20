@@ -12,13 +12,13 @@ public class BaseViewInfoFromLayout extends Pane {
     private final double columnGap = 10;
 
     private double labelMaxWidth;
-    private final Insets padding = new Insets(0);
+    private final Insets padding = new Insets(10);
 
 
     public BaseViewInfoFromLayout() {
         super();
         setPadding(padding);
-      //  setStyle("-fx-background-color: #D429C3;");
+        //  setStyle("-fx-background-color: #D429C3;");
 
     }
 
@@ -30,28 +30,27 @@ public class BaseViewInfoFromLayout extends Pane {
         double y = padding.getTop();
 
         for (int i = 0; i < getChildren().size(); i = i + 3) {
-            Bounds viewBounds = getChildren().get(i + 2).getLayoutBounds();
+            Node outputField = getChildren().get(i + 2);
+            Bounds viewBounds = outputField.getLayoutBounds();
             Bounds labelBounds = getChildren().get(i).getLayoutBounds();
+            //
             double outputFieldHeight = viewBounds.getHeight();
             double labelHeight = labelBounds.getHeight();
             double labelDownY = (outputFieldHeight - labelHeight) / 2;
             double x = padding.getLeft();
-            positionChildren(getChildren().get(i), x, y + labelDownY);
-            double x1=padding.getLeft()+labelMaxWidth;
-            positionChildren(getChildren().get(i+1), x1, y + labelDownY);
-            y = y + Math.max(viewBounds.getHeight(), labelBounds.getHeight()) + rowGap;
-
-            //
+            //placing the labels
+            Node label = getChildren().get(i);
+            positionChildren(label, x, y + labelDownY);
+            //Placing the colon
+            Node colon = getChildren().get(i + 1);
+            double x1 = padding.getLeft() + labelMaxWidth;
+            positionChildren(colon, x1, y + labelDownY);
+            //placing the outputField
+            double x2 = padding.getLeft() +labelMaxWidth + 5;
+            positionChildren(outputField, x2, y);
+            y = y +viewBounds.getHeight()+ rowGap;
         }
 
-        //placing the inputField
-        y = padding.getTop();
-        for (int i = 2; i < getChildren().size(); i = i + 3) {
-            Bounds viewBounds = getChildren().get(i).getLayoutBounds();
-            double x = labelMaxWidth+5;
-            positionChildren(getChildren().get(i), x, y);
-            y = y + viewBounds.getHeight() + rowGap;
-        }
 
     }
 

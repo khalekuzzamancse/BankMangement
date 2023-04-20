@@ -1,4 +1,4 @@
-package com.example.bankmanagment_version02.constants;
+package datastorage;
 
 public interface TableName {
     public static final String VISITATION_CARD_TABLE = "visitCardTable.dat";

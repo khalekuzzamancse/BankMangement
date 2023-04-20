@@ -1,13 +1,13 @@
 package com.example.bankmanagment_version02.data.model;
 
-public class CreateBoxFormModel {
+public class AddBoxModel {
     private String serialNumber;
-    private double height;
-    private double width;
-    private double oldPrice;
-    private double newPrice;
+    private Double height;
+    private Double width;
+    private Double oldPrice;
+    private Double newPrice;
 
-    public CreateBoxFormModel(String serialNumber, double height, double width, double oldPrice, double newPrice) {
+    public AddBoxModel(String serialNumber, Double height, Double width, Double oldPrice, Double newPrice) {
         this.serialNumber = serialNumber;
         this.height = height;
         this.width = width;
@@ -15,7 +15,7 @@ public class CreateBoxFormModel {
         this.newPrice = newPrice;
     }
 
-    public CreateBoxFormModel() {
+    public AddBoxModel() {
 
     }
 

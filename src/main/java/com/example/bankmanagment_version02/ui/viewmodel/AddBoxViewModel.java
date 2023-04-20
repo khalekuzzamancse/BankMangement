@@ -1,5 +1,6 @@
 package com.example.bankmanagment_version02.ui.viewmodel;
 
+import com.example.bankmanagment_version02.data.model.AddBoxModel;
 import com.example.bankmanagment_version02.utils.SnackBar;
 import library.AbstractFormViewModel;
 import library.inputype.InputField;
@@ -7,7 +8,7 @@ import library.inputype.TextFieldInputField;
 
 import java.util.LinkedHashMap;
 
-public class AddBoxLayoutViewModel extends AbstractFormViewModel {
+public class AddBoxViewModel extends AbstractFormViewModel {
 
     private static final Labels labels = new LabelsImpl();
 
@@ -15,7 +16,18 @@ public class AddBoxLayoutViewModel extends AbstractFormViewModel {
     @Override
     public void onDone() {
         SnackBar.show("Success");
-        System.out.println("Form Data:" + formData);
+        try {
+            String serialNo = (String) formData.get(labels.SERIAL_NO);
+            Double width = Double.parseDouble((String) formData.get(labels.WIDTH));
+            Double height = Double.parseDouble((String) formData.get(labels.HEIGHT));
+            Double oldPrice = Double.parseDouble((String) formData.get(labels.OLD_PRICE));
+            Double newPrice = Double.parseDouble((String) formData.get(labels.NEW_PRICE));
+            AddBoxModel boxModel = new AddBoxModel(serialNo, height, width, oldPrice, newPrice);
+            System.out.println(boxModel);
+        } catch (NumberFormatException e) {
+            // handle the exception here
+        }
+
     }
 
     @Override

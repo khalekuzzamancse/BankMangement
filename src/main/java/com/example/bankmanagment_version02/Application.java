@@ -3,6 +3,7 @@ package com.example.bankmanagment_version02;
 import com.example.bankmanagment_version02.repository.Reposititory;
 import com.example.bankmanagment_version02.ui.screens.*;
 import com.example.bankmanagment_version02.ui.viewmodel.SendExpireMailViewModel;
+import com.example.bankmanagment_version02.ui.viewmodel.VisitationCardInfoViewModel;
 import datastorage.file.FileHandling;
 import javafx.geometry.Bounds;
 import javafx.scene.Scene;
@@ -27,7 +28,8 @@ public class Application extends javafx.application.Application {
      //     new VisitationScreen().getWindow().show();
         // new ViewLeaseInfoScreen().getWindow().show();
         // new AddLeaseScreen().getWindow().show();
-        new InfoViewTableScreen();
+    //    new InfoViewTableScreen();
+        //new ViewVisitationCardScreen().getWindow().show();
 
 
     }

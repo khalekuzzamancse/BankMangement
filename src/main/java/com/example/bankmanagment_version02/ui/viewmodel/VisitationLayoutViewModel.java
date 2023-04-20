@@ -1,36 +1,30 @@
 package com.example.bankmanagment_version02.ui.viewmodel;
 
-import com.example.bankmanagment_version02.utils.Snackbar;
+import com.example.bankmanagment_version02.utils.SnackBar;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import library.CommonFormLayoutViewModel;
+import library.AbstractFormViewModel;
 import library.inputype.*;
 
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 
-public class VisitationLayoutViewModel implements CommonFormLayoutViewModel {
-    private final HashMap<String, Object> formData;
+public class VisitationLayoutViewModel extends AbstractFormViewModel {
+
 
     private static final Labels labels = new LabelsImpl();
 
     public VisitationLayoutViewModel() {
-        formData = new HashMap<>();
+        super();
     }
 
     InputFieldListener listener = node -> {
-        ImageView imageView=(ImageView) node;
+        ImageView imageView = (ImageView) node;
         imageView.setImage(new Image("signature_1.jpeg"));
     };
 
     @Override
-    public HashMap<String, Object> saveFormData() {
-        return formData;
-    }
-
-    @Override
     public void onDone() {
-        Snackbar.show("Success");
+        SnackBar.show("Success");
         System.out.println("Visititaion Form Data:" + formData);
     }
 
@@ -44,7 +38,7 @@ public class VisitationLayoutViewModel implements CommonFormLayoutViewModel {
         labelMap.put(labels.SIGNATURE, new ImageInputField("load.png", listener));
         labelMap.put(labels.ATTENDEE_SIGNATURE, FormInputField.getInstance().getSignatureInputField());
         labelMap.put(labels.AS_DEPUTY, FormInputField.getInstance().getCheckBoxField());
-        labelMap.put(labels.DESCRIPTION, FormInputField.getInstance().getTextAreaInputField(200,150));
+        labelMap.put(labels.DESCRIPTION, FormInputField.getInstance().getTextAreaInputField(200, 150));
         return labelMap;
     }
 

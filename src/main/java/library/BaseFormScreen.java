@@ -1,22 +1,22 @@
-package com.example.bankmanagment_version02.ui.screens;
+package library;
 
+import library.AbstractFormViewModel;
 import com.example.bankmanagment_version02.utils.Window;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
-import library.CommonFormLayoutViewModel;
 import library.LabelToFormLayout;
 import library.layouts.BaseFromLayout;
 import library.layouts.CustomAction;
 
 public abstract class BaseFormScreen {
     protected Stage window;
-    protected CommonFormLayoutViewModel viewModel;
+    protected AbstractFormViewModel viewModel;
     protected Button submitButton;
 
-    public BaseFormScreen(String windowTitle, CommonFormLayoutViewModel viewModel) {
+    public BaseFormScreen(String windowTitle, AbstractFormViewModel viewModel) {
         submitButton = new Button("Submit");
         this.viewModel = viewModel;
         LabelToFormLayout layout = new LabelToFormLayout(viewModel.getLabelList(), createSubmitAction());

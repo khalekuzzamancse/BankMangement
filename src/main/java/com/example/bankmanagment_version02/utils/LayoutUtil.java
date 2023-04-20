@@ -22,32 +22,6 @@ public class LayoutUtil {
         parent.setTranslateX((parent.getScene().getWidth() - maxWidth) / 2);
         parent.setTranslateY((parent.getScene().getHeight() - maxHeight) / 2);
     }
-    public static double getMaxSum(HashMap<Integer, Size> sizes) {
-        double sumOdd = 0.0;
-        double sumEven = 0.0;
-        for (Map.Entry<Integer, Size> entry : sizes.entrySet()) {
-            double height = entry.getValue().getHeight();
-            if (entry.getKey() % 2 == 0) {
-                sumEven += height;
-            } else {
-                sumOdd += height;
-            }
-        }
-
-        return Math.max(sumOdd, sumEven);
-    }
-    public  static double getMaxWidth(HashMap<Integer, Size> sizes) {
-        double maxWidth = Double.NEGATIVE_INFINITY;
-
-        for (Map.Entry<Integer, Size> entry : sizes.entrySet()) {
-            double width = entry.getValue().getWidth();
-            if (width > maxWidth) {
-                maxWidth = width;
-            }
-        }
-
-        return maxWidth;
-    }
 
 
 }

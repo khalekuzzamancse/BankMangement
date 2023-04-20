@@ -5,7 +5,6 @@ import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
 import javafx.geometry.Pos;
 import javafx.geometry.Rectangle2D;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
@@ -17,7 +16,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
 
-public class Snackbar {
+public class SnackBar {
 
     public static void show(String message) {
         Stage stage = new Stage();
@@ -37,7 +36,7 @@ public class Snackbar {
         double prefHeight = label.prefHeight(prefWidth);
 
         // create a rectangle background for the notification
-        Rectangle bg = new Rectangle(prefWidth + 20, prefHeight + 20, Color.rgb(0, 0, 0, 0.7));
+        Rectangle bg = new Rectangle(prefWidth + 40, prefHeight + 20, Color.rgb(0, 0, 0, 0.7));
         bg.setArcWidth(20);
         bg.setArcHeight(20);
 

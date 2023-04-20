@@ -1,30 +1,20 @@
 package com.example.bankmanagment_version02.ui.viewmodel;
 
-import com.example.bankmanagment_version02.utils.Snackbar;
-import library.CommonFormLayoutViewModel;
+import com.example.bankmanagment_version02.utils.SnackBar;
+import library.AbstractFormViewModel;
 import library.inputype.*;
 
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 
-public class SendEmailLayoutViewModel implements CommonFormLayoutViewModel {
-    private final HashMap<String, Object> formData;
+public class SendEmailLayoutViewModel extends AbstractFormViewModel {
     private static final Labels labels = new LabelsImpl();
 
     public SendEmailLayoutViewModel() {
-        formData = new HashMap<>();
-
-
+        super();
     }
-
-    @Override
-    public HashMap<String, Object> saveFormData() {
-        return formData;
-    }
-
     @Override
     public void onDone() {
-        Snackbar.show("Success");
+        SnackBar.show("Success");
         System.out.println("Form Data:" + formData);
     }
 

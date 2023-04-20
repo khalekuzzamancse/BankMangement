@@ -1,34 +1,23 @@
 package com.example.bankmanagment_version02.ui.viewmodel;
 
-import com.example.bankmanagment_version02.utils.Snackbar;
-import library.CommonFormLayoutViewModel;
+import com.example.bankmanagment_version02.utils.SnackBar;
+import library.AbstractFormViewModel;
 import library.inputype.InputField;
 import library.inputype.TextFieldInputField;
 
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 
-public class LoginLayoutViewModel implements CommonFormLayoutViewModel {
-    private final HashMap<String, Object> formData;
-    private final HashMap<String, Double> inputFieldWidths;
-    private final HashMap<String, Double> inputFieldHeights;
+public class LoginLayoutViewModel extends AbstractFormViewModel {
     private static final Labels labels = new LabelsImpl();
 
     public LoginLayoutViewModel() {
-        formData = new HashMap<>();
-        inputFieldWidths = new HashMap<>();
-        inputFieldHeights = new HashMap<>();
+        super();
 
-    }
-
-    @Override
-    public HashMap<String, Object> saveFormData() {
-        return formData;
     }
 
     @Override
     public void onDone() {
-        Snackbar.show("Success");
+        SnackBar.show("Success");
         System.out.println("Form Data:" + formData);
     }
 

@@ -1,5 +1,7 @@
 package com.example.bankmanagment_version02.ui.viewmodel;
 
+import com.example.bankmanagment_version02.data.model.AddAccountModel;
+import com.example.bankmanagment_version02.data.model.VisitationModel;
 import com.example.bankmanagment_version02.utils.SnackBar;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -24,8 +26,25 @@ public class VisitationLayoutViewModel extends AbstractFormViewModel {
 
     @Override
     public void onDone() {
-        SnackBar.show("Success");
-        System.out.println("Visititaion Form Data:" + formData);
+        try {
+// get form data values using label constants
+            String accountNo = (String) formData.get(labels.ACCOUNT_NO);
+            String boxKey = (String) formData.get(labels.BOX_KEY);
+            Boolean asDeputy = (Boolean) formData.get(labels.AS_DEPUTY);
+            Image signature = (Image) formData.get(labels.SIGNATURE);
+            Image currentSignature = (Image) formData.get(labels.CURRENT_SIGNATURE);
+            Image attendeeSignature = (Image) formData.get(labels.ATTENDEE_SIGNATURE);
+            String description = (String) formData.get(labels.DESCRIPTION);
+// create Account object and set properties
+            VisitationModel visitationModel =
+                    new VisitationModel(accountNo, boxKey, asDeputy,
+                            signature, attendeeSignature, description);
+            System.out.println(visitationModel);
+
+        } catch (Exception e) {
+            SnackBar.show("Failed to add,Check the field");
+        }
+
     }
 
 

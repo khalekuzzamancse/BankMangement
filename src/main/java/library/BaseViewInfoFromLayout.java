@@ -7,18 +7,18 @@ import javafx.scene.Node;
 import javafx.scene.layout.Pane;
 
 
-public class ViewInfoFromLayout extends Pane {
+public class BaseViewInfoFromLayout extends Pane {
     private final double rowGap = 10;
     private final double columnGap = 10;
 
     private double labelMaxWidth;
-    private final Insets padding = new Insets(10);
+    private final Insets padding = new Insets(0);
 
 
-    public ViewInfoFromLayout() {
+    public BaseViewInfoFromLayout() {
         super();
         setPadding(padding);
-        setStyle("-fx-background-color: #D429C3;");
+      //  setStyle("-fx-background-color: #D429C3;");
 
     }
 
@@ -29,20 +29,26 @@ public class ViewInfoFromLayout extends Pane {
         labelMaxWidth = getLabelMaxWidth();
         double y = padding.getTop();
 
-        // //placing the labels
-        for (int i = 0; i < getChildren().size(); i = i + 2) {
-            Bounds viewBounds = getChildren().get(i+1).getLayoutBounds();
+        for (int i = 0; i < getChildren().size(); i = i + 3) {
+            Bounds viewBounds = getChildren().get(i + 2).getLayoutBounds();
             Bounds labelBounds = getChildren().get(i).getLayoutBounds();
-            double labelDownY = (viewBounds.getHeight() - labelBounds.getHeight()) / 2;
-            positionChildren(getChildren().get(i), padding.getLeft(), y + labelDownY);
-            y = y + Math.max(viewBounds.getHeight(),labelBounds.getHeight()) + rowGap;
+            double outputFieldHeight = viewBounds.getHeight();
+            double labelHeight = labelBounds.getHeight();
+            double labelDownY = (outputFieldHeight - labelHeight) / 2;
+            double x = padding.getLeft();
+            positionChildren(getChildren().get(i), x, y + labelDownY);
+            double x1=padding.getLeft()+labelMaxWidth;
+            positionChildren(getChildren().get(i+1), x1, y + labelDownY);
+            y = y + Math.max(viewBounds.getHeight(), labelBounds.getHeight()) + rowGap;
+
             //
         }
+
         //placing the inputField
         y = padding.getTop();
-        for (int i = 1; i < getChildren().size(); i = i + 2) {
+        for (int i = 2; i < getChildren().size(); i = i + 3) {
             Bounds viewBounds = getChildren().get(i).getLayoutBounds();
-            double x = padding.getLeft() + labelMaxWidth + columnGap;
+            double x = labelMaxWidth+5;
             positionChildren(getChildren().get(i), x, y);
             y = y + viewBounds.getHeight() + rowGap;
         }
@@ -51,22 +57,12 @@ public class ViewInfoFromLayout extends Pane {
 
     private double getLabelMaxWidth() {
         double maxWidth = 0;
-        for (int i = 0; i < getChildren().size(); i += 2) {
+        for (int i = 0; i < getChildren().size(); i += 3) {
             Node child = getChildren().get(i);
             double childWidth = child.getBoundsInParent().getWidth();
             maxWidth = Math.max(maxWidth, childWidth);
         }
         return maxWidth;
-    }
-
-    private double getLabelMaxHeight() {
-        double maxHeight = 0;
-        for (int i = 0; i < getChildren().size(); i += 2) {
-            Node child = getChildren().get(i);
-            double childHeight = child.getBoundsInParent().getHeight();
-            maxHeight = Math.max(maxHeight, childHeight);
-        }
-        return maxHeight;
     }
 
     private void positionChildren(Node child, double x, double y) {
@@ -78,7 +74,5 @@ public class ViewInfoFromLayout extends Pane {
     public void resize(double width, double height) {
         super.resize(width, height); // set fixed width and height
     }
-
-
 }
 

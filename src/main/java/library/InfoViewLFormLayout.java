@@ -1,9 +1,14 @@
 package library;
 
 import com.example.bankmanagment_version02.utils.LayoutUtil;
+import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import library.outputfield.OutputField;
 
 import java.util.HashMap;
@@ -16,62 +21,38 @@ public class InfoViewLFormLayout extends Pane {
     // and also we do not  need to modify this class
     //when a new InputType filed added
 //    private final CommonFormViewModel viewModel;
-    private ViewInfoFromLayout customLayout;
+    private BaseViewInfoFromLayout customLayout;
 
-    public InfoViewLFormLayout(
-            Map<String, OutputField> labelList,
-            Map<String, Double> inputFieldWidths,
-            Map<String, Double> inputFieldHeights
-    ) {
-        createView(labelList,inputFieldWidths,inputFieldHeights);
-    }
     public InfoViewLFormLayout(
             Map<String, OutputField> labelList
     ) {
-        createView(labelList,new HashMap<>(),new HashMap<>());
+        createView(labelList);
     }
 
     private void createView(
-            Map<String, OutputField> labelList,
-            Map<String, Double> inputFieldWidths,
-            Map<String, Double> inputFieldHeights
+            Map<String, OutputField> labelList
     ){
-        customLayout = new ViewInfoFromLayout();
+        customLayout = new BaseViewInfoFromLayout();
         for (Map.Entry<String, OutputField> entry : labelList.entrySet()) {
             String labelText = entry.getKey();
             OutputField fieldType = entry.getValue();
             Label label = new Label(labelText);
+            Label colon = new Label(":");
             Node outputField = fieldType.getOutputField();
-            customLayout.getChildren().addAll(label, outputField);
+            customLayout.getChildren().addAll(label,colon,outputField);
         }
-        for (int i=0;i<labelList.size();i++){
-//            Label label = new Label(":");
-//            customLayout.getChildren().addAll(label);
-        }
-        setSize(inputFieldWidths,inputFieldHeights);
+
         this.getChildren().addAll(customLayout);
     }
 
 
-    private void setSize(Map<String, Double> inputFieldWidths, Map<String, Double> inputFieldHeights) {
-//        for (Map.Entry<String, Double> entry : inputFieldWidths.entrySet()) {
-//            String labelName = entry.getKey();
-//            Double width = entry.getValue();
-//            customLayout.setInputFieldWidth(labelName, width);
-//        }
-//        for (Map.Entry<String, Double> entry : inputFieldHeights.entrySet()) {
-//            String labelName = entry.getKey();
-//            Double height = entry.getValue();
-//            customLayout.setInputFieldHeight(labelName, height);
-//        }
-    }
 
 
     @Override
     protected void layoutChildren() {
         super.layoutChildren();
 
-        ViewInfoFromLayout customLayout = (ViewInfoFromLayout) this.getChildren().get(0);
+        BaseViewInfoFromLayout customLayout = (BaseViewInfoFromLayout) this.getChildren().get(0);
         double formHeight = customLayout.getHeight();
         double formWidth = customLayout.getWidth();
         positionChildren(customLayout, 0, 0, formWidth, formHeight);

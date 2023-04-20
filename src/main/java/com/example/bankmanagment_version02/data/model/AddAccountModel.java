@@ -1,7 +1,9 @@
 package com.example.bankmanagment_version02.data.model;
 
 
-public class AddAccountModel {
+import java.io.Serializable;
+
+public class AddAccountModel implements Serializable {
     private String name;
     private String email;
     private String phoneNo;

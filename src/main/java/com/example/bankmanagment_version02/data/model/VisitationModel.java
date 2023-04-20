@@ -3,12 +3,14 @@ package com.example.bankmanagment_version02.data.model;
 import Utils.DateTimeUtils;
 import javafx.scene.image.Image;
 
-public class VisitationModel {
+import java.io.Serializable;
+
+public class VisitationModel implements Serializable {
     private String accountNo;
     private String boxKey;
     private Boolean asDeputy;
-    private Image signature;
-    private Image attendeeSignature;
+    private transient  Image  signature;
+    private transient  Image attendeeSignature;
     private String description;
     private String date;
     private String time;

@@ -2,19 +2,21 @@ package com.example.bankmanagment_version02.data.model;
 
 import javafx.scene.image.Image;
 
+import java.io.Serializable;
 import java.util.UUID;
 
-public class AddLeaseModel {
-    private String boxKey;
+public class AddLeaseModel  implements Serializable {
+    private final String boxKey;
     private Boolean hasDeputy=false;
     private String accountNo;
     private Integer duration;
     private String deputyName;
     private String deputyAddress;
     private String deputyPhoneNo;
-    private Image customerSignature;
-    private Image deputySignature;
-    private Image attendeeSignature;
+
+    private transient  Image customerSignature;
+    private transient  Image deputySignature;
+    private transient  Image attendeeSignature;
 
     public AddLeaseModel(String accountNo, Integer duration, String deputyName, String deputyAddress,
                          String deputyPhoneNo,

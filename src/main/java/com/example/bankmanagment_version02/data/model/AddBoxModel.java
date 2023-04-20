@@ -1,6 +1,8 @@
 package com.example.bankmanagment_version02.data.model;
 
-public class AddBoxModel {
+import java.io.Serializable;
+
+public class AddBoxModel  implements Serializable {
     private String serialNumber;
     private Double height;
     private Double width;

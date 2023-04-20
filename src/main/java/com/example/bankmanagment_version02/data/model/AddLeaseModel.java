@@ -1,5 +1,6 @@
 package com.example.bankmanagment_version02.data.model;
 
+import Utils.DateTimeUtils;
 import javafx.scene.image.Image;
 
 import java.io.Serializable;
@@ -17,6 +18,8 @@ public class AddLeaseModel  implements Serializable {
     private transient  Image customerSignature;
     private transient  Image deputySignature;
     private transient  Image attendeeSignature;
+    private String  rentDate;
+    private String expireDate;
 
     public AddLeaseModel(String accountNo, Integer duration, String deputyName, String deputyAddress,
                          String deputyPhoneNo,
@@ -33,6 +36,8 @@ public class AddLeaseModel  implements Serializable {
         this.attendeeSignature = attendeeSignature;
         this.hasDeputy=hasDeputy;
         boxKey= UUID.randomUUID().toString().substring(0,8);
+        this.rentDate= DateTimeUtils.getCurrentDate();
+        this.expireDate=DateTimeUtils.geDateFromToday(duration);
     }
 
     public String getAccountNo() {
@@ -99,6 +104,17 @@ public class AddLeaseModel  implements Serializable {
         this.attendeeSignature = attendeeSignature;
     }
 
+    public String getExpireDate() {
+        return expireDate;
+    }
+
+    public String getRentDate() {
+        return rentDate;
+    }
+
+    public String getBoxKey() {
+        return boxKey;
+    }
 
     @Override
     public String toString() {

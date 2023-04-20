@@ -1,11 +1,11 @@
 package library.layouts;
 
 import javafx.scene.layout.VBox;
-import library.TableViewInfoViewModelI;
+import library.TableViewInfoViewModel;
 
 public class GenericViewScreen<T> extends VBox {
-    private final TableViewInfoViewModelI<T> viewModel;
-    public GenericViewScreen(TableViewInfoViewModelI<T> viewModel) {
+    private final TableViewInfoViewModel<T> viewModel;
+    public GenericViewScreen(TableViewInfoViewModel<T> viewModel) {
         this.viewModel = viewModel;
         createView();
     }

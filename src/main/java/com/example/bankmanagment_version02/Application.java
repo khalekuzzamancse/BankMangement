@@ -15,10 +15,10 @@ public class Application extends javafx.application.Application {
     @Override
     public void start(Stage primaryStage) {
 
-        System.out.println(Reposititory.getAccounts());
-        System.out.println(Reposititory.getLeases());
-        System.out.println(Reposititory.getBoxes());
-        System.out.println(Reposititory.getVisitations());
+//        System.out.println(Reposititory.getAccounts());
+//        System.out.println(Reposititory.getLeases());
+//        System.out.println(Reposititory.getBoxes());
+//        System.out.println(Reposititory.getVisitations());
         //   new AddAccountScreen().getWindow().show();
         //new AddBoxScreen().getWindow().show();
         // new LoginScreen().getWindow().show();
@@ -27,6 +27,8 @@ public class Application extends javafx.application.Application {
         //new VisitationScreen().getWindow().show();
         // new ViewLeaseInfoScreen().getWindow().show();
         // new AddLeaseScreen().getWindow().show();
+        new InfoViewTableScreen();
+
 
 
     }

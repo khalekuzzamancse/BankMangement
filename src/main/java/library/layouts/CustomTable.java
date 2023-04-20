@@ -1,4 +1,4 @@
-package library;
+package library.layouts;
 
 import javafx.collections.ObservableList;
 import javafx.scene.control.TableColumn;

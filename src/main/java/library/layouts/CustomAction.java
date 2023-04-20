@@ -1,4 +1,4 @@
-package library;
+package library.layouts;
 
 import javafx.scene.Node;
 

@@ -2,7 +2,7 @@ package com.example.bankmanagment_version02.ui.viewmodel;
 
 import javafx.scene.image.Image;
 import library.outputfield.OutputField;
-import library.InfoViewFormLayoutViewModel;
+import library.layouts.InfoViewFormLayoutViewModel;
 import library.outputfield.OutputFieldFactory;
 
 import java.util.HashMap;

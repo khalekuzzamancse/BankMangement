@@ -1,4 +1,4 @@
-package library;
+package library.layouts;
 
 import com.example.bankmanagment_version02.utils.LayoutUtil;
 import javafx.scene.Node;

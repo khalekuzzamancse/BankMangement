@@ -19,5 +19,7 @@ module com.example.bankmanagment_version {
     opens library.inputype to javafx.fxml;
     exports library.outputfield;
     opens library.outputfield to javafx.fxml;
+    exports library.layouts;
+    opens library.layouts to javafx.fxml;
 
 }

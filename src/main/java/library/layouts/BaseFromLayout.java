@@ -1,4 +1,4 @@
-package library;
+package library.layouts;
 
 
 import javafx.geometry.Bounds;
@@ -7,16 +7,14 @@ import javafx.scene.Node;
 import javafx.scene.layout.Pane;
 
 
-public class BaseViewInfoFromLayout extends Pane {
+public class BaseFromLayout extends Pane {
 
     private final Insets padding = new Insets(10);
 
-
-    public BaseViewInfoFromLayout() {
+    public BaseFromLayout() {
         super();
         setPadding(padding);
-        //  setStyle("-fx-background-color: #D429C3;");
-
+        //   setStyle("-fx-background-color: #D429C3;");
     }
 
 
@@ -25,7 +23,6 @@ public class BaseViewInfoFromLayout extends Pane {
         super.layoutChildren();
         double labelMaxWidth = getLabelMaxWidth();
         double y = padding.getTop();
-
         for (int i = 0; i < getChildren().size(); i = i + 3) {
             Node outputField = getChildren().get(i + 2);
             Bounds viewBounds = outputField.getLayoutBounds();
@@ -49,7 +46,6 @@ public class BaseViewInfoFromLayout extends Pane {
             y = y +viewBounds.getHeight()+ rowGap;
         }
 
-
     }
 
     private double getLabelMaxWidth() {
@@ -62,14 +58,18 @@ public class BaseViewInfoFromLayout extends Pane {
         return maxWidth;
     }
 
+
     private void positionChildren(Node child, double x, double y) {
         child.setLayoutX(x);
         child.setLayoutY(y);
     }
-
     @Override
     public void resize(double width, double height) {
         super.resize(width, height); // set fixed width and height
+
     }
+
+
+
 }
 

@@ -10,13 +10,14 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
-import library.BaseFromLayout;
+import library.CommonFormLayoutViewModel;
+import library.layouts.BaseFromLayout;
 import library.LabelToFormLayout;
-import library.CustomAction;
+import library.layouts.CustomAction;
 
 public class AddLeaseScreen {
     private final Stage window;
-    private final AddLeaseFormLayoutViewModel viewModel;
+    private final CommonFormLayoutViewModel viewModel;
     private final Button submitButton;
 
 
@@ -35,8 +36,8 @@ public class AddLeaseScreen {
     }
 
     private void getFormData(BaseFromLayout form) {
-        for (int i = 1; i < form.getChildren().size(); i = i + 2) {
-            String label = ((Label) form.getChildren().get(i - 1)).getText();
+        for (int i = 2; i < form.getChildren().size(); i = i + 3) {
+            String label = ((Label) form.getChildren().get(i - 2)).getText();
             if (form.getChildren().get(i) instanceof TextArea) {
                 String input = ((TextArea) form.getChildren().get(i)).getText();
                 viewModel.saveFormData().put(label, input);

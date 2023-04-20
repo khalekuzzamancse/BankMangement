@@ -9,6 +9,8 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import library.*;
+import library.layouts.BaseFromLayout;
+import library.layouts.CustomAction;
 
 public class SendMailScreen {
     private final Stage window;
@@ -31,8 +33,8 @@ public class SendMailScreen {
     }
 
     private void getFormData(BaseFromLayout form) {
-        for (int i = 1; i < form.getChildren().size(); i = i + 2) {
-            String label = ((Label) form.getChildren().get(i - 1)).getText();
+        for (int i = 2; i < form.getChildren().size(); i = i + 3) {
+            String label = ((Label) form.getChildren().get(i - 2)).getText();
             if (form.getChildren().get(i) instanceof TextField) {
                 String input = ((TextField) form.getChildren().get(i)).getText();
                 viewModel.saveFormData().put(label, input);

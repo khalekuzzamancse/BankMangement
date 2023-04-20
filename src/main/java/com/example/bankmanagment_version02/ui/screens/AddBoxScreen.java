@@ -8,6 +8,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import library.*;
+import library.layouts.BaseFromLayout;
+import library.layouts.CustomAction;
 
 public class AddBoxScreen {
     private final Stage window;
@@ -30,8 +32,8 @@ public class AddBoxScreen {
     }
 
     private void getFormData(BaseFromLayout form) {
-        for (int i = 1; i < form.getChildren().size(); i = i + 2) {
-            String label = ((Label) form.getChildren().get(i - 1)).getText();
+        for (int i = 2; i < form.getChildren().size(); i = i + 3) {
+            String label = ((Label) form.getChildren().get(i - 2)).getText();
                 String input = ((TextField) form.getChildren().get(i)).getText();
                 viewModel.saveFormData().put(label, input);
         }

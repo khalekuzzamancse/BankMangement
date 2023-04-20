@@ -8,7 +8,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
-import library.*;
+import library.layouts.BaseFromLayout;
+import library.layouts.InfoViewFormLayoutViewModel;
+import library.layouts.ViewInfoLabelToFormLayout;
 
 public class ViewLeaseInfoScreen {
     private final Stage window;

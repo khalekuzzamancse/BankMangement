@@ -8,10 +8,7 @@ import javafx.scene.layout.Pane;
 
 
 public class BaseViewInfoFromLayout extends Pane {
-    private final double rowGap = 10;
-    private final double columnGap = 10;
 
-    private double labelMaxWidth;
     private final Insets padding = new Insets(10);
 
 
@@ -26,7 +23,7 @@ public class BaseViewInfoFromLayout extends Pane {
     @Override
     protected void layoutChildren() {
         super.layoutChildren();
-        labelMaxWidth = getLabelMaxWidth();
+        double labelMaxWidth = getLabelMaxWidth();
         double y = padding.getTop();
 
         for (int i = 0; i < getChildren().size(); i = i + 3) {
@@ -43,11 +40,12 @@ public class BaseViewInfoFromLayout extends Pane {
             positionChildren(label, x, y + labelDownY);
             //Placing the colon
             Node colon = getChildren().get(i + 1);
-            double x1 = padding.getLeft() + labelMaxWidth;
+            double x1 = padding.getLeft() + labelMaxWidth+2;
             positionChildren(colon, x1, y + labelDownY);
             //placing the outputField
-            double x2 = padding.getLeft() +labelMaxWidth + 5;
+            double x2 = padding.getLeft() + labelMaxWidth + 10;
             positionChildren(outputField, x2, y);
+            double rowGap = 10;
             y = y +viewBounds.getHeight()+ rowGap;
         }
 

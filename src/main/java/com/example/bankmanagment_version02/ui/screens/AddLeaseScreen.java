@@ -11,7 +11,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import library.BaseFromLayout;
-import library.FormLayout;
+import library.LabelToFormLayout;
 import library.CustomAction;
 
 public class AddLeaseScreen {
@@ -23,7 +23,7 @@ public class AddLeaseScreen {
     public AddLeaseScreen() {
         submitButton = new Button("Submit");
         viewModel = new AddLeaseFormLayoutViewModel();
-        FormLayout leaseForm = new FormLayout(
+        LabelToFormLayout leaseForm = new LabelToFormLayout(
                 viewModel.getLabelList(),
                 submitAction
         );

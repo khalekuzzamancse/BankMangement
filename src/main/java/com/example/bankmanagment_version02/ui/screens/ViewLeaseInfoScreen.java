@@ -17,7 +17,7 @@ public class ViewLeaseInfoScreen {
 
     public ViewLeaseInfoScreen() {
         viewModel = new InfoViewLeaseFormLayoutViewModel();
-        InfoViewLFormLayout leaseForm = new InfoViewLFormLayout(
+        ViewInfoLabelToFormLayout leaseForm = new ViewInfoLabelToFormLayout(
                 viewModel.getLabelList()
         );
         window = new Window(leaseForm, "Rent Screen", 500, 600).getWindow();

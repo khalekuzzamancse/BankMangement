@@ -12,12 +12,12 @@ public class Application extends javafx.application.Application {
     @Override
     public void start(Stage primaryStage) {
 
-//        new AddLeaseScreen().getWindow().show();
-//        new AddAccountScreen().getWindow().show();
-//        new AddBoxScreen().getWindow().show();
-//        new LoginScreen().getWindow().show();
-//        new SendMailScreen().getWindow().show();
-//        new VisitationScreen().getWindow().show();
+        new AddLeaseScreen().getWindow().show();
+        new AddAccountScreen().getWindow().show();
+        new AddBoxScreen().getWindow().show();
+        new LoginScreen().getWindow().show();
+        new SendMailScreen().getWindow().show();
+        new VisitationScreen().getWindow().show();
         new ViewLeaseInfoScreen().getWindow().show();
 
     }

@@ -18,7 +18,7 @@ public class LoginScreen {
     public LoginScreen() {
         submitButton = new Button("Login");
         viewModel = new LoginLayoutViewModel();
-        FormLayout leaseForm = new FormLayout(
+        LabelToFormLayout leaseForm = new LabelToFormLayout(
                 viewModel.getLabelList(),
                 submitAction
         );

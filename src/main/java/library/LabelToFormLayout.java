@@ -8,16 +8,9 @@ import library.inputype.InputField;
 
 import java.util.Map;
 
-public class FormLayout extends Pane {
-    //this class is going to follow the open-close principle
-    //as a result when new input type is added we don't  need
-    //to add  an extra if-else branch ,
-    // and also we do not  need to modify this class
-    //when a new InputType filed added
-//    private final CommonFormViewModel viewModel;
-    private BaseFromLayout customLayout;
+public class LabelToFormLayout extends Pane {
 
-    public FormLayout(
+    public LabelToFormLayout(
             Map<String, InputField> labelList,
             CustomAction done
     ) {
@@ -28,13 +21,20 @@ public class FormLayout extends Pane {
             Map<String, InputField> labelList,
             CustomAction done
     ){
-        customLayout = new BaseFromLayout();
+        //this class is going to follow the open-close principle
+        //as a result when new input type is added we don't  need
+        //to add  an extra if-else branch ,
+        // and also we do not  need to modify this class
+        //when a new InputType filed added
+        //    private final CommonFormViewModel viewModel;
+        BaseFromLayout customLayout = new BaseFromLayout();
         for (Map.Entry<String, InputField> entry : labelList.entrySet()) {
             String labelText = entry.getKey();
             InputField fieldType = entry.getValue();
             Label label = new Label(labelText);
+            Label colon = new Label(":");
             Node inputField = fieldType.getInputField();
-            customLayout.getChildren().addAll(label, inputField);
+            customLayout.getChildren().addAll(label,colon, inputField);
         }
         done.setListener(customLayout);
         Node button = done.getButton();

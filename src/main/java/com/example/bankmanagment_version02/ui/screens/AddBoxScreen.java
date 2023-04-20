@@ -18,7 +18,7 @@ public class AddBoxScreen {
     public AddBoxScreen() {
         submitButton = new Button("Submit");
         viewModel = new AddBoxLayoutViewModel();
-        FormLayout leaseForm = new FormLayout(
+        LabelToFormLayout leaseForm = new LabelToFormLayout(
                 viewModel.getLabelList(),
                 submitAction
         );

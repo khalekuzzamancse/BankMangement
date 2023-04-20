@@ -8,10 +8,7 @@ import javafx.scene.layout.Pane;
 
 
 public class BaseFromLayout extends Pane {
-    private final double rowGap = 10;
-    private final double columnGap = 10;
 
-    private double labelMaxWidth;
     private final Insets padding = new Insets(10);
 
     public BaseFromLayout() {
@@ -24,32 +21,36 @@ public class BaseFromLayout extends Pane {
     @Override
     protected void layoutChildren() {
         super.layoutChildren();
-        labelMaxWidth = getLabelMaxWidth();
+        double labelMaxWidth = getLabelMaxWidth();
         double y = padding.getTop();
-
-        // //placing the labels
-        for (int i = 0; i < getChildren().size(); i = i + 2) {
-            Bounds viewBounds = getChildren().get(i+1).getLayoutBounds();
+        for (int i = 0; i < getChildren().size(); i = i + 3) {
+            Node outputField = getChildren().get(i + 2);
+            Bounds viewBounds = outputField.getLayoutBounds();
             Bounds labelBounds = getChildren().get(i).getLayoutBounds();
-            double labelDownY = (viewBounds.getHeight() - labelBounds.getHeight()) / 2;
-            positionChildren(getChildren().get(i), padding.getLeft(), y + labelDownY);
-            y = y + Math.max(viewBounds.getHeight(),labelBounds.getHeight()) + rowGap;
             //
-        }
-        //placing the inputField
-        y = padding.getTop();
-        for (int i = 1; i < getChildren().size(); i = i + 2) {
-            Bounds viewBounds = getChildren().get(i).getLayoutBounds();
-            double x = padding.getLeft() + labelMaxWidth + columnGap;
-            positionChildren(getChildren().get(i), x, y);
-            y = y + viewBounds.getHeight() + rowGap;
+            double outputFieldHeight = viewBounds.getHeight();
+            double labelHeight = labelBounds.getHeight();
+            double labelDownY = (outputFieldHeight - labelHeight) / 2;
+            double x = padding.getLeft();
+            //placing the labels
+            Node label = getChildren().get(i);
+            positionChildren(label, x, y + labelDownY);
+            //Placing the colon
+            Node colon = getChildren().get(i + 1);
+            double x1 = padding.getLeft() + labelMaxWidth+2;
+            positionChildren(colon, x1, y + labelDownY);
+            //placing the outputField
+            double x2 = padding.getLeft() + labelMaxWidth + 10;
+            positionChildren(outputField, x2, y);
+            double rowGap = 10;
+            y = y +viewBounds.getHeight()+ rowGap;
         }
 
     }
 
     private double getLabelMaxWidth() {
         double maxWidth = 0;
-        for (int i = 0; i < getChildren().size(); i += 2) {
+        for (int i = 0; i < getChildren().size(); i += 3) {
             Node child = getChildren().get(i);
             double childWidth = child.getBoundsInParent().getWidth();
             maxWidth = Math.max(maxWidth, childWidth);
@@ -57,21 +58,11 @@ public class BaseFromLayout extends Pane {
         return maxWidth;
     }
 
-    private double getLabelMaxHeight() {
-        double maxHeight = 0;
-        for (int i = 0; i < getChildren().size(); i += 2) {
-            Node child = getChildren().get(i);
-            double childHeight = child.getBoundsInParent().getHeight();
-            maxHeight = Math.max(maxHeight, childHeight);
-        }
-        return maxHeight;
-    }
 
     private void positionChildren(Node child, double x, double y) {
         child.setLayoutX(x);
         child.setLayoutY(y);
     }
-
     @Override
     public void resize(double width, double height) {
         super.resize(width, height); // set fixed width and height

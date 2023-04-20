@@ -18,7 +18,7 @@ public class VisitationScreen {
     public VisitationScreen() {
         submitButton = new Button("Submit");
         viewModel = new VisitationLayoutViewModel();
-        FormLayout leaseForm = new FormLayout(
+        LabelToFormLayout leaseForm = new LabelToFormLayout(
                 viewModel.getLabelList(),
                 submitAction
         );

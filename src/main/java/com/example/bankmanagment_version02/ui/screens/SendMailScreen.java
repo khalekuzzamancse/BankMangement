@@ -19,7 +19,7 @@ public class SendMailScreen {
     public SendMailScreen() {
         submitButton = new Button("Send");
         viewModel = new SendEmailLayoutViewModel();
-        FormLayout leaseForm = new FormLayout(
+        LabelToFormLayout leaseForm = new LabelToFormLayout(
                 viewModel.getLabelList(),
                 submitAction
         );

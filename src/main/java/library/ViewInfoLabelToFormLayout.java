@@ -1,29 +1,16 @@
 package library;
 
 import com.example.bankmanagment_version02.utils.LayoutUtil;
-import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
-import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.Pane;
-import javafx.scene.paint.Color;
 import library.outputfield.OutputField;
 
-import java.util.HashMap;
 import java.util.Map;
 
-public class InfoViewLFormLayout extends Pane {
-    //this class is going to follow the open-close principle
-    //as a result when new input type is added we don't  need
-    //to add  an extra if-else branch ,
-    // and also we do not  need to modify this class
-    //when a new InputType filed added
-//    private final CommonFormViewModel viewModel;
-    private BaseViewInfoFromLayout customLayout;
+public class ViewInfoLabelToFormLayout extends Pane {
 
-    public InfoViewLFormLayout(
+    public ViewInfoLabelToFormLayout(
             Map<String, OutputField> labelList
     ) {
         createView(labelList);
@@ -32,7 +19,13 @@ public class InfoViewLFormLayout extends Pane {
     private void createView(
             Map<String, OutputField> labelList
     ){
-        customLayout = new BaseViewInfoFromLayout();
+        //this class is going to follow the open-close principle
+        //as a result when new input type is added we don't  need
+        //to add  an extra if-else branch ,
+        // and also we do not  need to modify this class
+        //when a new InputType filed added
+        //    private final CommonFormViewModel viewModel;
+        BaseViewInfoFromLayout customLayout = new BaseViewInfoFromLayout();
         for (Map.Entry<String, OutputField> entry : labelList.entrySet()) {
             String labelText = entry.getKey();
             OutputField fieldType = entry.getValue();

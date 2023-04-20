@@ -1,7 +1,7 @@
 package com.example.bankmanagment_version02.ui.screens;
 
 import library.BaseFromLayout;
-import library.FormLayout;
+import library.LabelToFormLayout;
 import library.CustomAction;
 import com.example.bankmanagment_version02.ui.viewmodel.AddAccountFormLayoutViewModel;
 import com.example.bankmanagment_version02.utils.Window;
@@ -20,7 +20,7 @@ public class AddAccountScreen {
     public AddAccountScreen() {
         submitButton = new Button("Submit");
         viewModel = new AddAccountFormLayoutViewModel();
-        FormLayout leaseForm = new FormLayout(
+        LabelToFormLayout leaseForm = new LabelToFormLayout(
                 viewModel.getLabelList(),
                 submitAction
         );

@@ -31,7 +31,7 @@ public class VisitationLayoutViewModel implements CommonFormLayoutViewModel {
     @Override
     public void onDone() {
         Snackbar.show("Success");
-        System.out.println("Form Data:" + formData);
+        System.out.println("Visititaion Form Data:" + formData);
     }
 
 

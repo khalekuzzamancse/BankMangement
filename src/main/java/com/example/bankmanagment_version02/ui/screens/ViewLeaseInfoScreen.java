@@ -24,24 +24,9 @@ public class ViewLeaseInfoScreen {
         );
         window = new Window(leaseForm, "Rent Screen", 500, 600).getWindow();
     }
-
     public Stage getWindow() {
         return window;
     }
 
-    private void getFormData(BaseFromLayout form) {
-        for (int i = 1; i < form.getChildren().size(); i = i + 2) {
-            String label = ((Label) form.getChildren().get(i - 1)).getText();
-            if (form.getChildren().get(i) instanceof TextArea) {
-                String input = ((TextArea) form.getChildren().get(i)).getText();
-                viewModel.saveFormData().put(label, input);
-            } else if (form.getChildren().get(i) instanceof TextField) {
-                String input = ((TextField) form.getChildren().get(i)).getText();
-                viewModel.saveFormData().put(label, input);
-            } else if (form.getChildren().get(i) instanceof ImageView) {
-                Image input = ((ImageView) form.getChildren().get(i)).getImage();
-                viewModel.saveFormData().put(label, input);
-            }
-        }
-    }
+
 }

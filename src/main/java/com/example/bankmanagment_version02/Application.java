@@ -13,15 +13,16 @@ public class Application extends javafx.application.Application {
     @Override
     public void start(Stage primaryStage) {
 
-        new AddLeaseScreen().getWindow().show();
-        new AddAccountScreen().getWindow().show();
+        Stage window;
+        window = new AddAccountScreen().getWindow();
         new AddBoxScreen().getWindow().show();
         new LoginScreen().getWindow().show();
         new SendMailScreen().getWindow().show();
+        new SendExpireMailScreen().getWindow().show();
         new VisitationScreen().getWindow().show();
         new ViewLeaseInfoScreen().getWindow().show();
-        new SendExpireMailScreen().getWindow().show();
 
+        window.show();
     }
 
     public static void main(String[] args) {

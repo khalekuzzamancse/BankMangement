@@ -1,6 +1,7 @@
 package com.example.bankmanagment_version02.ui.viewmodel;
 
 import com.example.bankmanagment_version02.data.model.AddBoxModel;
+import com.example.bankmanagment_version02.repository.Reposititory;
 import com.example.bankmanagment_version02.utils.SnackBar;
 import library.AbstractFormViewModel;
 import library.inputype.InputField;
@@ -24,6 +25,7 @@ public class AddBoxViewModel extends AbstractFormViewModel {
             Double newPrice = Double.parseDouble((String) formData.get(labels.NEW_PRICE));
             AddBoxModel boxModel = new AddBoxModel(serialNo, height, width, oldPrice, newPrice);
             System.out.println(boxModel);
+            Reposititory.addBox(boxModel);
         } catch (Exception e) {
             SnackBar.show("Failed to add,Check the field");
         }

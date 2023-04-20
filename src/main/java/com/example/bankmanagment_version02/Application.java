@@ -16,14 +16,17 @@ public class Application extends javafx.application.Application {
     public void start(Stage primaryStage) {
 
         System.out.println(Reposititory.getAccounts());
-        new AddAccountScreen().getWindow().show();
+        System.out.println(Reposititory.getLeases());
+        System.out.println(Reposititory.getBoxes());
+        System.out.println(Reposititory.getVisitations());
+        //   new AddAccountScreen().getWindow().show();
         //new AddBoxScreen().getWindow().show();
-//        new LoginScreen().getWindow().show();
-        //  new SendMailScreen().getWindow().show();
-//        new SendExpireMailScreen().getWindow().show();
-        //   new VisitationScreen().getWindow().show();
-//        new ViewLeaseInfoScreen().getWindow().show();
-        //    new AddLeaseScreen().getWindow().show();
+        // new LoginScreen().getWindow().show();
+        //     new SendMailScreen().getWindow().show();
+        //   new SendExpireMailScreen().getWindow().show();
+        //new VisitationScreen().getWindow().show();
+        // new ViewLeaseInfoScreen().getWindow().show();
+        // new AddLeaseScreen().getWindow().show();
 
 
     }

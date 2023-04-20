@@ -39,7 +39,7 @@ public class Reposititory {
 
     public static List<AddLeaseModel> getLeases() {
         List<AddLeaseModel> list;
-        list = FileHandling.read(TableName.BOXES_TABLE);
+        list = FileHandling.read(TableName.LEASE_TABLE);
         return list;
     }
     public static void addVisitation(VisitationModel instance) {

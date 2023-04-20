@@ -5,7 +5,7 @@ import library.BaseFormScreen;
 
 public class AddLeaseScreen extends BaseFormScreen {
     public AddLeaseScreen() {
-        super("Add Account Screen", new AddLeaseFormLayoutViewModel());
+        super("Add Lease Screen", new AddLeaseFormLayoutViewModel());
     }
 
 }

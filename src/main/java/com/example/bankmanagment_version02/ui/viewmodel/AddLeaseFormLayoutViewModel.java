@@ -2,6 +2,7 @@ package com.example.bankmanagment_version02.ui.viewmodel;
 
 import com.example.bankmanagment_version02.data.model.AddAccountModel;
 import com.example.bankmanagment_version02.data.model.AddLeaseModel;
+import com.example.bankmanagment_version02.repository.Reposititory;
 import javafx.geometry.VPos;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -40,6 +41,7 @@ public class AddLeaseFormLayoutViewModel extends AbstractFormViewModel {
                     hasDeputy
             );
             System.out.println(leaseModel);
+            Reposititory.addLease(leaseModel);
         } catch (Exception e) {
             SnackBar.show("Failed to add,Check the field");
         }

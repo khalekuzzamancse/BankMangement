@@ -2,6 +2,7 @@ package com.example.bankmanagment_version02.ui.viewmodel;
 
 import com.example.bankmanagment_version02.data.model.AddAccountModel;
 import com.example.bankmanagment_version02.data.model.VisitationModel;
+import com.example.bankmanagment_version02.repository.Reposititory;
 import com.example.bankmanagment_version02.utils.SnackBar;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -40,6 +41,7 @@ public class VisitationLayoutViewModel extends AbstractFormViewModel {
                     new VisitationModel(accountNo, boxKey, asDeputy,
                             signature, attendeeSignature, description);
             System.out.println(visitationModel);
+            Reposititory.addVisitation(visitationModel);
 
         } catch (Exception e) {
             SnackBar.show("Failed to add,Check the field");

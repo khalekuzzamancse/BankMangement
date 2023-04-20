@@ -80,6 +80,14 @@ public class VisitationModel implements Serializable {
         this.description = description;
     }
 
+    public String getDate() {
+        return date;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
     @Override
     public String toString() {
         return "VisitationModel{" +

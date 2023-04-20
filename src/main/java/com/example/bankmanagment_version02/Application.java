@@ -24,10 +24,10 @@ public class Application extends javafx.application.Application {
         // new LoginScreen().getWindow().show();
         //     new SendMailScreen().getWindow().show();
         //   new SendExpireMailScreen().getWindow().show();
-        //new VisitationScreen().getWindow().show();
+     //   new VisitationScreen().getWindow().show();
         // new ViewLeaseInfoScreen().getWindow().show();
         // new AddLeaseScreen().getWindow().show();
-        new InfoViewTableScreen();
+      new InfoViewTableScreen();
 
 
 

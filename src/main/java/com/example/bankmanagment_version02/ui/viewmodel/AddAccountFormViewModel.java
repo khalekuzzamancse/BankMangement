@@ -2,6 +2,7 @@ package com.example.bankmanagment_version02.ui.viewmodel;
 
 import com.example.bankmanagment_version02.data.model.AddAccountModel;
 import com.example.bankmanagment_version02.data.model.AddBoxModel;
+import com.example.bankmanagment_version02.repository.Reposititory;
 import library.AbstractFormViewModel;
 import library.inputype.FormInputField;
 import library.inputype.InputField;
@@ -33,6 +34,8 @@ public class AddAccountFormViewModel extends AbstractFormViewModel {
             AddAccountModel accountModel =
                     new AddAccountModel(name, email, phoneNo, address, firm, hairColor,eyeColor, height,weight);
             System.out.println(accountModel);
+            Reposititory.addAccount(accountModel);
+
         } catch (Exception e) {
             SnackBar.show("Failed to add,Check the field");
         }

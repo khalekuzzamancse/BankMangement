@@ -15,7 +15,7 @@ public class FileIO<T extends Serializable> implements Serializable {
         }
     }
 
-    public static <T extends Serializable> List<T> read(String tableName){
+    public static <T extends Serializable> List<T> read(String tableName) {
         List<T> list = new ArrayList<>();
         File file = new File(tableName);
         if (file.exists() && file.length() > 0) {
@@ -30,7 +30,7 @@ public class FileIO<T extends Serializable> implements Serializable {
         return list;
     }
 
-    public static <T extends Serializable> void write(String tableName, T lease){
+    public static <T extends Serializable> void write(String tableName, T lease) {
         //this first read the list
         //then add the new object to the list
         //if then out the list into the file(table)
